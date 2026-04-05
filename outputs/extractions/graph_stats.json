@@ -1,0 +1,112 @@
+{
+  "num_nodes": 1533,
+  "num_edges": 861,
+  "density": 0.000367,
+  "weakly_connected_components": 672,
+  "top_causes": [
+    [
+      "which",
+      48
+    ],
+    [
+      "the accident",
+      23
+    ],
+    [
+      "fuel exhaustion",
+      8
+    ],
+    [
+      "impact damage",
+      3
+    ],
+    [
+      "the loss of engine power",
+      3
+    ],
+    [
+      "carburetor icing",
+      3
+    ],
+    [
+      "that",
+      3
+    ],
+    [
+      "this",
+      3
+    ],
+    [
+      "fuel starvation",
+      2
+    ],
+    [
+      "The second landing attempt",
+      2
+    ]
+  ],
+  "top_effects": [
+    [
+      "the loss of engine power",
+      11
+    ],
+    [
+      "an aerodynamic stall",
+      6
+    ],
+    [
+      "substantial damage to the left wing",
+      6
+    ],
+    [
+      "a loss of engine power",
+      6
+    ],
+    [
+      "to the accident",
+      6
+    ],
+    [
+      "substantial damage to the right wing",
+      5
+    ],
+    [
+      "substantial damage to the airplane",
+      5
+    ],
+    [
+      "substantial damage",
+      5
+    ],
+    [
+      "the accident",
+      4
+    ],
+    [
+      "substantial damage to the airframe",
+      4
+    ]
+  ],
+  "top_nodes_by_betweenness": [
+    [
+      "the accident",
+      0.0
+    ],
+    [
+      "A review of weather information revealed no evidence of in-flight icing or other weather conditions that may have",
+      0.0
+    ],
+    [
+      "return the left engine fuel selector from the \"X-FEED\" to the \"ON\" position, where it remained throughout the flight and",
+      0.0
+    ],
+    [
+      "fuel starvation and a loss of engine power on both engines",
+      0.0
+    ],
+    [
+      "testing revealed that the pilot was taking citalopram (an antidepressant) and rosuvastatin (a statin); however, it is unlikely these drugs",
+      0.0
+    ]
+  ]
+}

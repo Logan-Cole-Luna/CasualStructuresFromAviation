@@ -1,0 +1,51 @@
+{
+  "stats": {
+    "total_records": 6542,
+    "unique_events": 6441,
+    "records_with_narrative": 6542,
+    "records_with_findings": 6542,
+    "avg_narrative_length": 1313.8,
+    "median_narrative_length": 1035.5,
+    "avg_sentence_count": 9.59
+  },
+  "category_distribution": {
+    "Personnel issues": 2871,
+    "Aircraft": 2800,
+    "Not determined": 483,
+    "Environmental issues": 383,
+    "Organizational issues": 5
+  },
+  "top_words": {
+    "airplane": 25694,
+    "pilot": 22431,
+    "flight": 11658,
+    "engine": 11460,
+    "reported": 10404,
+    "landing": 8881,
+    "runway": 7446,
+    "left": 7401,
+    "accident": 7118,
+    "fuel": 6998,
+    "right": 6510,
+    "power": 6139,
+    "normal": 4802,
+    "damage": 4788,
+    "airport": 4295,
+    "operation": 4181,
+    "examination": 4089,
+    "mechanical": 4004,
+    "revealed": 3977,
+    "precluded": 3936
+  },
+  "causal_keyword_frequency": {
+    "due to": 1634,
+    "caused by": 112,
+    "resulted in": 2036,
+    "led to": 903,
+    "because of": 122,
+    "as a result of": 139,
+    "attributed to": 23,
+    "contributed to": 508,
+    "resulting from": 16
+  }
+}
