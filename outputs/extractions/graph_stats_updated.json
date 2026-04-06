@@ -1,0 +1,26 @@
+{
+  "rule": {
+    "num_nodes": 6861,
+    "num_edges": 3883,
+    "density": 8.3e-05,
+    "weakly_connected_components": 2979
+  },
+  "dep": {
+    "num_nodes": 8099,
+    "num_edges": 4678,
+    "density": 7.1e-05,
+    "weakly_connected_components": 3425
+  },
+  "llm": {
+    "num_nodes": 14525,
+    "num_edges": 9777,
+    "density": 4.6e-05,
+    "weakly_connected_components": 4978
+  },
+  "combined": {
+    "num_nodes": 22115,
+    "num_edges": 14448,
+    "density": 3e-05,
+    "weakly_connected_components": 7910
+  }
+}
