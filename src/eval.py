@@ -1,5 +1,5 @@
 """
-eval.py — Evaluate all models and generate plots.
+eval.py -- Evaluate all models and generate plots.
 
 Reads artifacts saved by train.py. Run standalone after training:
     python eval.py
@@ -67,17 +67,17 @@ def _save_json(obj, path: Path):
 
 
 # ---------------------------------------------------------------------------
-# Model 1 — Traditional NLP evaluation
+# Model 1 -- Traditional NLP evaluation
 # ---------------------------------------------------------------------------
 
 def eval_traditional_nlp(training_dir: Path, sample_n: int, plots_dir: Path) -> dict:
-    section('MODEL 1: Traditional NLP — Causal Extraction (Evaluation)')
+    section('MODEL 1: Traditional NLP -- Causal Extraction (Evaluation)')
 
     rule_triples = _load_json(training_dir / 'rule_triples.json')
     dep_triples  = _load_json(training_dir / 'dep_triples.json')
 
     if not rule_triples:
-        print('  rule_triples.json not found — run train.py first.')
+        print('  rule_triples.json not found -- run train.py first.')
         return {'all_rule_triples': [], 'all_dep_triples': []}
 
     ev_with_rule   = len({t['ev_id'] for t in rule_triples})
@@ -87,10 +87,10 @@ def eval_traditional_nlp(training_dir: Path, sample_n: int, plots_dir: Path) -> 
     per_ev         = Counter(t['ev_id'] for t in rule_triples)
     densities      = list(per_ev.values())
 
-    print(f'\n  Rule-based  — narratives with ≥1 triple: {ev_with_rule}/{sample_n} ({ev_with_rule/sample_n:.1%})')
-    print(f'  Rule-based  — total triples: {len(rule_triples)}  avg: {np.mean(densities):.2f}')
-    print(f'  Dep-parse   — narratives with ≥1 triple: {ev_with_dep}/{sample_n} ({ev_with_dep/sample_n:.1%})')
-    print(f'  Dep-parse   — total triples: {len(dep_triples)}')
+    print(f'\n  Rule-based  -- narratives with >=1 triple: {ev_with_rule}/{sample_n} ({ev_with_rule/sample_n:.1%})')
+    print(f'  Rule-based  -- total triples: {len(rule_triples)}  avg: {np.mean(densities):.2f}')
+    print(f'  Dep-parse   -- narratives with >=1 triple: {ev_with_dep}/{sample_n} ({ev_with_dep/sample_n:.1%})')
+    print(f'  Dep-parse   -- total triples: {len(dep_triples)}')
     print(f'  Direction breakdown: {dict(direction_counts)}')
     print(f'  Pattern hit counts:')
     for pat, cnt in sorted(pattern_counts.items(), key=lambda x: -x[1]):
@@ -117,7 +117,7 @@ def eval_traditional_nlp(training_dir: Path, sample_n: int, plots_dir: Path) -> 
 
 
 # ---------------------------------------------------------------------------
-# Model 2 — DistilBERT evaluation
+# Model 2 -- DistilBERT evaluation
 # ---------------------------------------------------------------------------
 
 def eval_distilbert(training_dir: Path, output_dir: Path, plots_dir: Path, df: pd.DataFrame,
@@ -128,14 +128,14 @@ def eval_distilbert(training_dir: Path, output_dir: Path, plots_dir: Path, df: p
     history_path  = training_dir / 'train_history.json'
 
     if not model_dir.exists():
-        print('  Model not found — run train.py first.')
+        print('  Model not found -- run train.py first.')
         return {}
 
     try:
         import torch
         from src.transformer_classifier import NarrativeDataset
     except ImportError:
-        print('  torch not installed — skipping.')
+        print('  torch not installed -- skipping.')
         return {}
 
     # Load saved label map
@@ -212,7 +212,7 @@ def eval_distilbert(training_dir: Path, output_dir: Path, plots_dir: Path, df: p
 
 
 # ---------------------------------------------------------------------------
-# Model 4 — LLM evaluation
+# Model 4 -- LLM evaluation
 # ---------------------------------------------------------------------------
 
 def eval_llm(extractions_dir: Path, sample_n: int, plots_dir: Path) -> list:
@@ -220,7 +220,7 @@ def eval_llm(extractions_dir: Path, sample_n: int, plots_dir: Path) -> list:
 
     llm_triples = _load_json(extractions_dir / 'llm_triples.json')
     if not llm_triples:
-        print('  llm_triples.json not found or empty — run train.py first.')
+        print('  llm_triples.json not found or empty -- run train.py first.')
         return []
 
     ev_with        = len({t['ev_id'] for t in llm_triples})
@@ -237,12 +237,12 @@ def eval_llm(extractions_dir: Path, sample_n: int, plots_dir: Path) -> list:
 
 
 # ---------------------------------------------------------------------------
-# Model 3 — Knowledge graph evaluation
+# Model 3 -- Knowledge graph evaluation
 # ---------------------------------------------------------------------------
 
 def eval_knowledge_graph(rule_triples: list, dep_triples: list, llm_triples: list,
                           cfg, output_dir: Path, plots_dir: Path) -> dict:
-    section('MODEL 3: Knowledge Graph — Structural Evaluation')
+    section('MODEL 3: Knowledge Graph -- Structural Evaluation')
 
     kg_cfg             = cfg['knowledge_graph'] if 'knowledge_graph' in cfg else {}
     noise_filter       = kg_cfg.get('noise_filter',       'true').lower() == 'true'
@@ -278,7 +278,7 @@ def eval_knowledge_graph(rule_triples: list, dep_triples: list, llm_triples: lis
         dep_nodes  = set(G_deps.nodes())
         overlap    = len(rule_nodes & dep_nodes)
         total_u    = len(rule_nodes | dep_nodes)
-        print(f'\n  Node overlap (rule ∩ dep): {overlap}/{total_u} ({overlap/max(1,total_u):.1%})')
+        print(f'\n  Node overlap (rule intersect dep): {overlap}/{total_u} ({overlap/max(1,total_u):.1%})')
 
     cypher_path = output_dir / 'extractions' / 'neo4j_import_full.cypher'
     to_neo4j_cypher(all_triples, path=str(cypher_path),
@@ -286,7 +286,7 @@ def eval_knowledge_graph(rule_triples: list, dep_triples: list, llm_triples: lis
 
     kg_viz_path = str(plots_dir / 'eval_knowledge_graph_full.png')
     visualize_subgraph(G_all, top_n=top_n, save_path=kg_viz_path)
-    print(f'  KG visualization saved → {kg_viz_path}')
+    print(f'  KG visualization saved -> {kg_viz_path}')
 
     plot_kg_stats(stats_rules, stats_deps, stats_all, plots_dir)
 
@@ -306,7 +306,7 @@ def eval_knowledge_graph(rule_triples: list, dep_triples: list, llm_triples: lis
 # ---------------------------------------------------------------------------
 
 def main():
-    parser = argparse.ArgumentParser(description='NTSB — Evaluation & Plotting')
+    parser = argparse.ArgumentParser(description='NTSB -- Evaluation & Plotting')
     parser.add_argument('--sample', type=int,  default=None,
                         help='Sample size (must match what was used in train.py)')
     parser.add_argument('--config', type=str,  default='CONFIG.conf')
@@ -335,7 +335,7 @@ def main():
         sample_n = int(cfg.get('global', 'sample_n', fallback=2000))
 
     print('=' * 70)
-    print('  NTSB Causal Chain Extraction — Evaluation')
+    print('  NTSB Causal Chain Extraction -- Evaluation')
     print('  Team: Madeline Gorman, Katherine Hoffsetz, Logan Luna, Stephanie Ramsey')
     print('=' * 70)
     print(f'\n  Sample size (all models): {sample_n}')
@@ -344,6 +344,11 @@ def main():
     df = load_data(data_path)
     df = preprocess_data(df)
     print(f'  Records: {len(df)}')
+
+    # Resolve sentinel: 0 -> full dataset
+    if sample_n == 0:
+        sample_n = len(df)
+        print(f'  sample_n=0 resolved to full dataset: {sample_n}')
 
     # Model 1
     trad_results = eval_traditional_nlp(training_dir, sample_n, plots_dir)
@@ -380,7 +385,7 @@ def main():
             'dep_parsing': trad_results.get('dep_parsing', {}),
         },
         'transformer': {k: v for k, v in transformer_results.items()
-                        if k not in ('classification_report', 'train_history')},
+                        if k not in ('train_history')},
         'llm_extractor': {
             'total_triples':          len(llm_triples),
             'narratives_with_triple': len({t['ev_id'] for t in llm_triples}),
@@ -390,7 +395,7 @@ def main():
     report_path = eval_dir / 'evaluation_report.json'
     _save_json(report, report_path)
 
-    section('Evaluation Complete — Output Files')
+    section('Evaluation Complete -- Output Files')
     print(f'  Evaluation report:          {report_path}')
     print(f'  Traditional NLP plot:       {plots_dir / "eval_traditional_nlp.png"}')
     print(f'  Transformer confusion:      {plots_dir / "eval_transformer_confusion.png"}')

@@ -1,26 +1,26 @@
 {
   "rule": {
-    "num_nodes": 6861,
-    "num_edges": 3883,
-    "density": 8.3e-05,
-    "weakly_connected_components": 2979
+    "num_nodes": 8346,
+    "num_edges": 4737,
+    "density": 6.8e-05,
+    "weakly_connected_components": 3611
   },
   "dep": {
-    "num_nodes": 8099,
-    "num_edges": 4678,
-    "density": 7.1e-05,
-    "weakly_connected_components": 3425
+    "num_nodes": 9835,
+    "num_edges": 5694,
+    "density": 5.9e-05,
+    "weakly_connected_components": 4147
   },
   "llm": {
-    "num_nodes": 14525,
-    "num_edges": 9777,
-    "density": 4.6e-05,
-    "weakly_connected_components": 4978
+    "num_nodes": 30509,
+    "num_edges": 21358,
+    "density": 2.3e-05,
+    "weakly_connected_components": 9940
   },
   "combined": {
-    "num_nodes": 22115,
-    "num_edges": 14448,
-    "density": 3e-05,
-    "weakly_connected_components": 7910
+    "num_nodes": 39398,
+    "num_edges": 27038,
+    "density": 1.7e-05,
+    "weakly_connected_components": 13176
   }
 }

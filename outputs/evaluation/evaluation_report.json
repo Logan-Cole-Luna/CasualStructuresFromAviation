@@ -1,41 +1,80 @@
 {
+  "sample_n": 6059,
   "traditional_nlp": {
     "rule_based": {
       "total_triples": 4867,
       "coverage": 0.4492,
       "avg_density": 1.79,
       "pattern_counts": {
-        "contributed to": 461,
         "resulted in": 1889,
-        "caused": 421,
         "due to": 1340,
-        "led to": 359,
-        "produced": 72,
-        "caused by": 108,
-        "because of": 84,
         "as a result of": 82,
+        "led to": 359,
+        "caused": 421,
+        "contributed to": 461,
+        "produced": 72,
+        "because of": 84,
+        "caused by": 108,
         "attributed to": 21,
         "resulting from": 16,
         "triggered": 14
       },
       "direction_counts": {
-        "backward": 2112,
-        "forward": 2755
+        "forward": 2755,
+        "backward": 2112
       }
     },
     "dep_parsing": {
-      "sample_size": 500,
-      "total_triples": 505,
-      "coverage": 0.504
+      "sample_size": 6059,
+      "total_triples": 5880,
+      "coverage": 0.4547
     }
   },
   "transformer": {
-    "accuracy": 0.7118,
-    "classification_report_error": "Number of classes, 3, does not match size of target_names, 4. Try specifying the labels parameter"
+    "accuracy": 0.6634,
+    "classification_report": {
+      "Aircraft": {
+        "precision": 0.7178770949720671,
+        "recall": 0.611904761904762,
+        "f1-score": 0.6606683804627249,
+        "support": 420.0
+      },
+      "Environmental issues": {
+        "precision": 0.5409836065573771,
+        "recall": 0.5689655172413793,
+        "f1-score": 0.5546218487394958,
+        "support": 58.0
+      },
+      "Not determined": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "Personnel issues": {
+        "precision": 0.6387755102040816,
+        "recall": 0.7262180974477959,
+        "f1-score": 0.6796959826275787,
+        "support": 431.0
+      },
+      "accuracy": 0.6633663366336634,
+      "macro avg": {
+        "precision": 0.4744090529333814,
+        "recall": 0.4767720941484843,
+        "f1-score": 0.47374655295744983,
+        "support": 909.0
+      },
+      "weighted avg": {
+        "precision": 0.6690843497981906,
+        "recall": 0.6633663366336634,
+        "f1-score": 0.6629238234694407,
+        "support": 909.0
+      }
+    }
   },
   "llm_extractor": {
-    "total_triples": 753,
-    "narratives_with_triple": 197
+    "total_triples": 22189,
+    "narratives_with_triple": 5908
   },
   "knowledge_graph": {
     "rule_graph": {
@@ -45,16 +84,16 @@
       "weakly_connected_components": 3611
     },
     "dep_graph": {
-      "num_nodes": 902,
-      "num_edges": 489,
-      "density": 0.000602,
-      "weakly_connected_components": 413
+      "num_nodes": 9835,
+      "num_edges": 5694,
+      "density": 5.9e-05,
+      "weakly_connected_components": 4147
     },
     "combined_graph": {
-      "num_nodes": 9639,
-      "num_edges": 5564,
-      "density": 6e-05,
-      "weakly_connected_components": 4079
+      "num_nodes": 39398,
+      "num_edges": 27038,
+      "density": 1.7e-05,
+      "weakly_connected_components": 13176
     }
   }
 }

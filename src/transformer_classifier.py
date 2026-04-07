@@ -412,10 +412,12 @@ class NTSBClassifier:
         result = {'accuracy': round(accuracy, 4)}
 
         if SKLEARN_AVAILABLE and self.inv_label_map:
-            target_names = [self.inv_label_map.get(i, str(i)) for i in sorted(self.inv_label_map.keys())]
+            all_label_ids = sorted(self.inv_label_map.keys())
+            target_names = [self.inv_label_map.get(i, str(i)) for i in all_label_ids]
             try:
                 report = classification_report(
                     all_labels, all_preds,
+                    labels=all_label_ids,      # force all classes even if absent in test set
                     target_names=target_names,
                     output_dict=True,
                     zero_division=0,

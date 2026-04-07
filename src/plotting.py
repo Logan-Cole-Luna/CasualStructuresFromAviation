@@ -769,3 +769,107 @@ def plot_llm_cache_growth(
     _save(fig, plots_dir, 'eval_llm_cache_growth.png')
 
     return full_triples
+
+
+# ---------------------------------------------------------------------------
+# Finding-alignment evaluation plots
+# ---------------------------------------------------------------------------
+
+def plot_finding_alignment(
+    alignment_results: list,   # list of dicts from finding_evaluator.evaluate_finding_alignment
+    plots_dir: Path,
+):
+    """
+    3-panel figure summarising NTSB finding-alignment metrics across models:
+    - Category alignment score
+    - Cause-confirmed coverage
+    - Finding keyword recall
+    Plus a grouped bar chart breaking down category alignment by NTSB top category.
+    """
+    if not alignment_results:
+        return
+
+    labels  = [r['label'] for r in alignment_results]
+    colors  = ['#2196F3', '#4CAF50', '#9C27B0', '#FF9800'][:len(labels)]
+
+    cat_aln  = [r['category_alignment_score']  * 100 for r in alignment_results]
+    cc_cov   = [r['cause_confirmed_coverage']   * 100 for r in alignment_results]
+    kw_rec   = [r['finding_keyword_recall']     * 100 for r in alignment_results]
+
+    fig, axes = plt.subplots(1, 3, figsize=(17, 6))
+
+    def _bar(ax, vals, title, ylabel, fmt='{:.1f}%'):
+        bars = ax.bar(labels, vals, color=colors, alpha=0.85, edgecolor='white')
+        for bar, val in zip(bars, vals):
+            ax.text(bar.get_x() + bar.get_width() / 2, val + 0.5,
+                    fmt.format(val), ha='center', va='bottom',
+                    fontweight='bold', fontsize=10)
+        ax.set_ylabel(ylabel)
+        ax.set_title(title)
+        ax.set_ylim(0, 115)
+        ax.grid(True, axis='y', alpha=0.3)
+        ax.tick_params(axis='x', rotation=10)
+
+    _bar(axes[0], cat_aln,
+         'Category Alignment Score\n(extracted cat == official finding cat)',
+         'Accuracy (%)')
+    _bar(axes[1], cc_cov,
+         'Cause-Confirmed Coverage\n(C-findings only as denominator)',
+         '% of C-finding accidents covered')
+    _bar(axes[2], kw_rec,
+         'Finding Keyword Recall\n(% finding tokens in extracted text)',
+         'Avg recall (%)')
+
+    n_strs = [
+        f'n={r["category_alignment_n"]}' for r in alignment_results
+    ]
+    for ax, n in zip(axes, [
+        [f'n={r["category_alignment_n"]}' for r in alignment_results],
+        [f'{r["cause_confirmed_n"]}/{r["cause_confirmed_denom"]}' for r in alignment_results],
+        [f'n={r["keyword_recall_n"]}' for r in alignment_results],
+    ]):
+        for i, (bar, label) in enumerate(zip(ax.patches, n)):
+            ax.text(bar.get_x() + bar.get_width() / 2,
+                    ax.get_ylim()[0] + 2,
+                    label, ha='center', va='bottom', fontsize=7, color='grey')
+
+    plt.suptitle('NTSB Finding-Alignment Evaluation — Ground Truth Comparison',
+                 fontsize=13, fontweight='bold')
+    plt.tight_layout()
+    _save(fig, plots_dir, 'eval_finding_alignment.png')
+
+    # ------------------------------------------------------------------
+    # Per-category alignment breakdown
+    # ------------------------------------------------------------------
+    all_cats = sorted({cat for r in alignment_results
+                       for cat in r.get('per_category_alignment', {})})
+    if not all_cats:
+        return
+
+    x     = np.arange(len(all_cats))
+    width = 0.8 / max(1, len(labels))
+
+    fig2, ax2 = plt.subplots(figsize=(13, 6))
+    for i, (r, color) in enumerate(zip(alignment_results, colors)):
+        pa    = r.get('per_category_alignment', {})
+        vals  = [pa.get(cat, {}).get('score', 0) * 100 for cat in all_cats]
+        ns    = [pa.get(cat, {}).get('total', 0) for cat in all_cats]
+        offset = (i - len(labels) / 2 + 0.5) * width
+        bars = ax2.bar(x + offset, vals, width * 0.9,
+                       label=r['label'], color=color, alpha=0.85, edgecolor='white')
+        for bar, val, n in zip(bars, vals, ns):
+            if n > 0:
+                ax2.text(bar.get_x() + bar.get_width() / 2, val + 0.5,
+                         f'{val:.0f}%', ha='center', va='bottom', fontsize=8)
+
+    short_cats = [c.replace(' issues', '') for c in all_cats]
+    ax2.set_xticks(x)
+    ax2.set_xticklabels(short_cats, fontsize=11)
+    ax2.set_ylabel('Category alignment accuracy (%)')
+    ax2.set_ylim(0, 115)
+    ax2.set_title('Category Alignment Score — Breakdown by NTSB Finding Category',
+                  fontsize=12, fontweight='bold')
+    ax2.legend(fontsize=9)
+    ax2.grid(True, axis='y', alpha=0.3)
+    plt.tight_layout()
+    _save(fig2, plots_dir, 'eval_finding_alignment_by_category.png')

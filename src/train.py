@@ -269,6 +269,7 @@ def main():
     extractions_dir.mkdir(parents=True, exist_ok=True)
 
     # Resolve sample_n: CLI > config global > default
+    # sample_n == 0 means "use the entire dataset" (resolved after df is loaded)
     if args.sample is not None:
         sample_n = args.sample
     else:
@@ -284,6 +285,11 @@ def main():
     df = load_data(data_path)
     df = preprocess_data(df)
     print(f'  Records: {len(df)}  |  Categories: {df["top_category"].value_counts().to_dict()}')
+
+    # Resolve sentinel: 0 → full dataset
+    if sample_n == 0:
+        sample_n = len(df)
+        print(f'  sample_n=0 resolved to full dataset: {sample_n}')
 
     # Save run config so eval.py can read it
     _save_json({'sample_n': sample_n, 'data_path': data_path}, training_dir / 'run_config.json')
