@@ -3,7 +3,7 @@
 **Team:** Madeline Gorman, Katherine Hoffsetz, Logan Luna, Stephanie Ramsey
 
 Automatically extract and model causal chains from NTSB aviation accident narratives
-using three extraction approaches — traditional NLP, a fine-tuned transformer classifier,
+using three extraction approaches — traditional NLP, a fine-tuned BERT causal extractor,
 and a prompt-based LLM extractor — organized into a queryable knowledge graph built from
 the extracted triples.
 
@@ -18,7 +18,7 @@ builds an automated pipeline that extracts cause-effect triples, classifies acci
 categories, and organizes the results into a queryable knowledge graph.
 
 The central research question is: **how does extraction quality, coverage, and causal
-richness compare between rule-based NLP, a fine-tuned transformer classifier, and a
+richness compare between rule-based NLP, a fine-tuned BERT causal extractor, and a
 generative LLM — and how well does each align with the NTSB's official causal findings
 when evaluated on the same ground truth?**
 
@@ -26,54 +26,33 @@ when evaluated on the same ground truth?**
 
 ## Results
 
-Full dataset run — all 6,059 NTSB narratives.
+All models evaluated on the same **909 held-out test narratives** (15% stratified split,
+fixed seed). Every model produces `{cause, relation, effect}` triples — identical output
+format — enabling direct comparison on all metrics.
 
-### Extraction Models (Full Dataset)
+> Ground-truth metrics use the NTSB `finding_description` labels.
+> Cause-confirmed coverage denominates against 5,321 accidents with official C-findings;
+> the test set's ~15% share (~800 accidents) sets the effective ceiling.
 
-| Metric | Rule-based NLP | spaCy Dep-parse | LLM (zero-shot) |
-|---|---|---|---|
-| Narrative coverage | 44.9% | 45.5% | **97.5%** |
-| **Cause-confirmed coverage** | 43.3% | 43.9% | **99.2%** |
-| Total triples | 4,867 | 5,880 | **22,189** |
-| Avg triples / narrative | 1.79 | 2.13 | **3.76** |
-| Category alignment (vs NTSB) | 50.0% | 50.0% | 48.6% |
-| Finding keyword recall | 14.5% | 14.6% | **16.7%** |
-| Parse errors | 0% | 0% | 0.86% |
+### Extraction Summary — 909 Test Narratives
 
-### DistilBERT Classifier — Test Set (3-class)
-
-| Class | Precision | Recall | F1 | Support |
-|---|---|---|---|---|
-| Personnel issues | 0.674 | 0.680 | 0.677 | 431 |
-| Aircraft | **0.725** | 0.664 | **0.693** | 420 |
-| Environmental issues | 0.438 | **0.672** | 0.531 | 58 |
-| **Weighted avg** | **0.682** | **0.672** | **0.675** | 909 |
-| **Overall accuracy** | | | **67.2%** | |
-
-### Unified Ground Truth — All Models on Same Test Set
-
-All models are evaluated on the identical held-out 909 narratives from the DistilBERT
-training split. Extraction models use cause/effect text; DistilBERT uses its predicted
-category. This is the apples-to-apples comparison.
-
-> Note: Cause-confirmed coverage denominates against all 5,321 NTSB C-finding accidents,
-> so the test set's ~15% share of those (~800 accidents) sets the effective ceiling.
-
-| Model | Narratives evaluated | Cause-confirmed coverage | Category alignment | Finding keyword recall |
-|---|---|---|---|---|
-| Rule-based NLP | 402 / 909 covered | 6.3% (338/5321) | 50.5% | 15.2% |
-| spaCy Dep-parse | 409 / 909 covered | 6.5% (343/5321) | 49.4% | 15.1% |
-| LLM (zero-shot) | 900 / 909 covered | 15.0% (799/5321) | 48.7% | 17.0% |
-| LLM (few-shot) | 859 / 909 covered | 14.4% (765/5321) | 48.0% | **17.4%** |
-| **DistilBERT** | **909 / 909** | **15.2% (807/5321)** | **67.2%** | N/A |
-
-**Category alignment by NTSB finding type (unified test set):**
-
-| NTSB Category | Rule-based | Dep-parse | LLM (zero-shot) | LLM (few-shot) | DistilBERT |
+| Metric | Rule-based NLP | spaCy Dep-parse | BERT Extractor | LLM (zero-shot) | LLM (few-shot) |
 |---|---|---|---|---|---|
-| Aircraft | 66.1% | 65.0% | 61.3% | 62.1% | **66.4%** |
-| Personnel issues | 39.2% | 37.8% | 38.7% | 36.6% | **68.0%** |
-| Environmental issues | 18.5% | 18.5% | 31.0% | **33.3%** | **67.2%** |
+| **Coverage** (narratives with ≥1 triple) | 44.2% | 45.0% | 43.1% | **99.0%** | 94.5% |
+| Total triples | 721 | 878 | 624 | 3,390 | 3,375 |
+| Avg triples / covered narrative | 1.79 | 2.13 | 1.59 | 3.77 | **3.93** |
+| **Cause-confirmed coverage** | 6.3% | 6.5% | 6.2% | **15.0%** | 14.4% |
+| **Category alignment** (vs NTSB) | **50.5%** | 49.4% | 50.0% | 48.7% | 48.0% |
+| **Keyword recall** | 15.2% | 15.1% | 14.6% | 17.0% | **17.4%** |
+| Parse errors | 0% | 0% | 0% | ~1% | 5.4% |
+
+**Category alignment by NTSB finding type:**
+
+| NTSB Category | Rule-based | Dep-parse | BERT Extractor | LLM (zero-shot) | LLM (few-shot) |
+|---|---|---|---|---|---|
+| Aircraft | **66.1%** | 65.0% | 64.5% | 61.3% | 62.1% |
+| Environmental issues | 18.5% | 18.5% | 19.2% | 31.0% | **33.3%** |
+| Personnel issues | 39.2% | 37.8% | **39.9%** | 38.7% | 36.6% |
 
 ### Knowledge Graph (Output Artifact)
 
@@ -164,53 +143,99 @@ appear anywhere in the extracted cause/effect text across all evaluated accident
 
 ---
 
-### Model 2 — DistilBERT Transformer Classifier
+### Model 2 — BERT Causal Extractor
 
-DistilBERT is fine-tuned on the training split to classify each narrative into one of
-three NTSB finding categories. The held-out test set is shared with the unified
-ground-truth comparison so all models are evaluated on identical narratives.
+DistilBERT is fine-tuned for **causal span extraction** — the same task as Models 1 and 3.
+Rather than classifying narratives into categories, it predicts BIO (Begin-Inside-Outside)
+token labels to identify cause and effect spans directly from sentence text.
+
+**Approach: BIO Token Classification**
+
+For each sentence in a narrative, the model assigns one of five token-level labels:
+
+| Label | Meaning |
+|---|---|
+| `O` | Not part of a causal span |
+| `B-CAUSE` | Beginning of a cause span |
+| `I-CAUSE` | Continuation of a cause span |
+| `B-EFFECT` | Beginning of an effect span |
+| `I-EFFECT` | Continuation of an effect span |
+
+Decoded cause/effect spans are assembled into `{cause, relation, effect}` triples
+using the same relation vocabulary as rule-based extraction.
+
+**Training data:** Rule-based triples from training narratives are used as pseudo-labels.
+Each triple's `sentence`, `cause`, and `effect` fields are aligned to token positions via
+character-offset mapping. Negative examples (sentences without causal patterns) are sampled
+at 2× the positive count to balance training.
+
+| Training parameter | Value |
+|---|---|
+| Base model | `distilbert-base-uncased` |
+| Positive BIO examples | 3,416 (rule-based triples from training narratives) |
+| Negative BIO examples | 6,832 (2× positive, sentences with no causal pattern) |
+| Train / val split | 8,711 / 1,537 examples |
+| Loss function | Cross-entropy, O tokens down-weighted (0.2×) |
+| Optimizer | AdamW, lr=2e-5, weight_decay=0.01 |
+| Epochs | 5 (no early stopping triggered) |
+| Best val span-F1 | **0.9578** (prec=0.924, rec=0.994) at epoch 5 |
+| Saved to | `outputs/model_bert_extractor/` |
+
+**Training curve:**
+
+| Epoch | Loss | Val span-F1 | Prec | Rec |
+|---|---|---|---|---|
+| 1 | 0.608 | 0.935 | 0.886 | 0.991 |
+| 2 | 0.186 | 0.947 | 0.902 | 0.997 |
+| 3 | 0.145 | 0.958 | 0.928 | 0.989 |
+| 4 | 0.129 | 0.955 | 0.918 | 0.995 |
+| 5 | 0.118 | **0.958** | **0.924** | **0.994** |
+
+**Test-set extraction results (909 narratives):**
 
 | Metric | Value |
 |---|---|
-| Overall test accuracy | **67.2%** |
-| Weighted avg F1 | 0.675 |
-| Best val accuracy | 70.3% (epoch 3 of 6) |
-| Early stopping triggered | Epoch 6 (patience = 3 from epoch 3) |
-| Majority-class baseline | ~47% |
-| Training data | 4,237 narratives |
-| Test data | 909 narratives |
-| Class weighting | Aircraft 0.72×, Environmental 5.27×, Personnel 0.70× |
+| Narratives covered | 392 / 909 (**43.1%**) |
+| Total triples | 624 |
+| Avg triples / covered narrative | 1.59 |
 
-**Per-class performance:**
+**Top relation phrases extracted:**
 
-| Class | Precision | Recall | F1 | Support |
-|---|---|---|---|---|
-| Personnel issues | 0.674 | 0.680 | 0.677 | 431 |
-| Aircraft | **0.725** | 0.664 | **0.693** | 420 |
-| Environmental issues | 0.438 | **0.672** | 0.531 | 58 |
-| **Weighted avg** | **0.682** | **0.672** | **0.675** | 909 |
+| Relation | Count |
+|---|---|
+| resulted in | 247 |
+| due to | 178 |
+| contributed to | 76 |
+| led to | 40 |
+| caused | 39 |
+| as a result of | 17 |
+
+**Finding-alignment on test set:**
+
+| Metric | Value |
+|---|---|
+| Cause-confirmed coverage | 6.2% (329 / 5,321) |
+| Category alignment | 50.0% |
+| Keyword recall | 14.6% |
+| Aircraft alignment | 64.5% (118/183) |
+| Environmental alignment | 19.2% (5/26) |
+| Personnel alignment | 39.9% (73/183) |
 
 **Key observations:**
 
-- **67.2%** against a 47% majority-class baseline = +20 points above chance. Dropping
-  "Not determined" cleaned up the label space and produced a slight accuracy improvement
-  over the prior 4-class run (66.3%).
-- **Aircraft (high precision, lower recall):** The model is conservative — it predicts
-  Aircraft confidently when mechanical vocabulary dominates, but pulls back on ambiguous
-  narratives ("pilot failed to detect the mechanical failure") and misclassifies them as
-  Personnel. Precision 0.725 > recall 0.664.
-- **Personnel (lower precision, high recall):** The model over-predicts Personnel,
-  absorbing the ambiguous Aircraft cases. Human-action words ("pilot", "crew", "decision")
-  appear in both categories, biasing the model toward the more common class.
-- **Environmental (recall=0.672, precision=0.438):** The high class weight (5.27×)
-  successfully improved recall, but precision is low — the model correctly identifies most
-  actual environmental accidents but also mislabels some Personnel/Aircraft narratives as
-  Environmental. Only 58 test samples make this class inherently noisy.
-- **Category alignment on test set: 67.2%** — this is the true held-out performance.
-  The full-dataset figure (74.5%) is inflated because it includes training narratives
-  the classifier has already seen.
-- Early stopping at epoch 6 (best at epoch 3) indicates faster convergence on the cleaner
-  3-class problem compared to the 4-class run (which trained all 10 epochs).
+- **Coverage (43.1%) is nearly identical to rule-based (44.2%)** — BERT was trained on
+  rule-based pseudo-labels so it learned the same explicit sentence patterns. The ~45%
+  ceiling reflects the fraction of narratives containing explicit causal language.
+- **Category alignment (50.0%) matches rule-based (50.5%)** — BERT extracts semantically
+  equivalent spans to rule-based, producing similar category signal for the keyword
+  heuristic classifier.
+- **Keyword recall (14.6%) is slightly below rule-based (15.2%)** — BERT is more selective
+  (1.59 vs 1.79 triples/narrative), which slightly reduces keyword surface area.
+- **High validation span-F1 (0.958)** shows reliable BIO tagging of cause/effect tokens
+  in sentences that contain them. The bottleneck is sentence selection — most narratives
+  don't have explicitly causal sentences.
+- **Training data volume:** rule_triples.json contributed 3,416 training positives (many
+  narratives have multiple causal sentences), plus 6,832 negative examples.
 
 ---
 
@@ -269,38 +294,44 @@ listing approved relation phrases and NTSB category terminology in the prompt.
 | Metric | Zero-shot (test set) | Few-shot (test set) |
 |---|---|---|
 | Narratives covered | 900 / 909 (99.0%) | 859 / 909 (94.5%) |
-| Total triples | 3,312 | 3,451 |
-| Avg triples / covered narrative | 3.68 | 4.02 |
+| Total triples | 3,312 | 3,375 |
+| Avg triples / covered narrative | 3.68 | 3.93 |
 | Parse errors | ~1% | **5.4%** |
 | Category alignment | 48.7% | 48.0% |
 | Finding keyword recall | 17.0% | **17.4%** |
 | Cause-confirmed coverage | 15.0% | 14.4% |
 
+The few-shot run was repeated with a significantly larger token budget (`max_length=3000`,
+`max_new_tokens=1000`) after clearing the cache. Results were effectively identical —
+confirming token truncation was not the limiting factor.
+
 **Key observations:**
 
-- **Parse error rate jumped 6×** (0.86% → 5.4%) because the larger prompt with examples
-  leaves less token budget for the narrative, causing more truncation and malformed JSON
-  responses. The 929 uncached test narratives required ~74 minutes of GPU inference.
-- **Coverage decreased** from 99.0% to 94.5% — consistent with the parse error increase
-  and tighter token budget leaving some narratives partially truncated.
+- **Parse errors are model-side, not truncation-side.** Tripling the token budget produced
+  no change. The 50 failures are narratives where the model consistently produces
+  malformed JSON regardless of how much room it has — likely edge cases with unusual
+  phrasing or very short narratives that the few-shot examples don't represent well.
+- **Coverage decreased** from 99.0% to 94.5% — the 50 parse errors account for ~5.3%
+  of the test set, which directly explains the coverage gap. These failures have nothing
+  to do with token limits.
 - **Keyword recall improved marginally** (+0.4 pp to 17.4%) — the terminology guidance
   nudged the LLM toward more NTSB-native vocabulary in its cause/effect spans. Environmental
-  alignment also improved (31.0% → 33.3%), the category most helped by explicit vocabulary
-  cues.
+  alignment also improved (31.0% → 33.3%), the category most benefited by explicit
+  vocabulary cues.
 - **Category alignment was flat** (48.7% → 48.0%) — the terminology block helps with
   span vocabulary but the keyword-heuristic classifier is the bottleneck, not the LLM.
-- **Overall assessment:** Few-shot + terminology prompting is a wash at the current scale.
-  The vocabulary alignment benefit is real but small; the parse error increase is a
-  significant drawback. A larger token budget (`max_length > 1536`) or a smarter example
-  selection strategy would be needed to make few-shot consistently better.
+- **Overall assessment:** Few-shot + terminology prompting gives a small, real improvement
+  in keyword recall and Environmental alignment. The parse error issue is inherent to those
+  specific narratives and cannot be solved by increasing token budget. Better example
+  selection (choosing demonstrations that cover diverse narrative structures) may help.
 
 ---
 
 ## Knowledge Graph (Output Artifact)
 
 The knowledge graph is not a fourth model — it is a queryable output artifact assembled
-from the triples produced by Models 1 and 3. Each triple becomes a directed edge; nodes
-are normalized entity strings.
+from the triples produced by all three extraction models. Each triple becomes a directed
+edge; nodes are normalized entity strings.
 
 | Source | Nodes | Edges | WCC | Density |
 |---|---|---|---|---|

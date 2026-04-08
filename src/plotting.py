@@ -379,25 +379,42 @@ def plot_cross_model_comparison(
     dep_triples: list,
     llm_triples: list,
     sample_n: int,
-    transformer_results: dict,
+    bert_triples: list,
     plots_dir: Path,
 ):
     """Coverage, density, and total-yield bars across all extraction methods."""
-    ev_with_rule = len({t['ev_id'] for t in rule_triples})
-    ev_with_dep  = len({t['ev_id'] for t in dep_triples})
-    ev_with_llm  = len({t['ev_id'] for t in llm_triples}) if llm_triples else 0
+    ev_with_rule  = len({t['ev_id'] for t in rule_triples})
+    ev_with_dep   = len({t['ev_id'] for t in dep_triples})
+    ev_with_bert  = len({t['ev_id'] for t in bert_triples}) if bert_triples else 0
+    ev_with_llm   = len({t['ev_id'] for t in llm_triples})  if llm_triples  else 0
 
-    rule_avg = len(rule_triples) / max(1, ev_with_rule)
-    dep_avg  = len(dep_triples)  / max(1, ev_with_dep)
-    llm_avg  = len(llm_triples)  / max(1, ev_with_llm) if llm_triples else 0
+    rule_avg  = len(rule_triples)  / max(1, ev_with_rule)
+    dep_avg   = len(dep_triples)   / max(1, ev_with_dep)
+    bert_avg  = len(bert_triples)  / max(1, ev_with_bert)  if bert_triples else 0
+    llm_avg   = len(llm_triples)   / max(1, ev_with_llm)   if llm_triples  else 0
 
-    methods       = [f'Rule-based\n(n={sample_n})', f'spaCy dep\n(n={sample_n})', f'LLM Mistral-7B\n(n={sample_n})']
-    coverage_pct  = [ev_with_rule / sample_n * 100, ev_with_dep / sample_n * 100, ev_with_llm / sample_n * 100]
-    avg_density   = [rule_avg, dep_avg, llm_avg]
-    total_triples = [len(rule_triples), len(dep_triples), len(llm_triples) if llm_triples else 0]
-    colors        = ['#2196F3', '#4CAF50', '#9C27B0']
+    methods = [
+        f'Rule-based\n(n={sample_n})',
+        f'spaCy dep\n(n={sample_n})',
+        f'BERT Extractor\n(test set)',
+        f'LLM Mistral-7B\n(n={sample_n})',
+    ]
+    coverage_pct  = [
+        ev_with_rule  / sample_n * 100,
+        ev_with_dep   / sample_n * 100,
+        ev_with_bert  / max(1, sample_n) * 100,
+        ev_with_llm   / sample_n * 100,
+    ]
+    avg_density   = [rule_avg, dep_avg, bert_avg, llm_avg]
+    total_triples = [
+        len(rule_triples),
+        len(dep_triples),
+        len(bert_triples) if bert_triples else 0,
+        len(llm_triples)  if llm_triples  else 0,
+    ]
+    colors = ['#2196F3', '#4CAF50', '#FF9800', '#9C27B0']
 
-    fig, axes = plt.subplots(1, 3, figsize=(16, 6))
+    fig, axes = plt.subplots(1, 3, figsize=(18, 6))
 
     for ax, vals, ylabel, title, fmt in [
         (axes[0], coverage_pct,  'Narratives with ≥1 triple (%)', 'Extraction Coverage',    '{:.1f}%'),
@@ -406,24 +423,15 @@ def plot_cross_model_comparison(
     ]:
         bars = ax.bar(methods, vals, color=colors, alpha=0.85, edgecolor='white')
         for bar, val in zip(bars, vals):
-            ax.text(bar.get_x() + bar.get_width()/2, val * 1.02 + 0.5,
-                    fmt.format(val), ha='center', va='bottom', fontweight='bold', fontsize=10)
+            ax.text(bar.get_x() + bar.get_width() / 2, val * 1.02 + 0.5,
+                    fmt.format(val), ha='center', va='bottom', fontweight='bold', fontsize=9)
         ax.set_ylabel(ylabel)
         ax.set_title(title)
         ax.grid(True, axis='y', alpha=0.3)
         if title == 'Extraction Coverage':
             ax.set_ylim(0, 120)
 
-    acc = transformer_results.get('accuracy', None)
-    if acc is not None:
-        best_val = transformer_results.get('train_history', {}).get('best_val_acc', 0)
-        fig.text(0.5, -0.04,
-                 f'DistilBERT classifier (separate task): test acc = {acc*100:.1f}%  |  '
-                 f'best val acc = {best_val*100:.1f}%',
-                 ha='center', fontsize=10, style='italic',
-                 bbox=dict(boxstyle='round,pad=0.4', facecolor='#fff9c4', alpha=0.8))
-
-    plt.suptitle(f'Cross-Model Comparison — Causal Extraction (sample n={sample_n})',
+    plt.suptitle(f'Cross-Model Comparison — Causal Triple Extraction (sample n={sample_n})',
                  fontsize=14, fontweight='bold')
     plt.tight_layout()
     _save(fig, plots_dir, 'eval_cross_model_comparison.png')
@@ -656,6 +664,88 @@ def plot_kg_per_source(
     _save(fig, plots_dir, 'eval_kg_per_source.png')
 
 
+def plot_kg_rule_bert_llm(
+    rule_triples: list,
+    bert_triples: list,
+    llm_triples: list,
+    noise_filter: bool = True,
+    normalize: bool = True,
+    top_n: int = 30,
+    plots_dir: Path = Path('outputs/plots'),
+):
+    """
+    Three side-by-side knowledge graph panels — one per extraction method:
+      Left   — Rule-based causal KG
+      Center — BERT Causal Extractor KG
+      Right  — LLM (Mistral-7B) causal KG
+    All three models now perform the same task (causal triple extraction),
+    enabling a direct structural comparison of the extracted knowledge.
+    """
+    try:
+        import networkx as nx
+    except ImportError:
+        print('  networkx not installed — skipping KG plot.')
+        return
+
+    from src.knowledge_graph import build_graph
+
+    fig, axes = plt.subplots(1, 3, figsize=(24, 9))
+
+    def _draw_kg(ax, triples, color, title):
+        if not triples:
+            ax.set_title(title + '\n(no triples)')
+            ax.axis('off')
+            return
+
+        G = build_graph(triples, noise_filter=noise_filter, normalize=normalize)
+        if G.number_of_nodes() == 0:
+            ax.set_title(title + '\n(empty after filtering)')
+            ax.axis('off')
+            return
+
+        top_nodes = sorted(G.nodes(), key=lambda n: G.degree(n), reverse=True)[:top_n]
+        sub = G.subgraph(top_nodes)
+        pos = nx.spring_layout(sub, seed=42, k=1.8)
+
+        node_sizes = [200 + 80 * sub.degree(n) for n in sub.nodes()]
+        node_colors = [
+            color if sub.nodes[n].get('type') == 'cause_node' else '#ecf0f1'
+            for n in sub.nodes()
+        ]
+        nx.draw_networkx_nodes(sub, pos, ax=ax, node_size=node_sizes,
+                               node_color=node_colors, alpha=0.88,
+                               linewidths=0.5, edgecolors='#555')
+        nx.draw_networkx_edges(sub, pos, ax=ax, edge_color='#aaa',
+                               arrows=True, arrowsize=12, width=1.0, alpha=0.5)
+        top15 = set(sorted(sub.nodes(), key=lambda n: sub.degree(n), reverse=True)[:15])
+        labels = {n: (n[:22] + '...' if len(n) > 22 else n) for n in top15}
+        nx.draw_networkx_labels(sub, pos, labels=labels, ax=ax, font_size=6)
+
+        ev_with = len({t['ev_id'] for t in triples})
+        stats = (
+            f'Nodes: {G.number_of_nodes():,}  Edges: {G.number_of_edges():,}\n'
+            f'Triples: {len(triples):,}  Narratives: {ev_with:,}  '
+            f'WCC: {nx.number_weakly_connected_components(G)}'
+        )
+        ax.set_title(f'{title}\n(top {top_n} nodes shown)\n{stats}',
+                     fontsize=10, fontweight='bold')
+        ax.axis('off')
+        from matplotlib.patches import Patch
+        ax.legend(handles=[
+            Patch(facecolor=color, label='Cause node'),
+            Patch(facecolor='#ecf0f1', label='Effect node', edgecolor='#555'),
+        ], fontsize=7, loc='lower left')
+
+    _draw_kg(axes[0], rule_triples,  '#2196F3', 'Rule-based Knowledge Graph')
+    _draw_kg(axes[1], bert_triples,  '#FF9800', 'BERT Extractor Knowledge Graph')
+    _draw_kg(axes[2], llm_triples,   '#9C27B0', 'LLM Knowledge Graph')
+
+    plt.suptitle('Knowledge Graphs: Rule-based  |  BERT Extractor  |  LLM',
+                 fontsize=14, fontweight='bold')
+    plt.tight_layout()
+    _save(fig, plots_dir, 'eval_kg_rule_bert_llm.png')
+
+
 # ---------------------------------------------------------------------------
 # LLM cache growth / utilisation
 # ---------------------------------------------------------------------------
@@ -769,6 +859,66 @@ def plot_llm_cache_growth(
     _save(fig, plots_dir, 'eval_llm_cache_growth.png')
 
     return full_triples
+
+
+# ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Top relation phrases — three-model comparison
+# ---------------------------------------------------------------------------
+
+def plot_top_relation_phrases(
+    rule_triples: list,
+    bert_triples: list,
+    llm_triples: list,
+    plots_dir: Path,
+    top_n: int = 10,
+):
+    """
+    Three-panel horizontal bar chart: top relation phrases for each model.
+    All three models evaluated on the same test set, so counts are directly
+    comparable.
+    """
+    sources = [
+        ('Rule-based', rule_triples, '#2196F3'),
+        ('BERT Extractor', bert_triples, '#FF9800'),
+        ('LLM (Mistral-7B)', llm_triples, '#9C27B0'),
+    ]
+
+    fig, axes = plt.subplots(1, 3, figsize=(18, 7))
+
+    for ax, (name, triples, color) in zip(axes, sources):
+        if not triples:
+            ax.set_title(f'{name}\n(no triples)')
+            ax.axis('off')
+            continue
+
+        counts = Counter(t['relation'] for t in triples)
+        top    = sorted(counts.items(), key=lambda x: -x[1])[:top_n]
+        labels = [p for p, _ in top]
+        vals   = [v for _, v in top]
+        total  = sum(counts.values())
+
+        bars = ax.barh(labels, vals, color=color, alpha=0.85, edgecolor='white')
+        for bar, val in zip(bars, vals):
+            pct = val / max(1, total) * 100
+            ax.text(val + max(vals) * 0.01, bar.get_y() + bar.get_height() / 2,
+                    f'{val:,} ({pct:.1f}%)', va='center', fontsize=8)
+
+        ax.invert_yaxis()
+        ax.set_xlabel('Triple count')
+        n_ev = len({t['ev_id'] for t in triples})
+        ax.set_title(
+            f'{name}\n{len(triples):,} triples · {n_ev} narratives\n'
+            f'top {top_n} of {len(counts)} unique relations',
+            fontsize=10, fontweight='bold',
+        )
+        ax.grid(True, axis='x', alpha=0.3)
+        ax.set_xlim(right=max(vals) * 1.25)
+
+    plt.suptitle('Top Relation Phrases — Test Set (909 narratives)',
+                 fontsize=13, fontweight='bold')
+    plt.tight_layout()
+    _save(fig, plots_dir, 'eval_top_relation_phrases.png')
 
 
 # ---------------------------------------------------------------------------

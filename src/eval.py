@@ -19,16 +19,20 @@ import pandas as pd
 
 from src.data_loader import load_data, preprocess_data
 from src.knowledge_graph import build_graph, graph_stats, to_neo4j_cypher, visualize_subgraph
-from src.transformer_classifier import NTSBClassifier, LABEL_COLS
+from src.bert_extractor import BERTCausalExtractor
 from src.plotting import (
     plot_traditional_nlp,
-    plot_confusion_matrix,
-    plot_training_curves,
-    plot_per_class_metrics,
     plot_llm_analysis,
     plot_kg_stats,
     plot_cross_model_comparison,
+    plot_top_relation_phrases,
 )
+
+try:
+    from src.finding_evaluator import load_findings, evaluate_finding_alignment, print_finding_report
+    FINDING_EVAL_AVAILABLE = True
+except ImportError:
+    FINDING_EVAL_AVAILABLE = False
 
 
 # ---------------------------------------------------------------------------
@@ -70,7 +74,8 @@ def _save_json(obj, path: Path):
 # Model 1 -- Traditional NLP evaluation
 # ---------------------------------------------------------------------------
 
-def eval_traditional_nlp(training_dir: Path, sample_n: int, plots_dir: Path) -> dict:
+def eval_traditional_nlp(training_dir: Path, sample_n: int, plots_dir: Path,
+                          test_ev_ids=None) -> dict:
     section('MODEL 1: Traditional NLP -- Causal Extraction (Evaluation)')
 
     rule_triples = _load_json(training_dir / 'rule_triples.json')
@@ -78,215 +83,206 @@ def eval_traditional_nlp(training_dir: Path, sample_n: int, plots_dir: Path) -> 
 
     if not rule_triples:
         print('  rule_triples.json not found -- run train.py first.')
-        return {'all_rule_triples': [], 'all_dep_triples': []}
+        return {'all_rule_triples': [], 'all_dep_triples': [], 'rule_test': [], 'dep_test': []}
 
-    ev_with_rule   = len({t['ev_id'] for t in rule_triples})
-    ev_with_dep    = len({t['ev_id'] for t in dep_triples})
-    pattern_counts = Counter(t['relation'] for t in rule_triples)
-    direction_counts = Counter(t['direction'] for t in rule_triples)
-    per_ev         = Counter(t['ev_id'] for t in rule_triples)
-    densities      = list(per_ev.values())
+    # Restrict reporting to test set when ev_ids are available
+    if test_ev_ids:
+        rule_test = [t for t in rule_triples if str(t['ev_id']) in test_ev_ids]
+        dep_test  = [t for t in dep_triples  if str(t['ev_id']) in test_ev_ids]
+        n_report  = len(test_ev_ids)
+        print(f'\n  Evaluating on test set ({n_report} held-out narratives)')
+    else:
+        rule_test = rule_triples
+        dep_test  = dep_triples
+        n_report  = sample_n
 
-    print(f'\n  Rule-based  -- narratives with >=1 triple: {ev_with_rule}/{sample_n} ({ev_with_rule/sample_n:.1%})')
-    print(f'  Rule-based  -- total triples: {len(rule_triples)}  avg: {np.mean(densities):.2f}')
-    print(f'  Dep-parse   -- narratives with >=1 triple: {ev_with_dep}/{sample_n} ({ev_with_dep/sample_n:.1%})')
-    print(f'  Dep-parse   -- total triples: {len(dep_triples)}')
+    ev_with_rule   = len({t['ev_id'] for t in rule_test})
+    ev_with_dep    = len({t['ev_id'] for t in dep_test})
+    pattern_counts = Counter(t['relation'] for t in rule_test)
+    direction_counts = Counter(t['direction'] for t in rule_test)
+    per_ev         = Counter(t['ev_id'] for t in rule_test)
+    densities      = list(per_ev.values()) if per_ev else [0]
+
+    print(f'  Rule-based  -- narratives with >=1 triple: {ev_with_rule}/{n_report} ({ev_with_rule/n_report:.1%})')
+    print(f'  Rule-based  -- total triples: {len(rule_test)}  avg: {np.mean(densities):.2f}')
+    print(f'  Dep-parse   -- narratives with >=1 triple: {ev_with_dep}/{n_report} ({ev_with_dep/n_report:.1%})')
+    print(f'  Dep-parse   -- total triples: {len(dep_test)}')
     print(f'  Direction breakdown: {dict(direction_counts)}')
     print(f'  Pattern hit counts:')
     for pat, cnt in sorted(pattern_counts.items(), key=lambda x: -x[1]):
         print(f'    \'{pat}\': {cnt}')
 
-    plot_traditional_nlp(rule_triples, dep_triples, sample_n, plots_dir)
+    plot_traditional_nlp(rule_test, dep_test, n_report, plots_dir)
 
     return {
         'rule_based': {
-            'total_triples': len(rule_triples),
-            'coverage': round(ev_with_rule / sample_n, 4),
+            'total_triples': len(rule_test),
+            'coverage': round(ev_with_rule / n_report, 4),
             'avg_density': round(float(np.mean(densities)), 2),
             'pattern_counts': dict(pattern_counts),
             'direction_counts': dict(direction_counts),
         },
         'dep_parsing': {
-            'sample_size': sample_n,
-            'total_triples': len(dep_triples),
-            'coverage': round(ev_with_dep / sample_n, 4),
+            'sample_size': n_report,
+            'total_triples': len(dep_test),
+            'coverage': round(ev_with_dep / n_report, 4),
         },
-        'all_rule_triples': rule_triples,
-        'all_dep_triples': dep_triples,
+        'all_rule_triples': rule_triples,   # full dataset — used for KG
+        'all_dep_triples':  dep_triples,
+        'rule_test': rule_test,             # test-set slice — used for metrics/plot
+        'dep_test':  dep_test,
     }
 
 
 # ---------------------------------------------------------------------------
-# Model 2 -- DistilBERT evaluation
+# Model 2 -- BERT Causal Extractor evaluation
 # ---------------------------------------------------------------------------
 
-def eval_distilbert(training_dir: Path, output_dir: Path, plots_dir: Path, df: pd.DataFrame,
-                    sample_n: int, cfg) -> dict:
-    section('MODEL 2: DistilBERT Transformer Classifier (Evaluation)')
+def eval_bert_extractor(
+    training_dir: Path,
+    output_dir: Path,
+    df: pd.DataFrame,
+    sample_n: int,
+    cfg,
+) -> list:
+    """
+    Train (or load) BERTCausalExtractor on training-split rule-based triples,
+    then run extraction on the test-split narratives.
 
-    model_dir     = output_dir / 'model'
-    history_path  = training_dir / 'train_history.json'
+    Returns a list of extracted triples in the same format as the rule-based
+    and LLM extractors: [{ev_id, cause, relation, effect, direction, method}].
+    """
+    section('MODEL 2: BERT Causal Extractor (Evaluation)')
 
-    if not model_dir.exists():
-        print('  Model not found -- run train.py first.')
-        return {}
+    bert_dir   = output_dir / 'model_bert_extractor'
+    triples_path = output_dir / 'extractions' / 'bert_triples.json'
+    rule_triples = _load_json(training_dir / 'rule_triples.json')
+
+    if not rule_triples:
+        print('  rule_triples.json not found -- run train.py first.')
+        return []
 
     try:
         import torch
-        from src.transformer_classifier import NarrativeDataset
     except ImportError:
-        print('  torch not installed -- skipping.')
-        return {}
+        print('  torch not installed -- skipping BERT extractor.')
+        return []
 
-    # Load saved label map
-    label_map_path = model_dir / 'label_map.json'
-    if not label_map_path.exists():
-        print('  label_map.json not found.')
-        return {}
-    with open(label_map_path) as f:
-        label_map = json.load(f)
-    inv_map = {v: k for k, v in label_map.items()}
+    # Resolve train/test ev_id split from test_split.json
+    test_split = _load_json(training_dir / 'test_split.json')
+    if not isinstance(test_split, dict) or 'test_ev_ids' not in test_split:
+        # Fall back: rebuild split using the same parameters as the classifier did
+        from sklearn.model_selection import train_test_split as _tts
+        t = cfg['transformer'] if 'transformer' in cfg else {}
+        test_size  = float(t.get('test_size', 0.15))
+        val_size   = float(t.get('val_size',  0.15))
+        sample_df  = df.sample(n=min(sample_n, len(df)), random_state=42).reset_index(drop=True)
+        all_ids    = sample_df['ev_id'].astype(str).tolist()
+        idx        = list(range(len(all_ids)))
+        train_idx, test_idx = _tts(idx, test_size=test_size, random_state=42)
+        val_rel    = val_size / (1.0 - test_size)
+        train_idx, _ = _tts(train_idx, test_size=val_rel, random_state=42)
+        test_ev_ids  = [all_ids[i] for i in test_idx]
+        train_ev_ids = [all_ids[i] for i in train_idx]
+        # Persist so future calls and other models reuse the same split
+        _save_json({'test_ev_ids': test_ev_ids, 'train_ev_ids': train_ev_ids},
+                   training_dir / 'test_split.json')
+        print(f'  Rebuilt split: train={len(train_ev_ids)}  test={len(test_ev_ids)}')
+    else:
+        test_ev_ids  = test_split['test_ev_ids']
+        train_ev_ids = test_split.get('train_ev_ids', [])
 
-    # Rebuild test set from the same sample + same split params
-    t = cfg['transformer'] if 'transformer' in cfg else {}
-    test_size  = float(t.get('test_size', 0.15))
-    val_size   = float(t.get('val_size',  0.15))
+    print(f'  Test narratives: {len(test_ev_ids)}  '
+          f'Training pool for BERT: {len(train_ev_ids)}')
 
-    clf = NTSBClassifier(num_labels=len(label_map), model_name='distilbert-base-uncased')
-    clf.label_map     = label_map
-    clf.inv_label_map = inv_map
+    # Load or train BERT extractor
+    extractor = BERTCausalExtractor(model_name='distilbert-base-uncased')
 
-    sample_df = df.sample(n=min(sample_n, len(df)), random_state=42).reset_index(drop=True)
-    _, _, test_ds, _ = clf.prepare_data(
-        sample_df,
+    if bert_dir.exists() and (bert_dir / 'extractor_meta.json').exists():
+        extractor.load(str(bert_dir))
+    else:
+        print('  No saved model found -- training BERT extractor...')
+        train_ds, val_ds = extractor.prepare_data(
+            df=df,
+            rule_triples=rule_triples,
+            train_ev_ids=train_ev_ids,
+        )
+        bert_cfg = cfg['bert_extractor'] if 'bert_extractor' in cfg else {}
+        epochs     = int(bert_cfg.get('epochs',     5))
+        batch_size = int(bert_cfg.get('batch_size', 16))
+        lr         = float(bert_cfg.get('lr',       2e-5))
+        extractor.train(
+            train_ds, val_ds,
+            epochs=epochs,
+            batch_size=batch_size,
+            lr=lr,
+            save_path=str(bert_dir),
+        )
+
+    # Run extraction on test-set narratives only
+    print(f'\n  Running BERT extraction on {len(test_ev_ids)} test narratives...')
+    test_df = df[df['ev_id'].astype(str).isin(set(str(e) for e in test_ev_ids))]
+    bert_triples = extractor.extract(
+        df=test_df,
         text_col='narr_clean',
-        label_col='top_category',
         id_col='ev_id',
-        test_size=test_size,
-        val_size=val_size,
-        max_samples=None,
     )
-    # clf.test_ev_ids is now populated; update test_split.json with ev_ids
-    try:
-        existing_split = _load_json(training_dir / 'test_split.json')
-        if isinstance(existing_split, dict):
-            existing_split['test_ev_ids']  = clf.test_ev_ids
-            existing_split['train_ev_ids'] = clf.train_ev_ids
-            _save_json(existing_split, training_dir / 'test_split.json')
-    except Exception:
-        pass
 
-    # Load best weights
-    clf.load(str(model_dir))
-    print(f'  Loaded model from {model_dir}')
+    # Persist
+    triples_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(triples_path, 'w', encoding='utf-8') as f:
+        json.dump(bert_triples, f, indent=2, ensure_ascii=False)
 
-    # Evaluate
-    results = clf.evaluate(test_ds)
-    acc     = results['accuracy']
-    print(f'\n  Test Accuracy: {acc:.4f} ({acc*100:.1f}%)')
+    # Report same metrics as other extraction models
+    ev_with = len({t['ev_id'] for t in bert_triples})
+    pattern_counts = Counter(t['relation'] for t in bert_triples)
+    n_test = len(test_ev_ids)
 
-    if 'classification_report' in results:
-        report = results['classification_report']
-        print(f'\n  {"Class":<25} {"Precision":>10} {"Recall":>8} {"F1":>8} {"Support":>9}')
-        print('  ' + '-' * 65)
-        for label in LABEL_COLS:
-            if label in report:
-                m = report[label]
-                print(f'  {label:<25} {m["precision"]:>10.3f} {m["recall"]:>8.3f} '
-                      f'{m["f1-score"]:>8.3f} {int(m["support"]):>9}')
-        for avg in ('macro avg', 'weighted avg'):
-            if avg in report:
-                m = report[avg]
-                print(f'  {avg:<25} {m["precision"]:>10.3f} {m["recall"]:>8.3f} {m["f1-score"]:>8.3f}')
+    print(f'\n  Coverage:          {ev_with}/{n_test} ({ev_with/max(1,n_test):.1%})')
+    print(f'  Total triples:     {len(bert_triples)}')
+    print(f'  Avg per narrative: {len(bert_triples)/max(1, ev_with):.2f}')
+    print(f'  Top relation phrases:')
+    for rel, cnt in sorted(pattern_counts.items(), key=lambda x: -x[1])[:10]:
+        print(f"    '{rel}': {cnt}")
+    print(f'  Saved {len(bert_triples)} triples -> {triples_path}')
 
-    # Load training history for curves
-    history = _load_json(history_path) if history_path.exists() else {}
-    results['train_history'] = history
-
-    # Plots
-    all_preds, all_labels = clf.get_predictions(test_ds)
-    class_names = [inv_map[i] for i in sorted(inv_map)]
-    plot_confusion_matrix(all_preds, all_labels, class_names, plots_dir)
-    plot_training_curves(history, plots_dir)
-    plot_per_class_metrics(results.get('classification_report', {}), label_map, plots_dir)
-
-    # Sample predictions
-    print('\n  Sample predictions:')
-    sample_texts = sample_df[sample_df['top_category'].isin(LABEL_COLS)]['narr_clean'].sample(
-        5, random_state=99).tolist()
-    for i, text in enumerate(sample_texts):
-        label, conf = clf.predict(text)
-        print(f'  [{i+1}] {label} ({conf:.1%}) | {text[:80].replace(chr(10), " ")}')
-
-    # Run inference on ALL narratives with a finding so we can compare against
-    # the extraction models on the same ground-truth denominator.
-    full_df = df[df['top_category'].isin(LABEL_COLS) & df['ev_id'].notna()].copy()
-    print(f'\n  Running full-dataset inference for finding alignment ({len(full_df)} narratives)...')
-    predictions: dict = {}
-    loader_full = torch.utils.data.DataLoader(
-        NarrativeDataset(
-            full_df['narr_clean'].astype(str).tolist(),
-            [0] * len(full_df),   # dummy labels
-            clf.tokenizer,
-        ),
-        batch_size=64,
-        shuffle=False,
-        **clf.loader_kwargs,
-    )
-    clf.model.eval()
-    all_pred_ids = []
-    with torch.no_grad():
-        for batch in loader_full:
-            batch = clf._to_device(batch)
-            with clf._autocast_context():
-                outputs = clf.model(**{k: v for k, v in batch.items() if k != 'labels'})
-            all_pred_ids.extend(outputs.logits.argmax(dim=-1).cpu().tolist())
-
-    ev_ids = full_df['ev_id'].astype(str).tolist()
-    for ev_id, pred_idx in zip(ev_ids, all_pred_ids):
-        predictions[ev_id] = inv_map.get(pred_idx, str(pred_idx))
-
-    pred_path = output_dir / 'evaluation' / 'distilbert_predictions.json'
-    pred_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(pred_path, 'w') as f:
-        json.dump(predictions, f)
-    print(f'  Saved {len(predictions)} predictions -> {pred_path}')
-
-    # Also save test-set-only predictions for unified cross-model evaluation.
-    test_set = set(clf.test_ev_ids)
-    test_predictions = {eid: cat for eid, cat in predictions.items() if eid in test_set}
-    test_pred_path = output_dir / 'evaluation' / 'distilbert_test_predictions.json'
-    with open(test_pred_path, 'w') as f:
-        json.dump(test_predictions, f)
-    print(f'  Saved {len(test_predictions)} test-set predictions -> {test_pred_path}')
-
-    results['full_predictions'] = predictions
-    return results
+    return bert_triples, test_ev_ids
 
 
 # ---------------------------------------------------------------------------
 # Model 4 -- LLM evaluation
 # ---------------------------------------------------------------------------
 
-def eval_llm(extractions_dir: Path, sample_n: int, plots_dir: Path) -> list:
-    section('MODEL 4: LLM Prompt-Based Causal Extraction (Evaluation)')
+def eval_llm(extractions_dir: Path, sample_n: int, plots_dir: Path,
+             test_ev_ids=None) -> tuple:
+    """Returns (llm_all_triples, llm_test_triples)."""
+    section('MODEL 3: LLM Prompt-Based Causal Extraction (Evaluation)')
 
-    llm_triples = _load_json(extractions_dir / 'llm_triples.json')
-    if not llm_triples:
+    llm_all = _load_json(extractions_dir / 'llm_triples.json')
+    if not llm_all:
         print('  llm_triples.json not found or empty -- run train.py first.')
-        return []
+        return [], []
 
-    ev_with        = len({t['ev_id'] for t in llm_triples})
-    pattern_counts = Counter(t['relation'] for t in llm_triples)
-    print(f'\n  Coverage:          {ev_with}/{sample_n} ({ev_with/sample_n:.1%})')
-    print(f'  Total triples:     {len(llm_triples)}')
-    print(f'  Avg per narrative: {len(llm_triples)/max(1, ev_with):.2f}')
+    # Restrict to test set for metrics reporting
+    if test_ev_ids:
+        llm_test  = [t for t in llm_all if str(t['ev_id']) in test_ev_ids]
+        n_report  = len(test_ev_ids)
+        print(f'\n  Evaluating on test set ({n_report} held-out narratives)')
+    else:
+        llm_test = llm_all
+        n_report  = sample_n
+
+    ev_with        = len({t['ev_id'] for t in llm_test})
+    pattern_counts = Counter(t['relation'] for t in llm_test)
+    print(f'  Coverage:          {ev_with}/{n_report} ({ev_with/n_report:.1%})')
+    print(f'  Total triples:     {len(llm_test)}')
+    print(f'  Avg per narrative: {len(llm_test)/max(1, ev_with):.2f}')
     print(f'  Top relation phrases:')
     for rel, cnt in sorted(pattern_counts.items(), key=lambda x: -x[1])[:10]:
         print(f'    \'{rel}\': {cnt}')
 
-    plot_llm_analysis(llm_triples, sample_n, plots_dir)
-    return llm_triples
+    plot_llm_analysis(llm_test, n_report, plots_dir)
+    return llm_all, llm_test
 
 
 # ---------------------------------------------------------------------------
@@ -525,55 +521,118 @@ def main():
         sample_n = len(df)
         print(f'  sample_n=0 resolved to full dataset: {sample_n}')
 
-    # Model 1
-    trad_results = eval_traditional_nlp(training_dir, sample_n, plots_dir)
+    # Load findings for ground-truth evaluation
+    findings_df = None
+    if FINDING_EVAL_AVAILABLE and Path(data_path).exists():
+        try:
+            findings_df = load_findings(data_path)
+        except Exception as e:
+            print(f'  [warn] Could not load findings: {e}')
 
-    # Model 2
-    transformer_results = eval_distilbert(training_dir, output_dir, plots_dir, df, sample_n, cfg)
+    # Load test_split.json early if it exists; BERT will (re)create it if not
+    test_split_path = training_dir / 'test_split.json'
+    test_ev_ids: list = []
+    if test_split_path.exists():
+        split = _load_json(test_split_path)
+        test_ev_ids = split.get('test_ev_ids', []) if isinstance(split, dict) else []
+    test_ev_set = set(str(e) for e in test_ev_ids)
 
-    # Model 4
-    llm_triples = [] if args.no_llm else eval_llm(extractions_dir, sample_n, plots_dir)
+    # Model 2: BERT Causal Extractor (runs first so test_split.json always exists)
+    bert_triples, test_ev_ids = eval_bert_extractor(training_dir, output_dir, df, sample_n, cfg)
+    test_ev_set = set(str(e) for e in test_ev_ids)
+    n_test = len(test_ev_ids)
 
-    # LLM few-shot on test set (independent of full-dataset zero-shot run)
+    # Model 1 — filter to test set for metrics; keep all for KG
+    trad_results = eval_traditional_nlp(training_dir, sample_n, plots_dir, test_ev_set)
+
+    # Model 3: LLM — filter to test set for metrics; keep all for KG
+    if args.no_llm:
+        llm_all, llm_test = [], []
+    else:
+        llm_all, llm_test = eval_llm(extractions_dir, sample_n, plots_dir, test_ev_set)
+
+    # LLM few-shot on test set
     fewshot_triples = []
     if not args.no_fewshot and not args.no_llm:
         fewshot_triples = eval_llm_fewshot_testset(df, training_dir, extractions_dir, cfg)
 
-    # Model 3 (KG)
+    # Convenience aliases for test-set triples per model
+    rule_test    = trad_results.get('rule_test', [])
+    dep_test     = trad_results.get('dep_test',  [])
+
+    # -----------------------------------------------------------------------
+    # Ground-truth finding alignment — ALL models on the same test set
+    # -----------------------------------------------------------------------
+    alignment_results = []
+    if findings_df is not None:
+        section('Finding-Alignment Evaluation (Ground Truth) -- Test Set')
+        print(f'  Evaluating all models on {n_test} held-out test narratives\n')
+        for label, triples in [
+            ('Rule-based',      rule_test),
+            ('Dep-parse',       dep_test),
+            ('BERT Extractor',  bert_triples),
+            ('LLM (zero-shot)', llm_test),
+            ('LLM (few-shot)',  fewshot_triples),
+        ]:
+            if not triples:
+                continue
+            res = evaluate_finding_alignment(triples, findings_df, label=label)
+            alignment_results.append(res)
+            pca = res['per_category_alignment']
+            print(f'  [{label}]')
+            print(f'    Coverage:               {res["ev_ids_extracted"]}/{n_test} '
+                  f'({res["ev_ids_extracted"]/max(1,n_test):.1%})')
+            print(f'    Cause-confirmed cov.:   {res["cause_confirmed_coverage"]:.1%}  '
+                  f'({res["cause_confirmed_n"]}/{res["cause_confirmed_denom"]})')
+            print(f'    Category alignment:     {res["category_alignment_score"]:.1%}  '
+                  f'(n={res["category_alignment_n"]})')
+            print(f'    Keyword recall:         {res["finding_keyword_recall"]:.1%}  '
+                  f'(n={res["keyword_recall_n"]})')
+            for cat, v in sorted(pca.items()):
+                print(f'      {cat:<25} {v["score"]:.1%}  ({v["correct"]}/{v["total"]})')
+            print()
+        if alignment_results:
+            print_finding_report(alignment_results)
+
+    # Knowledge Graph (output artifact — uses full-dataset triples for richness)
     kg_results = eval_knowledge_graph(
         trad_results.get('all_rule_triples', []),
         trad_results.get('all_dep_triples', []),
-        llm_triples,
+        llm_all,
         cfg, output_dir, plots_dir,
     )
 
-    # Cross-model comparison
+    # Cross-model comparison — ALL on test set
     plot_cross_model_comparison(
-        trad_results.get('all_rule_triples', []),
-        trad_results.get('all_dep_triples', []),
-        llm_triples,
-        sample_n,
-        transformer_results,
-        plots_dir,
+        rule_test, dep_test, llm_test, n_test, bert_triples, plots_dir,
     )
 
+    # Top relation phrases — three-panel figure
+    plot_top_relation_phrases(rule_test, bert_triples, llm_test, plots_dir)
+
     # Save evaluation report
+    alignment_map = {r['label']: {k: v for k, v in r.items() if k != 'label'}
+                     for r in alignment_results}
     report = {
-        'sample_n': sample_n,
+        'test_set_n':   n_test,
+        'sample_n':     sample_n,
         'traditional_nlp': {
             'rule_based':  trad_results.get('rule_based',  {}),
             'dep_parsing': trad_results.get('dep_parsing', {}),
         },
-        'transformer': {k: v for k, v in transformer_results.items()
-                        if k not in ('train_history')},
+        'bert_extractor': {
+            'total_triples':          len(bert_triples),
+            'narratives_with_triple': len({t['ev_id'] for t in bert_triples}),
+        },
         'llm_extractor': {
-            'total_triples':          len(llm_triples),
-            'narratives_with_triple': len({t['ev_id'] for t in llm_triples}),
+            'total_triples':          len(llm_test),
+            'narratives_with_triple': len({t['ev_id'] for t in llm_test}),
         },
         'llm_fewshot_testset': {
             'total_triples':          len(fewshot_triples),
             'narratives_with_triple': len({t['ev_id'] for t in fewshot_triples}),
         },
+        'finding_alignment': alignment_map,
         'knowledge_graph': {k: v for k, v in kg_results.items() if k != '_stats'},
     }
     report_path = eval_dir / 'evaluation_report.json'
@@ -582,10 +641,9 @@ def main():
     section('Evaluation Complete -- Output Files')
     print(f'  Evaluation report:          {report_path}')
     print(f'  Traditional NLP plot:       {plots_dir / "eval_traditional_nlp.png"}')
-    print(f'  Transformer confusion:      {plots_dir / "eval_transformer_confusion.png"}')
-    print(f'  Transformer training curves:{plots_dir / "eval_transformer_training_curves.png"}')
-    print(f'  Transformer per-class:      {plots_dir / "eval_transformer_per_class.png"}')
+    print(f'  BERT extractor triples:     {output_dir / "extractions" / "bert_triples.json"}')
     print(f'  LLM extraction plot:        {plots_dir / "eval_llm_extraction.png"}')
+    print(f'  Top relation phrases:       {plots_dir / "eval_top_relation_phrases.png"}')
     print(f'  KG visualization:           {plots_dir / "eval_knowledge_graph_full.png"}')
     print(f'  KG stats plot:              {plots_dir / "eval_kg_stats.png"}')
     print(f'  Cross-model comparison:     {plots_dir / "eval_cross_model_comparison.png"}')
