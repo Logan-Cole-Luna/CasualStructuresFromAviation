@@ -1,2 +1,4 @@
 *.safetensors filter=lfs diff=lfs merge=lfs -text
 */tokenizer.json filter=lfs diff=lfs merge=lfs -text
+outputs/model_bert_extractor_tuned/tokenizer.json filter=lfs diff=lfs merge=lfs -text
+outputs/model_t5_extractor_tuned/tokenizer.json filter=lfs diff=lfs merge=lfs -text

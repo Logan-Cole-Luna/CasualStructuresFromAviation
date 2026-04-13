@@ -1,0 +1,5 @@
+{
+  "model_name": "t5-base",
+  "max_length": 128,
+  "max_target_length": 64
+}

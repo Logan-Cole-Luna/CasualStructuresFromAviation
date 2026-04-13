@@ -1,42 +1,43 @@
 {
-  "test_set_n": 909,
+  "test_set_n": 1192,
   "sample_n": 6059,
   "traditional_nlp": {
     "rule_based": {
-      "total_triples": 721,
-      "coverage": 0.4422,
-      "avg_density": 1.79,
+      "total_triples": 944,
+      "coverage": 0.4497,
+      "avg_density": 1.76,
       "pattern_counts": {
-        "resulted in": 264,
-        "contributed to": 82,
-        "due to": 215,
-        "led to": 53,
-        "caused": 57,
-        "caused by": 13,
-        "as a result of": 17,
-        "because of": 8,
-        "produced": 7,
-        "attributed to": 2,
+        "resulted in": 382,
+        "due to": 253,
+        "led to": 71,
+        "as a result of": 15,
+        "contributed to": 84,
+        "produced": 12,
+        "because of": 19,
+        "caused": 75,
+        "resulting from": 1,
+        "caused by": 23,
+        "attributed to": 6,
         "triggered": 3
       },
       "direction_counts": {
-        "forward": 384,
-        "backward": 337
+        "forward": 543,
+        "backward": 401
       }
     },
     "dep_parsing": {
-      "sample_size": 909,
-      "total_triples": 878,
-      "coverage": 0.4499
+      "sample_size": 1192,
+      "total_triples": 1124,
+      "coverage": 0.4547
     }
   },
   "bert_extractor": {
-    "total_triples": 624,
-    "narratives_with_triple": 392
+    "total_triples": 753,
+    "narratives_with_triple": 504
   },
   "llm_extractor": {
-    "total_triples": 3390,
-    "narratives_with_triple": 900
+    "total_triples": 4358,
+    "narratives_with_triple": 1186
   },
   "llm_fewshot_testset": {
     "total_triples": 3375,
@@ -44,114 +45,175 @@
   },
   "finding_alignment": {
     "Rule-based": {
-      "total_triples": 721,
-      "ev_ids_extracted": 402,
-      "category_alignment_score": 0.505,
-      "category_alignment_n": 402,
-      "cause_confirmed_coverage": 0.0635,
-      "cause_confirmed_n": 338,
+      "total_triples": 944,
+      "ev_ids_extracted": 536,
+      "category_alignment_score": 0.5037,
+      "category_alignment_n": 536,
+      "cause_confirmed_coverage": 0.0842,
+      "cause_confirmed_n": 448,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.1517,
-      "keyword_recall_n": 402,
+      "finding_keyword_recall": 0.1415,
+      "keyword_recall_n": 536,
       "per_category_alignment": {
-        "Aircraft": {
-          "correct": 125,
-          "total": 189,
-          "score": 0.6614
-        },
         "Personnel issues": {
-          "correct": 73,
-          "total": 186,
-          "score": 0.3925
+          "correct": 79,
+          "total": 221,
+          "score": 0.3575
+        },
+        "Aircraft": {
+          "correct": 188,
+          "total": 281,
+          "score": 0.669
         },
         "Environmental issues": {
-          "correct": 5,
-          "total": 27,
-          "score": 0.1852
+          "correct": 3,
+          "total": 34,
+          "score": 0.0882
         }
       }
     },
     "Dep-parse": {
-      "total_triples": 878,
-      "ev_ids_extracted": 409,
-      "category_alignment_score": 0.4939,
-      "category_alignment_n": 409,
-      "cause_confirmed_coverage": 0.0645,
-      "cause_confirmed_n": 343,
+      "total_triples": 1124,
+      "ev_ids_extracted": 542,
+      "category_alignment_score": 0.4982,
+      "category_alignment_n": 542,
+      "cause_confirmed_coverage": 0.0853,
+      "cause_confirmed_n": 454,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.1509,
-      "keyword_recall_n": 409,
+      "finding_keyword_recall": 0.1407,
+      "keyword_recall_n": 542,
       "per_category_alignment": {
-        "Aircraft": {
-          "correct": 126,
-          "total": 194,
-          "score": 0.6495
-        },
         "Personnel issues": {
-          "correct": 71,
-          "total": 188,
-          "score": 0.3777
+          "correct": 78,
+          "total": 225,
+          "score": 0.3467
+        },
+        "Aircraft": {
+          "correct": 189,
+          "total": 283,
+          "score": 0.6678
         },
         "Environmental issues": {
-          "correct": 5,
-          "total": 27,
-          "score": 0.1852
+          "correct": 3,
+          "total": 34,
+          "score": 0.0882
         }
       }
     },
     "BERT Extractor": {
-      "total_triples": 624,
-      "ev_ids_extracted": 392,
-      "category_alignment_score": 0.5,
-      "category_alignment_n": 392,
-      "cause_confirmed_coverage": 0.0618,
-      "cause_confirmed_n": 329,
+      "total_triples": 753,
+      "ev_ids_extracted": 504,
+      "category_alignment_score": 0.494,
+      "category_alignment_n": 504,
+      "cause_confirmed_coverage": 0.0795,
+      "cause_confirmed_n": 423,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.146,
-      "keyword_recall_n": 392,
+      "finding_keyword_recall": 0.1337,
+      "keyword_recall_n": 504,
       "per_category_alignment": {
-        "Aircraft": {
-          "correct": 118,
-          "total": 183,
-          "score": 0.6448
-        },
         "Personnel issues": {
-          "correct": 73,
-          "total": 183,
-          "score": 0.3989
+          "correct": 75,
+          "total": 212,
+          "score": 0.3538
+        },
+        "Aircraft": {
+          "correct": 171,
+          "total": 260,
+          "score": 0.6577
         },
         "Environmental issues": {
-          "correct": 5,
-          "total": 26,
-          "score": 0.1923
+          "correct": 3,
+          "total": 32,
+          "score": 0.0938
+        }
+      }
+    },
+    "GPT2 Extractor": {
+      "total_triples": 20,
+      "ev_ids_extracted": 19,
+      "category_alignment_score": 0.6842,
+      "category_alignment_n": 19,
+      "cause_confirmed_coverage": 0.0024,
+      "cause_confirmed_n": 13,
+      "cause_confirmed_denom": 5321,
+      "finding_keyword_recall": 0.1165,
+      "keyword_recall_n": 19,
+      "per_category_alignment": {
+        "Aircraft": {
+          "correct": 9,
+          "total": 12,
+          "score": 0.75
+        },
+        "Personnel issues": {
+          "correct": 3,
+          "total": 6,
+          "score": 0.5
+        },
+        "Environmental issues": {
+          "correct": 1,
+          "total": 1,
+          "score": 1.0
+        }
+      }
+    },
+    "T5 Extractor": {
+      "total_triples": 910,
+      "ev_ids_extracted": 563,
+      "category_alignment_score": 0.5222,
+      "category_alignment_n": 563,
+      "cause_confirmed_coverage": 0.0885,
+      "cause_confirmed_n": 471,
+      "cause_confirmed_denom": 5321,
+      "finding_keyword_recall": 0.1458,
+      "keyword_recall_n": 563,
+      "per_category_alignment": {
+        "Personnel issues": {
+          "correct": 87,
+          "total": 234,
+          "score": 0.3718
+        },
+        "Aircraft": {
+          "correct": 204,
+          "total": 293,
+          "score": 0.6962
+        },
+        "Environmental issues": {
+          "correct": 3,
+          "total": 36,
+          "score": 0.0833
         }
       }
     },
     "LLM (zero-shot)": {
-      "total_triples": 3390,
-      "ev_ids_extracted": 900,
-      "category_alignment_score": 0.4867,
-      "category_alignment_n": 900,
-      "cause_confirmed_coverage": 0.1502,
-      "cause_confirmed_n": 799,
+      "total_triples": 4358,
+      "ev_ids_extracted": 1186,
+      "category_alignment_score": 0.5126,
+      "category_alignment_n": 1186,
+      "cause_confirmed_coverage": 0.1985,
+      "cause_confirmed_n": 1056,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.17,
-      "keyword_recall_n": 900,
+      "finding_keyword_recall": 0.1671,
+      "keyword_recall_n": 1186,
       "per_category_alignment": {
         "Personnel issues": {
-          "correct": 165,
-          "total": 426,
-          "score": 0.3873
+          "correct": 216,
+          "total": 536,
+          "score": 0.403
         },
         "Aircraft": {
-          "correct": 255,
-          "total": 416,
-          "score": 0.613
+          "correct": 377,
+          "total": 577,
+          "score": 0.6534
         },
         "Environmental issues": {
-          "correct": 18,
-          "total": 58,
-          "score": 0.3103
+          "correct": 15,
+          "total": 72,
+          "score": 0.2083
+        },
+        "Organizational issues": {
+          "correct": 0,
+          "total": 1,
+          "score": 0.0
         }
       }
     },
