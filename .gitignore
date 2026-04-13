@@ -1,7 +1,4 @@
-outputs/model/model.safetensors
-outputs/model_bert_extractor/model.safetensors
-outputs\model_bert_extractor_tuned\model.safetensors
-outputs\model_t5_extractor_tuned\model.safetensors
+
 
 .DS_Store
 
