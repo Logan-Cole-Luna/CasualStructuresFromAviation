@@ -26,8 +26,12 @@ from src.plotting import (
     plot_traditional_nlp,
     plot_llm_analysis,
     plot_kg_stats,
-    plot_cross_model_comparison,
+    plot_cross_model_comparison_all_six,
     plot_top_relation_phrases,
+    plot_finding_alignment,
+    plot_training_loss_curves,
+    plot_training_metrics,
+    plot_bias_variance_tradeoff,
 )
 
 try:
@@ -713,13 +717,34 @@ def main():
         cfg, output_dir, plots_dir,
     )
 
-    # Cross-model comparison — ALL on test set
-    plot_cross_model_comparison(
-        rule_test, dep_test, llm_test, n_test, bert_triples, t5_triples, plots_dir,
-    )
+    # Cross-model comparison - ALL on test set (all 6 models)
+    models_dict = {
+        'Rule-based': rule_test,
+        'Dep-parse': dep_test,
+        'BERT': bert_triples,
+        'T5': t5_triples,
+        'LLM (0-shot)': llm_test,
+        'LLM (few-shot)': fewshot_triples,
+    }
+    plot_cross_model_comparison_all_six(models_dict, n_test, plots_dir)
 
-    # Top relation phrases — three-panel figure
-    plot_top_relation_phrases(rule_test, bert_triples, llm_test, plots_dir)
+    # Top relation phrases - six-model figure
+    plot_top_relation_phrases(models_dict, plots_dir)
+
+    # Finding alignment - ground truth comparison
+    if alignment_results:
+        plot_finding_alignment(alignment_results, plots_dir)
+
+    # Training curves (load from tuning results if available)
+    tuning_results_path = output_dir / 'tuning_results.json'
+    if tuning_results_path.exists():
+        try:
+            tuning_results = json.load(open(tuning_results_path))
+            plot_training_loss_curves(tuning_results, plots_dir)
+            plot_training_metrics(tuning_results, plots_dir)
+            plot_bias_variance_tradeoff(tuning_results, plots_dir)
+        except Exception as e:
+            print(f'  [warn] Could not load training plots: {e}')
 
     # Save evaluation report
     alignment_map = {r['label']: {k: v for k, v in r.items() if k != 'label'}

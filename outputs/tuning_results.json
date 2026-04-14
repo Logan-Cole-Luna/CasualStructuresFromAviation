@@ -1,26 +1,154 @@
 {
-  "t5": {
+  "bert": {
     "best_params": {
-      "lr": 0.0001,
-      "batch_size": 16,
-      "epochs": 5
+      "lr": 2.552951604697379e-05,
+      "batch_size": 8,
+      "epochs": 8
     },
     "training_history": {
       "train_loss": [
-        1.9687,
-        0.0239,
-        0.0173,
-        0.0132,
-        0.0114
+        0.3192,
+        0.1797,
+        0.189,
+        0.2299,
+        0.226,
+        0.2268,
+        0.219,
+        0.2546
+      ],
+      "train_f1": [
+        0.783,
+        0.9497,
+        0.9597,
+        0.9646,
+        0.9671,
+        0.9697,
+        0.9718,
+        0.974
+      ],
+      "val_f1": [
+        0.9419,
+        0.9489,
+        0.9548,
+        0.9563,
+        0.9575,
+        0.9581,
+        0.9601,
+        0.9603
+      ],
+      "best_val_f1": 0.9603451657187683,
+      "bias_variance_logs": [
+        {
+          "epoch": 1,
+          "train_loss": 0.606887,
+          "val_loss": 0.319209,
+          "loss_gap": -0.287678,
+          "train_f1": 0.783,
+          "val_f1": 0.9419,
+          "f1_gap": 0.1589,
+          "regime": "high_bias"
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.210268,
+          "val_loss": 0.179687,
+          "loss_gap": -0.030582,
+          "train_f1": 0.9497,
+          "val_f1": 0.9489,
+          "f1_gap": -0.0007,
+          "regime": "balanced"
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.153463,
+          "val_loss": 0.189023,
+          "loss_gap": 0.035561,
+          "train_f1": 0.9597,
+          "val_f1": 0.9548,
+          "f1_gap": -0.0049,
+          "regime": "balanced"
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.130449,
+          "val_loss": 0.229938,
+          "loss_gap": 0.099489,
+          "train_f1": 0.9646,
+          "val_f1": 0.9563,
+          "f1_gap": -0.0083,
+          "regime": "balanced"
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.118883,
+          "val_loss": 0.22598,
+          "loss_gap": 0.107097,
+          "train_f1": 0.9671,
+          "val_f1": 0.9575,
+          "f1_gap": -0.0096,
+          "regime": "balanced"
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.105609,
+          "val_loss": 0.226831,
+          "loss_gap": 0.121222,
+          "train_f1": 0.9697,
+          "val_f1": 0.9581,
+          "f1_gap": -0.0115,
+          "regime": "balanced"
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.097509,
+          "val_loss": 0.218996,
+          "loss_gap": 0.121487,
+          "train_f1": 0.9718,
+          "val_f1": 0.9601,
+          "f1_gap": -0.0117,
+          "regime": "balanced"
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.087752,
+          "val_loss": 0.254577,
+          "loss_gap": 0.166824,
+          "train_f1": 0.974,
+          "val_f1": 0.9603,
+          "f1_gap": -0.0137,
+          "regime": "balanced"
+        }
+      ]
+    }
+  },
+  "t5": {
+    "best_params": {
+      "lr": 4.822924603882918e-05,
+      "batch_size": 8,
+      "epochs": 8
+    },
+    "training_history": {
+      "train_loss": [
+        2.4831,
+        0.0285,
+        0.0204,
+        0.0159,
+        0.013,
+        0.0113,
+        0.0096,
+        0.0086
       ],
       "val_loss": [
-        0.0263,
-        0.02,
-        0.0186,
-        0.0186,
-        0.0182
+        0.0304,
+        0.0213,
+        0.0208,
+        0.0192,
+        0.0197,
+        0.0193,
+        0.0191,
+        0.0197
       ],
-      "best_val_loss": 0.01824178976666984
+      "best_val_loss": 0.019082151547875962
     }
   }
 }

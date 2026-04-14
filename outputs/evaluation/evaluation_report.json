@@ -32,8 +32,8 @@
     }
   },
   "bert_extractor": {
-    "total_triples": 753,
-    "narratives_with_triple": 504
+    "total_triples": 768,
+    "narratives_with_triple": 513
   },
   "llm_extractor": {
     "total_triples": 4358,
@@ -101,86 +101,58 @@
       }
     },
     "BERT Extractor": {
-      "total_triples": 753,
-      "ev_ids_extracted": 504,
-      "category_alignment_score": 0.494,
-      "category_alignment_n": 504,
-      "cause_confirmed_coverage": 0.0795,
-      "cause_confirmed_n": 423,
+      "total_triples": 768,
+      "ev_ids_extracted": 513,
+      "category_alignment_score": 0.4893,
+      "category_alignment_n": 513,
+      "cause_confirmed_coverage": 0.0802,
+      "cause_confirmed_n": 427,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.1337,
-      "keyword_recall_n": 504,
+      "finding_keyword_recall": 0.132,
+      "keyword_recall_n": 513,
       "per_category_alignment": {
         "Personnel issues": {
-          "correct": 75,
-          "total": 212,
-          "score": 0.3538
+          "correct": 73,
+          "total": 214,
+          "score": 0.3411
         },
         "Aircraft": {
-          "correct": 171,
-          "total": 260,
-          "score": 0.6577
+          "correct": 175,
+          "total": 266,
+          "score": 0.6579
         },
         "Environmental issues": {
           "correct": 3,
-          "total": 32,
-          "score": 0.0938
-        }
-      }
-    },
-    "GPT2 Extractor": {
-      "total_triples": 20,
-      "ev_ids_extracted": 19,
-      "category_alignment_score": 0.6842,
-      "category_alignment_n": 19,
-      "cause_confirmed_coverage": 0.0024,
-      "cause_confirmed_n": 13,
-      "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.1165,
-      "keyword_recall_n": 19,
-      "per_category_alignment": {
-        "Aircraft": {
-          "correct": 9,
-          "total": 12,
-          "score": 0.75
-        },
-        "Personnel issues": {
-          "correct": 3,
-          "total": 6,
-          "score": 0.5
-        },
-        "Environmental issues": {
-          "correct": 1,
-          "total": 1,
-          "score": 1.0
+          "total": 33,
+          "score": 0.0909
         }
       }
     },
     "T5 Extractor": {
-      "total_triples": 910,
-      "ev_ids_extracted": 563,
-      "category_alignment_score": 0.5222,
-      "category_alignment_n": 563,
-      "cause_confirmed_coverage": 0.0885,
-      "cause_confirmed_n": 471,
+      "total_triples": 873,
+      "ev_ids_extracted": 551,
+      "category_alignment_score": 0.5118,
+      "category_alignment_n": 551,
+      "cause_confirmed_coverage": 0.0863,
+      "cause_confirmed_n": 459,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.1458,
-      "keyword_recall_n": 563,
+      "finding_keyword_recall": 0.1436,
+      "keyword_recall_n": 551,
       "per_category_alignment": {
         "Personnel issues": {
-          "correct": 87,
-          "total": 234,
-          "score": 0.3718
+          "correct": 85,
+          "total": 229,
+          "score": 0.3712
         },
         "Aircraft": {
-          "correct": 204,
-          "total": 293,
-          "score": 0.6962
+          "correct": 194,
+          "total": 288,
+          "score": 0.6736
         },
         "Environmental issues": {
           "correct": 3,
-          "total": 36,
-          "score": 0.0833
+          "total": 34,
+          "score": 0.0882
         }
       }
     },
