@@ -34,9 +34,12 @@ def _model_colors():
         'Rule-based': '#2196F3',      # Blue
         'Dep-parse': '#4CAF50',        # Green
         'BERT': '#FF9800',             # Orange
+        'BERT Extractor': '#FF9800',   # Orange
         'T5': '#FFC107',               # Amber
+        'T5 Extractor': '#FFC107',     # Amber
         'LLM (0-shot)': '#9C27B0',     # Purple
         'LLM (few-shot)': '#e91e63',   # Pink
+        'LLM (zero-shot)': '#9C27B0',  # Purple
     }
 
 
@@ -242,6 +245,63 @@ def plot_finding_alignment(
     _save(fig, plots_dir, 'eval_finding_alignment.png')
 
 
+def plot_detection_metrics(
+    detection_results: List[dict],
+    plots_dir: Path,
+):
+    """
+    Plot binary cause-detection metrics for all extraction methods.
+    """
+    if not detection_results:
+        return
+
+    labels = [r['label'] for r in detection_results]
+    colors = _get_color_list(labels)
+
+    metrics = [
+        ('accuracy', 'Accuracy (%)'),
+        ('precision', 'Precision (%)'),
+        ('recall', 'Recall (%)'),
+        ('f1', 'F1 (%)'),
+        ('composite_score', 'Composite (%)'),
+        ('auc_roc', 'AUC-ROC'),
+    ]
+
+    fig, axes = plt.subplots(1, 6, figsize=(28, 6))
+    x = np.arange(len(labels))
+
+    for ax, (metric_key, ylabel) in zip(axes, metrics):
+        values = [r.get(metric_key) for r in detection_results]
+        if metric_key != 'auc_roc':
+            vals = [v * 100 if v is not None else None for v in values]
+        else:
+            vals = values
+
+        for i, (v, c) in enumerate(zip(vals, colors)):
+            if v is None:
+                ax.bar(i, 0, color='#e0e0e0', alpha=0.6, edgecolor='white')
+                ax.text(i, 0.02, 'N/A', ha='center', va='bottom', fontsize=9, color='#777')
+            else:
+                ax.bar(i, v, color=c, alpha=0.85, edgecolor='white')
+                label = f'{v:.1f}%' if metric_key != 'auc_roc' else f'{v:.3f}'
+                offset = 1.2 if metric_key != 'auc_roc' else 0.01
+                ax.text(i, v + offset, label, ha='center', va='bottom', fontsize=8, fontweight='bold')
+
+        ax.set_xticks(x)
+        ax.set_xticklabels(labels, rotation=18, ha='right')
+        ax.set_title(metric_key.upper())
+        ax.set_ylabel(ylabel)
+        if metric_key == 'auc_roc':
+            ax.set_ylim(0, 1.1)
+        else:
+            ax.set_ylim(0, 115)
+        ax.grid(True, axis='y', alpha=0.3)
+
+    plt.suptitle('Binary Cause-Detection Metrics on Held-out Test Set', fontsize=13, fontweight='bold')
+    plt.tight_layout()
+    _save(fig, plots_dir, 'eval_detection_metrics.png')
+
+
 # =========================================================================
 # Training Curves (Load from Tuning Results)
 # =========================================================================
@@ -257,8 +317,7 @@ def plot_training_loss_curves(tuning_results: dict, plots_dir: Path):
     if 'bert' in tuning_results and 'training_history' in tuning_results['bert']:
         bert_hist = tuning_results['bert']['training_history']
         train_loss = bert_hist.get('train_loss', [])
-        # Extract val_loss from bias_variance_logs
-        val_loss = [log['val_loss'] for log in bert_hist.get('bias_variance_logs', [])]
+        val_loss = bert_hist.get('val_loss', [])
         if train_loss and val_loss:
             epochs = list(range(1, len(train_loss) + 1))
             axes[0].plot(epochs, train_loss, 'o-', color='#FF9800', label='Train Loss', linewidth=2)
@@ -291,42 +350,54 @@ def plot_training_loss_curves(tuning_results: dict, plots_dir: Path):
 
 def plot_training_metrics(tuning_results: dict, plots_dir: Path):
     """
-    Plot training accuracy (F1 for BERT, metric for T5) from tuning results.
+    Plot training/validation precision, recall, F1, and AUC-ROC for BERT/T5.
     """
-    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+    fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 
-    # BERT F1
-    if 'bert' in tuning_results and 'training_history' in tuning_results['bert']:
-        bert_hist = tuning_results['bert']['training_history']
-        train_f1 = bert_hist.get('train_f1', [])
-        val_f1 = bert_hist.get('val_f1', [])
-        if train_f1 and val_f1:
-            epochs = list(range(1, len(train_f1) + 1))
-            axes[0].plot(epochs, train_f1, 'o-', color='#FF9800', label='Train F1', linewidth=2)
-            axes[0].plot(epochs, val_f1, 's-', color='#FF6F00', label='Val F1', linewidth=2)
-            axes[0].set_xlabel('Epoch')
-            axes[0].set_ylabel('F1 Score')
-            axes[0].set_title('BERT - Token Classification F1')
-            axes[0].set_ylim([0.7, 1.0])
-            axes[0].legend()
-            axes[0].grid(True, alpha=0.3)
+    metric_cfg = [
+        ('precision', 'Precision'),
+        ('recall', 'Recall'),
+        ('f1', 'F1 Score'),
+        ('auc_roc', 'AUC-ROC'),
+    ]
 
-    # T5 Metric - compute from val_loss
-    if 't5' in tuning_results and 'training_history' in tuning_results['t5']:
-        t5_hist = tuning_results['t5']['training_history']
-        val_loss = t5_hist.get('val_loss', [])
-        if val_loss:
-            epochs = list(range(1, len(val_loss) + 1))
-            val_metric = [1 / (1 + loss) for loss in val_loss]
-            axes[1].plot(epochs, val_metric, 's-', color='#FFC107', label='Val Metric (1/(1+loss))', linewidth=2)
-            axes[1].set_xlabel('Epoch')
-            axes[1].set_ylabel('Metric Value')
-            axes[1].set_title('T5 - Generation Quality Metric')
-            axes[1].set_ylim([0, 1.0])
-            axes[1].legend()
-            axes[1].grid(True, alpha=0.3)
+    for ax, (metric_key, title) in zip(axes.flatten(), metric_cfg):
+        # BERT
+        if 'bert' in tuning_results and 'training_history' in tuning_results['bert']:
+            bert_hist = tuning_results['bert']['training_history']
+            train_vals = bert_hist.get(f'train_{metric_key}', [])
+            val_vals = bert_hist.get(f'val_{metric_key}', [])
+            if train_vals and val_vals:
+                epochs = list(range(1, len(train_vals) + 1))
+                train_clean = [np.nan if v is None else v for v in train_vals]
+                val_clean = [np.nan if v is None else v for v in val_vals]
+                ax.plot(epochs, train_clean, 'o-', color='#FF9800', linewidth=2,
+                        label=f'BERT Train {title}')
+                ax.plot(epochs, val_clean, 's-', color='#FF6F00', linewidth=2,
+                        label=f'BERT Val {title}')
 
-    plt.suptitle('Training Metrics - Best Hyperparameter Trials', fontsize=13, fontweight='bold')
+        # T5
+        if 't5' in tuning_results and 'training_history' in tuning_results['t5']:
+            t5_hist = tuning_results['t5']['training_history']
+            train_vals = t5_hist.get(f'train_{metric_key}', [])
+            val_vals = t5_hist.get(f'val_{metric_key}', [])
+            if train_vals and val_vals:
+                epochs = list(range(1, len(train_vals) + 1))
+                train_clean = [np.nan if v is None else v for v in train_vals]
+                val_clean = [np.nan if v is None else v for v in val_vals]
+                ax.plot(epochs, train_clean, 'o--', color='#FFC107', linewidth=2,
+                        label=f'T5 Train {title}')
+                ax.plot(epochs, val_clean, 's--', color='#f1c40f', linewidth=2,
+                        label=f'T5 Val {title}')
+
+        ax.set_xlabel('Epoch')
+        ax.set_ylabel(title)
+        ax.set_title(title)
+        ax.set_ylim([0, 1.05])
+        ax.legend(fontsize=8)
+        ax.grid(True, alpha=0.3)
+
+    plt.suptitle('Training/Validation Metrics - Best Hyperparameter Trials', fontsize=13, fontweight='bold')
     plt.tight_layout()
     _save(fig, plots_dir, 'eval_training_metrics.png')
 
@@ -342,7 +413,7 @@ def plot_bias_variance_tradeoff(tuning_results: dict, plots_dir: Path):
         bert_hist = tuning_results['bert']['training_history']
         train_loss = bert_hist.get('train_loss', [])
         bv_logs = bert_hist.get('bias_variance_logs', [])
-        val_loss = [log['val_loss'] for log in bv_logs]
+        val_loss = bert_hist.get('val_loss', [log['val_loss'] for log in bv_logs])
         if train_loss and val_loss:
             epochs = list(range(1, len(train_loss) + 1))
             gap = np.array(val_loss) - np.array(train_loss)
