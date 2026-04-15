@@ -32,8 +32,8 @@
     }
   },
   "bert_extractor": {
-    "total_triples": 768,
-    "narratives_with_triple": 513
+    "total_triples": 663,
+    "narratives_with_triple": 457
   },
   "llm_extractor": {
     "total_triples": 4358,
@@ -52,7 +52,7 @@
       "cause_confirmed_coverage": 0.0842,
       "cause_confirmed_n": 448,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.1415,
+      "finding_keyword_recall": 0.1936,
       "keyword_recall_n": 536,
       "per_category_alignment": {
         "Personnel issues": {
@@ -80,7 +80,7 @@
       "cause_confirmed_coverage": 0.0853,
       "cause_confirmed_n": 454,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.1407,
+      "finding_keyword_recall": 0.1926,
       "keyword_recall_n": 542,
       "per_category_alignment": {
         "Personnel issues": {
@@ -101,53 +101,53 @@
       }
     },
     "BERT Extractor": {
-      "total_triples": 768,
-      "ev_ids_extracted": 513,
-      "category_alignment_score": 0.4893,
-      "category_alignment_n": 513,
-      "cause_confirmed_coverage": 0.0802,
-      "cause_confirmed_n": 427,
+      "total_triples": 663,
+      "ev_ids_extracted": 457,
+      "category_alignment_score": 0.4836,
+      "category_alignment_n": 457,
+      "cause_confirmed_coverage": 0.072,
+      "cause_confirmed_n": 383,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.132,
-      "keyword_recall_n": 513,
+      "finding_keyword_recall": 0.1754,
+      "keyword_recall_n": 457,
       "per_category_alignment": {
         "Personnel issues": {
-          "correct": 73,
-          "total": 214,
-          "score": 0.3411
+          "correct": 71,
+          "total": 195,
+          "score": 0.3641
         },
         "Aircraft": {
-          "correct": 175,
-          "total": 266,
-          "score": 0.6579
+          "correct": 147,
+          "total": 232,
+          "score": 0.6336
         },
         "Environmental issues": {
           "correct": 3,
-          "total": 33,
-          "score": 0.0909
+          "total": 30,
+          "score": 0.1
         }
       }
     },
     "T5 Extractor": {
-      "total_triples": 873,
-      "ev_ids_extracted": 551,
-      "category_alignment_score": 0.5118,
-      "category_alignment_n": 551,
-      "cause_confirmed_coverage": 0.0863,
-      "cause_confirmed_n": 459,
+      "total_triples": 903,
+      "ev_ids_extracted": 559,
+      "category_alignment_score": 0.517,
+      "category_alignment_n": 559,
+      "cause_confirmed_coverage": 0.0876,
+      "cause_confirmed_n": 466,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.1436,
-      "keyword_recall_n": 551,
+      "finding_keyword_recall": 0.1921,
+      "keyword_recall_n": 559,
       "per_category_alignment": {
         "Personnel issues": {
           "correct": 85,
-          "total": 229,
-          "score": 0.3712
+          "total": 234,
+          "score": 0.3632
         },
         "Aircraft": {
-          "correct": 194,
-          "total": 288,
-          "score": 0.6736
+          "correct": 201,
+          "total": 291,
+          "score": 0.6907
         },
         "Environmental issues": {
           "correct": 3,
@@ -164,7 +164,7 @@
       "cause_confirmed_coverage": 0.1985,
       "cause_confirmed_n": 1056,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.1671,
+      "finding_keyword_recall": 0.2506,
       "keyword_recall_n": 1186,
       "per_category_alignment": {
         "Personnel issues": {
@@ -197,7 +197,7 @@
       "cause_confirmed_coverage": 0.1438,
       "cause_confirmed_n": 765,
       "cause_confirmed_denom": 5321,
-      "finding_keyword_recall": 0.1745,
+      "finding_keyword_recall": 0.2555,
       "keyword_recall_n": 859,
       "per_category_alignment": {
         "Personnel issues": {
@@ -216,6 +216,86 @@
           "score": 0.3333
         }
       }
+    }
+  },
+  "detection_metrics": {
+    "Rule-based": {
+      "n_eval": 1192,
+      "n_true_positive_class": 1061,
+      "n_true_negative_class": 131,
+      "accuracy": 0.3339,
+      "precision": 0.8296,
+      "recall": 0.3167,
+      "f1": 0.4584,
+      "auc_roc": 0.3786,
+      "avg_finding_token_coverage": 0.0823,
+      "composite_score": 0.2703,
+      "n_with_any_finding_token_match": 414
+    },
+    "Dep-parse": {
+      "n_eval": 1192,
+      "n_true_positive_class": 1061,
+      "n_true_negative_class": 131,
+      "accuracy": 0.3364,
+      "precision": 0.8309,
+      "recall": 0.3195,
+      "f1": 0.4615,
+      "auc_roc": 0.3798,
+      "avg_finding_token_coverage": 0.0828,
+      "composite_score": 0.2722,
+      "n_with_any_finding_token_match": 417
+    },
+    "BERT Extractor": {
+      "n_eval": 1192,
+      "n_true_positive_class": 1061,
+      "n_true_negative_class": 131,
+      "accuracy": 0.2928,
+      "precision": 0.8323,
+      "recall": 0.2573,
+      "f1": 0.3931,
+      "auc_roc": 0.4052,
+      "avg_finding_token_coverage": 0.0639,
+      "composite_score": 0.2285,
+      "n_with_any_finding_token_match": 337
+    },
+    "T5 Extractor": {
+      "n_eval": 1192,
+      "n_true_positive_class": 1061,
+      "n_true_negative_class": 131,
+      "accuracy": 0.3356,
+      "precision": 0.8241,
+      "recall": 0.3223,
+      "f1": 0.4634,
+      "auc_roc": 0.3641,
+      "avg_finding_token_coverage": 0.0853,
+      "composite_score": 0.2743,
+      "n_with_any_finding_token_match": 425
+    },
+    "LLM (zero-shot)": {
+      "n_eval": 1192,
+      "n_true_positive_class": 1061,
+      "n_true_negative_class": 131,
+      "accuracy": 0.802,
+      "precision": 0.894,
+      "recall": 0.8822,
+      "f1": 0.888,
+      "auc_roc": 0.4347,
+      "avg_finding_token_coverage": 0.2262,
+      "composite_score": 0.5571,
+      "n_with_any_finding_token_match": 1070
+    },
+    "LLM (few-shot)": {
+      "n_eval": 1192,
+      "n_true_positive_class": 1061,
+      "n_true_negative_class": 131,
+      "accuracy": 0.219,
+      "precision": 0.9062,
+      "recall": 0.1367,
+      "f1": 0.2375,
+      "auc_roc": 0.511,
+      "avg_finding_token_coverage": 0.0338,
+      "composite_score": 0.1357,
+      "n_with_any_finding_token_match": 162
     }
   },
   "knowledge_graph": {

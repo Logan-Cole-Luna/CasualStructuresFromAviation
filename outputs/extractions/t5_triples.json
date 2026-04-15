@@ -1,7 +1,7 @@
 [
   {
     "ev_id": "20150107X23406",
-    "cause": "airplane when he lifted the tail for takeoff, and the propeller then struck the runway, which",
+    "cause": "likely overrotated the airplane when he lifted the tail for takeoff, and the propeller then struck the runway, which",
     "relation": "resulted in",
     "effect": "a reduction of engine power and the pilot's subsequent loss of directional control",
     "direction": "forward",
@@ -12,7 +12,7 @@
     "ev_id": "20150116X15725",
     "cause": "the pilot's loss of airplane control",
     "relation": "contributed to",
-    "effect": "noticeable to the pilot if he had looked), the investigation could not conclusively determine when the trim cable separated or whether the separation",
+    "effect": "and would have been noticeable to the pilot if he had looked), the investigation could not conclusively determine when the trim cable separated or whether the separation",
     "direction": "backward",
     "method": "t5",
     "sentence": "Although it is possible the trim cable disconnected when the tail struck the ground during engine start (and would have been noticeable to the pilot if he had looked), the investigation could not conclusively determine when the trim cable separated or whether the separation contributed to the pilot's loss of airplane control."
@@ -93,14 +93,14 @@
     "ev_id": "20150205X05021",
     "cause": "the pilot's difficulty in maintaining control of the airplane",
     "relation": "contributed to",
-    "effect": "from the available records; therefore, it could not be determined whether a lack of recent instrument or night experience",
+    "effect": "currency could not be determined from the available records; therefore, it could not be determined whether a lack of recent instrument or night experience",
     "direction": "backward",
     "method": "t5",
     "sentence": "The pilot's instrument proficiency and night currency could not be determined from the available records; therefore, it could not be determined whether a lack of recent instrument or night experience contributed to the pilot's difficulty in maintaining control of the airplane."
   },
   {
     "ev_id": "20150210X11721",
-    "cause": "of N30EA reported that, after the collision, she noted that the hydraulic circuit breaker was open; this would have",
+    "cause": "N30EA reported that, after the collision, she noted that the hydraulic circuit breaker was open; this would have",
     "relation": "resulted in",
     "effect": "insufficient hydraulic pressure to control the parking or pedal brakes",
     "direction": "forward",
@@ -109,7 +109,7 @@
   },
   {
     "ev_id": "20150210X11721",
-    "cause": "of N30EA reported that, after the collision, she noted that the hydraulic circuit breaker was open; this would have",
+    "cause": "N30EA reported that, after the collision, she noted that the hydraulic circuit breaker was open; this would have",
     "relation": "resulted in",
     "effect": "insufficient hydraulic pressure to control the parking or pedal brakes",
     "direction": "forward",
@@ -124,6 +124,15 @@
     "direction": "forward",
     "method": "t5",
     "sentence": "The helicopter came to rest on its left side, which resulted in substantial damage to the main rotor, tailboom, and cockpit structure."
+  },
+  {
+    "ev_id": "20150220X45944",
+    "cause": "people and rocks along the shoreline, he decided not to land on the beach, but to ditch the airplane in the water",
+    "relation": "due to",
+    "effect": "Due to people and rocks along the shoreline, he decided not to land on the beach, but to ditch the airplane in the water",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to people and rocks along the shoreline, he decided not to land on the beach, but to ditch the airplane in the water."
   },
   {
     "ev_id": "20150220X45944",
@@ -154,9 +163,9 @@
   },
   {
     "ev_id": "20150220X74821",
-    "cause": "Vibrations in the assembly",
+    "cause": "Vibrations in the assembly caused by the separation of the bolt likely",
     "relation": "resulted in",
-    "effect": "by the separation of the bolt likely resulted in the numerous fatigue cracks in the driveshaft adapter",
+    "effect": "the numerous fatigue cracks in the driveshaft adapter",
     "direction": "forward",
     "method": "t5",
     "sentence": "Vibrations in the assembly caused by the separation of the bolt likely resulted in the numerous fatigue cracks in the driveshaft adapter."
@@ -174,10 +183,19 @@
     "ev_id": "20150220X74821",
     "cause": "an undertorqued bolt or been related to vibrations in the assembly, which resulted from the fatigue cracking of the bolt",
     "relation": "caused",
-    "effect": "The wear on the driveshaft adapter and mating washer could have been",
+    "effect": "The wear on the driveshaft adapter and mating washer could have been the result of an undertorqued bolt or been related to vibration",
     "direction": "forward",
     "method": "t5",
     "sentence": "The wear on the driveshaft adapter and mating washer could have been the result of an undertorqued bolt or been related to vibrations in the assembly, which resulted from the fatigue cracking of the bolt."
+  },
+  {
+    "ev_id": "20150224X94231",
+    "cause": "the ignition harness",
+    "relation": "caused",
+    "effect": "of the engine with a new set of magnetos and the original ignition harness revealed that the likely cause of the loss of engine power was",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "Postaccident test runs of the engine with a new set of magnetos and the original ignition harness revealed that the likely cause of the loss of engine power was related to the ignition harness."
   },
   {
     "ev_id": "20150224X94231",
@@ -208,9 +226,18 @@
   },
   {
     "ev_id": "20150308X10201",
-    "cause": "settling with power",
+    "cause": "Also, the wind along with the surrounding buildings likely",
+    "relation": "caused",
+    "effect": "a turbulent airflow/windshear environment in which the helicopter was operating as it approached for landing",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "Also, the wind along with the surrounding buildings likely created a turbulent airflow/windshear environment in which the helicopter was operating as it approached for landing."
+  },
+  {
+    "ev_id": "20150308X10201",
+    "cause": "The helicopter's operation in a high-power, low-airspeed condition in high-wind conditions, including a right quartering tailwind, likely",
     "relation": "resulted in",
-    "effect": "helicopter's operation in a high-power, low-airspeed condition in high-wind conditions, including a right quartering tailwind, likely resulted in a loss of control",
+    "effect": "a loss of control due to settling with power",
     "direction": "forward",
     "method": "t5",
     "sentence": "The helicopter's operation in a high-power, low-airspeed condition in high-wind conditions, including a right quartering tailwind, likely resulted in a loss of control due to settling with power."
@@ -262,7 +289,7 @@
   },
   {
     "ev_id": "20150313X75813",
-    "cause": "that the mechanic presumed that the newly overhauled spider assembly bearing contained grease and, therefore, did not complete the bearing regreasing procedure in accordance with the inspection checklist, which",
+    "cause": "contained grease and, therefore, did not complete the bearing regreasing procedure in accordance with the inspection checklist, which",
     "relation": "led to",
     "effect": "the lack of grease in the bearing going undetected",
     "direction": "forward",
@@ -316,12 +343,21 @@
   },
   {
     "ev_id": "20150330X23654",
-    "cause": "turn right, slid sideways off the runway, went over a berm, and then continued about 40 ft down a 45-degree embankment, which",
+    "cause": "slid sideways off the runway, went over a berm, and then continued about 40 ft down a 45-degree embankment, which",
     "relation": "resulted in",
     "effect": "the collapse of the landing gear and substantial damage to the fuselage",
     "direction": "forward",
     "method": "t5",
     "sentence": "Despite the pilot's attempts to regain directional control, the airplane continued to turn right, slid sideways off the runway, went over a berm, and then continued about 40 ft down a 45-degree embankment, which resulted in the collapse of the landing gear and substantial damage to the fuselage."
+  },
+  {
+    "ev_id": "20150331X62747",
+    "cause": "the runway's sloping terrain, all takeoffs were performed in one direction and all landings in the opposite",
+    "relation": "due to",
+    "effect": "Due to the runway's sloping terrain",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to the runway's sloping terrain, all takeoffs were performed in one direction and all landings in the opposite direction."
   },
   {
     "ev_id": "20150407X70528",
@@ -361,7 +397,7 @@
   },
   {
     "ev_id": "20150407X12857",
-    "cause": "Although the pilot's attention could have been momentarily diverted, it was more likely that the rainy, gray, reduced-visibility conditions",
+    "cause": "diverted, it was more likely that the rainy, gray, reduced-visibility conditions",
     "relation": "resulted in",
     "effect": "low altitude spatial disorientation",
     "direction": "forward",
@@ -397,7 +433,7 @@
   },
   {
     "ev_id": "20150415X25713",
-    "cause": "engine trouble, it is likely that the airplane flew through an area favorable for the formation of induction or carburetor icing, which",
+    "cause": "airplane flew through an area favorable for the formation of induction or carburetor icing, which",
     "relation": "resulted in",
     "effect": "a total loss of engine power",
     "direction": "forward",
@@ -408,7 +444,7 @@
     "ev_id": "20150416X33824",
     "cause": "This loss of required air traffic control separation",
     "relation": "caused",
-    "effect": "from the LN/LS controller issuing a landing clearance to UPS357 to a runway occupied by N900QS in position on the same",
+    "effect": "from the LN/LS controller issuing a landing clearance to UPS357 to a runway occupied by N900QS in position on",
     "direction": "forward",
     "method": "t5",
     "sentence": "This loss of required air traffic control separation resulted from the LN/LS controller issuing a landing clearance to UPS357 to a runway occupied by N900QS in position on the same runway."
@@ -417,7 +453,7 @@
     "ev_id": "20150416X33824",
     "cause": "This loss of required air traffic control separation",
     "relation": "caused",
-    "effect": "from the LN/LS controller issuing a landing clearance to UPS357 to a runway occupied by N900QS in position on the same",
+    "effect": "from the LN/LS controller issuing a landing clearance to UPS357 to a runway occupied by N900QS in position on",
     "direction": "forward",
     "method": "t5",
     "sentence": "This loss of required air traffic control separation resulted from the LN/LS controller issuing a landing clearance to UPS357 to a runway occupied by N900QS in position on the same runway."
@@ -432,17 +468,26 @@
     "sentence": "Based on the evidence, the engine likely lost power due to the use of the improper fuel type."
   },
   {
+    "ev_id": "20150417X02428",
+    "cause": "The fracture likely originated from a fatigue crack in a deformed area on the propeller blade",
+    "relation": "caused",
+    "effect": "The fracture likely",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "The fracture likely originated from a fatigue crack in a deformed area on the propeller blade."
+  },
+  {
     "ev_id": "20150420X02310",
     "cause": "fatigue, and this likely resulted in the uncontained engine failure",
     "relation": "resulted in",
-    "effect": "of the turbine engine revealed fatigue cracks on the second-stage rotor disk, which indicates that the rotor disk likely failed",
+    "effect": "The examination of the turbine engine revealed fatigue cracks on the second-stage rotor disk, which indicates that the rotor disk likely failed",
     "direction": "forward",
     "method": "t5",
     "sentence": "The examination of the turbine engine revealed fatigue cracks on the second-stage rotor disk, which indicates that the rotor disk likely failed due to fatigue, and this likely resulted in the uncontained engine failure."
   },
   {
     "ev_id": "20150428X15534",
-    "cause": "attempted to go around but received a stall warning and performed a forced landing past the runway in a grassy area, which",
+    "cause": "to go around but received a stall warning and performed a forced landing past the runway in a grassy area, which",
     "relation": "resulted in",
     "effect": "substantial damage to the airframe",
     "direction": "forward",
@@ -469,7 +514,7 @@
   },
   {
     "ev_id": "20150430X73708",
-    "cause": "airplane at a low altitude, he allowed the airspeed to decay to the point of exceeding the wing's critical angle-of-attack, which",
+    "cause": "at a low altitude, he allowed the airspeed to decay to the point of exceeding the wing's critical angle-of-attack, which",
     "relation": "resulted in",
     "effect": "an aerodynamic stall",
     "direction": "forward",
@@ -480,7 +525,7 @@
     "ev_id": "20150430X73708",
     "cause": "the effects of diphenhydramine",
     "relation": "due to",
-    "effect": "urine, but the pilot's decision to perform turns at low altitude was likely not",
+    "effect": "in the pilot's blood and urine, but the pilot's decision to perform turns at low altitude was likely not",
     "direction": "backward",
     "method": "t5",
     "sentence": "Toxicological testing identified diphenhydramine, a sedating antihistamine, in the pilot's blood and urine, but the pilot's decision to perform turns at low altitude was likely not due to the effects of diphenhydramine."
@@ -549,6 +594,15 @@
     "sentence": "During the initial climb, the airplane encountered a sudden crosswind, and struck tree branches, which resulted in substantial damage to the left outboard wing and right inboard horizontal stabilizer."
   },
   {
+    "ev_id": "20150514X31030",
+    "cause": "the crosswind component, the pilot chose to land on an unpublished grass runway on the airport",
+    "relation": "due to",
+    "effect": "Due to the crosswind component, the pilot chose to land on an unpublished grass runway on the airport",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to the crosswind component, the pilot chose to land on an unpublished grass runway on the airport."
+  },
+  {
     "ev_id": "20150518X12459",
     "cause": "During the landing roll, the airplane collided with traffic cones and a truck, which",
     "relation": "resulted in",
@@ -570,7 +624,7 @@
     "ev_id": "20150518X12459",
     "cause": "fuel starvation, at which point, it could not be restarted",
     "relation": "led to",
-    "effect": "likely depleted the fuel from the right tank and delayed switching to the left tank, which led to the engine losing power",
+    "effect": "pilot likely depleted the fuel from the right tank and delayed switching to the left tank, which led to the engine losing power",
     "direction": "forward",
     "method": "t5",
     "sentence": "Although the selector was found in the left tank position, the pilot likely depleted the fuel from the right tank and delayed switching to the left tank, which led to the engine losing power due to fuel starvation, at which point, it could not be restarted."
@@ -595,7 +649,7 @@
   },
   {
     "ev_id": "20150519X55027",
-    "cause": "right, but the airplane continued to the left, departed the runway, struck a taxiway sign, and pitched nose down, which",
+    "cause": "control to the right, but the airplane continued to the left, departed the runway, struck a taxiway sign, and pitched nose down, which",
     "relation": "resulted in",
     "effect": "substantial damage to the fuselage",
     "direction": "forward",
@@ -615,7 +669,7 @@
     "ev_id": "20150519X32600",
     "cause": "the inherent delay in the image depiction",
     "relation": "because of",
-    "effect": "accident time, it would be very difficult for either XM Weather or FIS-B regional NEXRAD data to pick up the newest rain shower development",
+    "effect": "at the accident time, it would be very difficult for either XM Weather or FIS-B regional NEXRAD data to pick up the newest rain shower development",
     "direction": "backward",
     "method": "t5",
     "sentence": "Given that the rain shower development right near the accident site occurred right at the accident time, it would be very difficult for either XM Weather or FIS-B regional NEXRAD data to pick up the newest rain shower development because of the inherent delay in the image depiction."
@@ -676,15 +730,6 @@
   },
   {
     "ev_id": "20150604X72128",
-    "cause": "According to the flight manual, a failure of the engine-to-transmission drive shaft would",
-    "relation": "caused",
-    "effect": "a complete loss of power to the main rotor",
-    "direction": "forward",
-    "method": "t5",
-    "sentence": "According to the flight manual, a failure of the engine-to-transmission drive shaft would lead to a complete loss of power to the main rotor."
-  },
-  {
-    "ev_id": "20150604X72128",
     "cause": "a fatigue crack on the flange section that attached the coupling assembly to the transmission shaft flange",
     "relation": "due to",
     "effect": "The coupling assembly failure was initiated by the failure of an attachment bolt",
@@ -703,7 +748,7 @@
   },
   {
     "ev_id": "20150605X24005",
-    "cause": "GPS data and the near-vertical impact angle, the pilot likely did not maintain adequate airspeed during the climbing left turn, which",
+    "cause": "and the near-vertical impact angle, the pilot likely did not maintain adequate airspeed during the climbing left turn, which",
     "relation": "resulted in",
     "effect": "the airplane exceeding its critical angle of attack and experiencing an aerodynamic stall at a low altitude",
     "direction": "forward",
@@ -714,7 +759,7 @@
     "ev_id": "20150605X52542",
     "cause": "the failure",
     "relation": "caused",
-    "effect": "The aging discrepancies noted were within the published limits and did not contribute",
+    "effect": "The aging discrepancies noted were within the published limits and did not",
     "direction": "forward",
     "method": "t5",
     "sentence": "The aging discrepancies noted were within the published limits and did not contribute to the failure."
@@ -732,7 +777,7 @@
     "ev_id": "20150608X23637",
     "cause": "the pilot's loss of control on takeoff",
     "relation": "contributed to",
-    "effect": "was below the therapeutic range, and stimulants typically speed up psychomotor functioning; therefore, it is unlikely that any effects of phentermine",
+    "effect": "level of the medication detected was below the therapeutic range, and stimulants typically speed up psychomotor functioning; therefore, it is unlikely that any effects of phentermine",
     "direction": "backward",
     "method": "t5",
     "sentence": "The level of the medication detected was below the therapeutic range, and stimulants typically speed up psychomotor functioning; therefore, it is unlikely that any effects of phentermine contributed to the pilot's loss of control on takeoff."
@@ -747,8 +792,17 @@
     "sentence": "The progressive failure of the fatigued TRGB attachment studs led to the vibrations felt by the pilot and, ultimately, the uncommanded right yaw and subsequent loss of tail rotor control."
   },
   {
+    "ev_id": "20150609X15345",
+    "cause": "a loss of torque of the attachment stud nuts",
+    "relation": "caused",
+    "effect": "The reverse- bending, high-cycle fatigue fracture initiation mode observed on two of the TRGB studs suggests the fatigue fractures were",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "The reverse- bending, high-cycle fatigue fracture initiation mode observed on two of the TRGB studs suggests the fatigue fractures were a result of a loss of torque of the attachment stud nuts."
+  },
+  {
     "ev_id": "20150612X64657",
-    "cause": "is likely that the pilot failed to maintain adequate airspeed and exceeded the airplane's critical angle–of–attack, which",
+    "cause": "AFM, it is likely that the pilot failed to maintain adequate airspeed and exceeded the airplane's critical angle–of–attack, which",
     "relation": "resulted in",
     "effect": "an aerodynamic stall and subsequent loss of control",
     "direction": "forward",
@@ -768,14 +822,14 @@
     "ev_id": "20150617X55451",
     "cause": "a thunderstorm gust front",
     "relation": "due to",
-    "effect": "airplane from the base to final legs in the airport traffic pattern, the controller reported that the wind had increased to 40 knots",
+    "effect": "turned the airplane from the base to final legs in the airport traffic pattern, the controller reported that the wind had increased to 40 knots",
     "direction": "backward",
     "method": "t5",
     "sentence": "As the student turned the airplane from the base to final legs in the airport traffic pattern, the controller reported that the wind had increased to 40 knots due to a thunderstorm gust front."
   },
   {
     "ev_id": "20150617X55451",
-    "cause": "increased south and west of the airport during the hour leading up to the accident, the storms moved northeast more rapidly than forecast, which",
+    "cause": "during the hour leading up to the accident, the storms moved northeast more rapidly than forecast, which",
     "relation": "led to",
     "effect": "the SOF's late recall of the student",
     "direction": "forward",
@@ -804,14 +858,14 @@
     "ev_id": "20150622X43026",
     "cause": "a lack of lubrication",
     "relation": "resulted in",
-    "effect": "impeded oil flow to the impeller shaft and bearings and resulted in the failure of the supercharger-blower",
+    "effect": "oil flow to the impeller shaft and bearings and resulted in the failure of the supercharger-blower",
     "direction": "forward",
     "method": "t5",
     "sentence": "However, during postaccident examination, there was no measurable clearance between the starter shaft circumference and the starter shaft bushing, which impeded oil flow to the impeller shaft and bearings and resulted in the failure of the supercharger-blower due to a lack of lubrication."
   },
   {
     "ev_id": "20150624X35258",
-    "cause": "instructor advised that he was going to restart the feathered left engine, and the left propeller began turning, which",
+    "cause": "3 miles from the airport, the instructor advised that he was going to restart the feathered left engine, and the left propeller began turning, which",
     "relation": "caused",
     "effect": "him to believe the engine was operating; however, he did not verify that the engine was operating",
     "direction": "forward",
@@ -936,10 +990,19 @@
     "sentence": "Although not conclusive, it is possible that impairing effects of the flight instructor's use of the combination of two psychoactive substances contributed to his failure to intervene in a timely manner to prevent the accident."
   },
   {
+    "ev_id": "20150716X34145",
+    "cause": "The cause of the fluctuations in the oil temperature gauge and oil pressure gauge were not the subject of this investigation",
+    "relation": "caused",
+    "effect": "The cause of the fluctuations in the oil temperature gauge and oil pressure gauge were not the subject of this investigation",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "The cause of the fluctuations in the oil temperature gauge and oil pressure gauge were not the subject of this investigation."
+  },
+  {
     "ev_id": "20150718X04523",
     "cause": "poor weather conditions and that one pilot had turned around due to weather",
     "relation": "due to",
-    "effect": "that, during the \"duty-on\" briefing, he informed the commercial pilot that most flights to the intended destination had been cancelled in the morning",
+    "effect": "briefing reported that, during the \"duty-on\" briefing, he informed the commercial pilot that most flights to the intended destination had been cancelled in the morning",
     "direction": "backward",
     "method": "t5",
     "sentence": "Please see the public docket for this accident to view the original report.** The company flight coordinator on duty when the pilot got her \"duty-on\" briefing reported that, during the \"duty-on\" briefing, he informed the commercial pilot that most flights to the intended destination had been cancelled in the morning due to poor weather conditions and that one pilot had turned around due to weather."
@@ -948,7 +1011,7 @@
     "ev_id": "20150718X04523",
     "cause": "the accident",
     "relation": "contributed to",
-    "effect": "flight to be released without having completed an FRA form, which led to a loss of operational control and the failure to do so likely",
+    "effect": "allowed the flight to be released without having completed an FRA form, which led to a loss of operational control and the failure to do so likely",
     "direction": "backward",
     "method": "t5",
     "sentence": "Neither the pilot nor the flight coordinator should have allowed the flight to be released without having completed an FRA form, which led to a loss of operational control and the failure to do so likely contributed to the accident."
@@ -984,7 +1047,7 @@
     "ev_id": "20150723X32606",
     "cause": "fuel exhaustion",
     "relation": "due to",
-    "effect": "mechanical anomalies with the airplane that would have precluded normal operation, and noted that the loss of engine power was",
+    "effect": "anomalies with the airplane that would have precluded normal operation, and noted that the loss of engine power was",
     "direction": "backward",
     "method": "t5",
     "sentence": "The pilot stated that there were no preaccident mechanical anomalies with the airplane that would have precluded normal operation, and noted that the loss of engine power was due to fuel exhaustion."
@@ -1000,7 +1063,7 @@
   },
   {
     "ev_id": "20150804X22113",
-    "cause": "the top and inside of the head to the intake valve seat, which would have allowed hot gases to enter the induction system and",
+    "cause": "and inside of the head to the intake valve seat, which would have allowed hot gases to enter the induction system and",
     "relation": "resulted in",
     "effect": "the subsequent loss of power",
     "direction": "forward",
@@ -1009,7 +1072,7 @@
   },
   {
     "ev_id": "20150806X44006",
-    "cause": "may have hindered the pilot's ability to see and avoid the power line, it was the pilot's improper decision to operate the helicopter at a low altitude that",
+    "cause": "to see and avoid the power line, it was the pilot's improper decision to operate the helicopter at a low altitude that",
     "relation": "resulted in",
     "effect": "the collision with the power line",
     "direction": "forward",
@@ -1036,7 +1099,7 @@
   },
   {
     "ev_id": "20150810X43757",
-    "cause": "the static noise on the radio squelch and descent profile, so he committed to a power off glide path for",
+    "cause": "the static noise on the radio squelch and descent profile, so he committed to a power off glide path for his approach",
     "relation": "because of",
     "effect": "He could not hear or feel the engine indications",
     "direction": "backward",
@@ -1083,7 +1146,7 @@
     "ev_id": "20150816X35140",
     "cause": "other traffic",
     "relation": "due to",
-    "effect": "reduced engine power when the tower controller asked her to extend the downwind leg of the airport traffic pattern",
+    "effect": "landing, she had just reduced engine power when the tower controller asked her to extend the downwind leg of the airport traffic pattern",
     "direction": "backward",
     "method": "t5",
     "sentence": "The student pilot was conducting a solo flight and stated that, while on approach for landing, she had just reduced engine power when the tower controller asked her to extend the downwind leg of the airport traffic pattern due to other traffic."
@@ -1153,16 +1216,16 @@
   },
   {
     "ev_id": "20150824X25041",
-    "cause": "the accident",
+    "cause": "Thus, it is unlikely that the pilot's cardiac disease",
     "relation": "contributed to",
-    "effect": "Thus, it is unlikely that the pilot's cardiac disease caused any symptoms that",
+    "effect": "any symptoms that contributed to the accident",
     "direction": "backward",
     "method": "t5",
     "sentence": "Thus, it is unlikely that the pilot's cardiac disease caused any symptoms that contributed to the accident."
   },
   {
     "ev_id": "20150827X63051",
-    "cause": "reported wind from the airport automated surface observing system about the time of the accident was 350 degrees true at 9 knots, which",
+    "cause": "automated surface observing system about the time of the accident was 350 degrees true at 9 knots, which",
     "relation": "resulted in",
     "effect": "a 9 knot crosswind component",
     "direction": "forward",
@@ -1173,19 +1236,10 @@
     "ev_id": "20150828X53921",
     "cause": "Examination of the wreckage revealed that the fractures that",
     "relation": "resulted in",
-    "effect": "separation of the tail section likely initiated at the bond between the lower surface of the horizontal stabilizer and the flange attaching the horizontal stabilizer",
+    "effect": "separation of the tail section likely initiated at the bond between the lower surface of the horizontal stabilizer and the flange attaching",
     "direction": "forward",
     "method": "t5",
     "sentence": "Examination of the wreckage revealed that the fractures that resulted in separation of the tail section likely initiated at the bond between the lower surface of the horizontal stabilizer and the flange attaching the horizontal stabilizer to the left side of the fuselage."
-  },
-  {
-    "ev_id": "20150828X53921",
-    "cause": "poor or improper surface preparation before the bond is made, such as improper sanding and incomplete cleaning of the surfaces to be",
-    "relation": "caused",
-    "effect": "Poor bond quality can",
-    "direction": "forward",
-    "method": "t5",
-    "sentence": "Poor bond quality can result from poor or improper surface preparation before the bond is made, such as improper sanding and incomplete cleaning of the surfaces to be bonded."
   },
   {
     "ev_id": "20150828X53921",
@@ -1209,7 +1263,7 @@
     "ev_id": "20150828X53921",
     "cause": "the tail separation",
     "relation": "caused",
-    "effect": "values were below the normal therapeutic range and there was no evidence that impairment played any role in causing or contributing",
+    "effect": "values were below the normal therapeutic range and there was no evidence that impairment played any role in causing or contributing to",
     "direction": "forward",
     "method": "t5",
     "sentence": "Although the pilot's toxicology results tested positive for Zolpidem, the values were below the normal therapeutic range and there was no evidence that impairment played any role in causing or contributing to the tail separation."
@@ -1288,7 +1342,7 @@
   },
   {
     "ev_id": "20150924X82555",
-    "cause": "fires during start are usually the result of overpriming.\" It is likely that the hot engine was overprimed, which",
+    "cause": "engine fires during start are usually the result of overpriming.\" It is likely that the hot engine was overprimed, which",
     "relation": "resulted in",
     "effect": "excess fuel in the carburetor and the subsequent engine fire",
     "direction": "forward",
@@ -1335,10 +1389,19 @@
     "ev_id": "20150928X72825",
     "cause": "the bolts not being correctly tightened during the overhaul",
     "relation": "due to",
-    "effect": "to properly torque the bolts during the overhaul process, the loose condition of the crankshaft gear retaining bolts was most likely",
+    "effect": "the bolts during the overhaul process, the loose condition of the crankshaft gear retaining bolts was most likely",
     "direction": "backward",
     "method": "t5",
     "sentence": "Although the mechanic who performed the overhaul stated that he had used a calibrated torque wrench to properly torque the bolts during the overhaul process, the loose condition of the crankshaft gear retaining bolts was most likely due to the bolts not being correctly tightened during the overhaul."
+  },
+  {
+    "ev_id": "20150930X02113",
+    "cause": "The engine manufacturer had previously issued a service bulletin, which included a warning that the improper installation of bushings during overhaul could",
+    "relation": "caused",
+    "effect": "engine failure",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "The engine manufacturer had previously issued a service bulletin, which included a warning that the improper installation of bushings during overhaul could cause engine failure."
   },
   {
     "ev_id": "20150930X02113",
@@ -1351,7 +1414,7 @@
   },
   {
     "ev_id": "20151010X62028",
-    "cause": "likely that the pilot attempted to maneuver through the line of thunderstorms, but the time delay in the satellite-delivered weather data likely",
+    "cause": "the pilot attempted to maneuver through the line of thunderstorms, but the time delay in the satellite-delivered weather data likely",
     "relation": "resulted in",
     "effect": "inadvertent penetration of a severe thunderstorm cell",
     "direction": "forward",
@@ -1362,14 +1425,14 @@
     "ev_id": "20151010X62028",
     "cause": "the accident",
     "relation": "caused",
-    "effect": "level of the ethanol was below a level that would be considered impairing, the ethanol detected did not impair the pilot nor",
+    "effect": "below a level that would be considered impairing, the ethanol detected did not impair the pilot nor",
     "direction": "forward",
     "method": "t5",
     "sentence": "Further, considering that the level of the ethanol was below a level that would be considered impairing, the ethanol detected did not impair the pilot nor contribute to the accident."
   },
   {
     "ev_id": "20151013X20937",
-    "cause": "weather reports and other traffic, and he did not use the descent checklist, which included a task to \"manage fuel.\" Postaccident examination of the fuel system",
+    "cause": "weather reports and other traffic, and he did not use the descent checklist, which included a task to \"manage fuel.\" Postaccident examination of the fuel system revealed that",
     "relation": "due to",
     "effect": "Further, the pilot experienced high workload during the descent",
     "direction": "backward",
@@ -1380,7 +1443,7 @@
     "ev_id": "20151013X20937",
     "cause": "the power loss",
     "relation": "as a result of",
-    "effect": "landing gear hydraulic pump is powered by the engine; therefore, it is likely that the landing gear failed to deploy",
+    "effect": "by the engine; therefore, it is likely that the landing gear failed to deploy",
     "direction": "backward",
     "method": "t5",
     "sentence": "According to the airplane manufacturer, the landing gear hydraulic pump is powered by the engine; therefore, it is likely that the landing gear failed to deploy as a result of the power loss."
@@ -1389,7 +1452,7 @@
     "ev_id": "20151019X81548",
     "cause": "the increasing cloud layers",
     "relation": "due to",
-    "effect": "pilot reported that he was unable to maintain altitude and then was unable to maintain visual meteorological conditions",
+    "effect": "window, the pilot reported that he was unable to maintain altitude and then was unable to maintain visual meteorological conditions",
     "direction": "backward",
     "method": "t5",
     "sentence": "While flying in this window, the pilot reported that he was unable to maintain altitude and then was unable to maintain visual meteorological conditions due to the increasing cloud layers."
@@ -1450,7 +1513,7 @@
   },
   {
     "ev_id": "20151028X70720",
-    "cause": "was 1,085 ft and that the elevation at the approach end of runway 36 was 1,051 ft; the loss of 34 ft of elevation",
+    "cause": "1,085 ft and that the elevation at the approach end of runway 36 was 1,051 ft; the loss of 34 ft of elevation",
     "relation": "resulted in",
     "effect": "a runway gradient of about -0.5 percent",
     "direction": "forward",
@@ -1513,9 +1576,9 @@
   },
   {
     "ev_id": "20151104X14945",
-    "cause": "which would have allowed movement between the tail rotor adapter and shaft and led to their eventual failure",
+    "cause": "the loss of torque, which would have allowed movement between the tail rotor adapter and shaft and",
     "relation": "led to",
-    "effect": "The retaining nut had migrated almost .025 inch outward and was very loose, consistent with the loss of torque",
+    "effect": "their eventual failure",
     "direction": "forward",
     "method": "t5",
     "sentence": "The retaining nut had migrated almost .025 inch outward and was very loose, consistent with the loss of torque, which would have allowed movement between the tail rotor adapter and shaft and led to their eventual failure."
@@ -1540,18 +1603,18 @@
   },
   {
     "ev_id": "20151124X61620",
-    "cause": "Although the amount of fuel in each fuel tank could not be determined, the loss of engine power likely",
+    "cause": "a lack of available fuel in the selected tank",
     "relation": "caused",
-    "effect": "from a lack of available fuel in the selected tank",
+    "effect": "Although the amount of fuel in each fuel tank could not be determined, the loss of engine power likely",
     "direction": "forward",
     "method": "t5",
     "sentence": "Although the amount of fuel in each fuel tank could not be determined, the loss of engine power likely resulted from a lack of available fuel in the selected tank."
   },
   {
     "ev_id": "20151124X85143",
-    "cause": "fuel exhaustion",
+    "cause": "fuel level indication led the pilot to believe that more fuel was available than what was in the fuel tanks, and subsequently",
     "relation": "resulted in",
-    "effect": "pilot to believe that more fuel was available than what was in the fuel tanks, and subsequently resulted in a total loss of engine power",
+    "effect": "a total loss of engine power due to fuel exhaustion",
     "direction": "forward",
     "method": "t5",
     "sentence": "This erroneous fuel level indication led the pilot to believe that more fuel was available than what was in the fuel tanks, and subsequently resulted in a total loss of engine power due to fuel exhaustion."
@@ -1567,7 +1630,7 @@
   },
   {
     "ev_id": "20151125X05054",
-    "cause": "It is likely that, while landing in gusting wind conditions, the pilot allowed the airplane's nose landing gear to contact the runway hard, which",
+    "cause": "landing in gusting wind conditions, the pilot allowed the airplane's nose landing gear to contact the runway hard, which",
     "relation": "resulted in",
     "effect": "the overstress fracture of the trunnion and the resulting gear collapse",
     "direction": "forward",
@@ -1605,7 +1668,7 @@
     "ev_id": "20151220X04641",
     "cause": "overstress resulting from excessive air loads",
     "relation": "resulting from",
-    "effect": "of the debris field, airplane component damage patterns, and fracture surfaces indicated that both wings and stabilator halves separated from the fuselage in flight",
+    "effect": "analysis of the debris field, airplane component damage patterns, and fracture surfaces indicated that both wings and stabilator halves separated from the fuselage in flight",
     "direction": "backward",
     "method": "t5",
     "sentence": "Analysis of the debris field, airplane component damage patterns, and fracture surfaces indicated that both wings and stabilator halves separated from the fuselage in flight due to overstress resulting from excessive air loads."
@@ -1657,18 +1720,18 @@
   },
   {
     "ev_id": "20151224X50002",
-    "cause": "the increased load factor from the steep turn) until the airplane entered an aerodynamic stall, indicating that the pilot allowed himself to become distracted by",
+    "cause": "the increased load factor from the steep turn) until the airplane entered an aerodynamic stall, indicating that the pilot allowed himself to become distracted",
     "relation": "caused",
-    "effect": "bank angle to increase to about 45°, and angle of attack to increase to about 8°, which caused the airspeed to decrease below the",
+    "effect": "angle of attack to increase to about 8°, which caused the airspeed to decrease below the stalling speed (which would have been about 20%",
     "direction": "forward",
     "method": "t5",
     "sentence": "The pilot had then entered a left turn and allowed the bank angle to increase to about 45°, and angle of attack to increase to about 8°, which caused the airspeed to decrease below the stalling speed (which would have been about 20% higher than normal due to the increased load factor from the steep turn) until the airplane entered an aerodynamic stall, indicating that the pilot allowed himself to become distracted by the open door, rather than maintaining control of the airplane."
   },
   {
     "ev_id": "20151229X32052",
-    "cause": "This wear",
+    "cause": "This wear led to a migration of the internal timing in the left magneto that could have",
     "relation": "caused",
-    "effect": "a migration of the internal timing in the left magneto that could have led to misfires or kickbacks during start that caused shock to the gear train and damaged one or more",
+    "effect": "misfires or kickbacks during start that caused shock to the gear train and damaged one or more distributor gear teeth in the right",
     "direction": "forward",
     "method": "t5",
     "sentence": "This wear led to a migration of the internal timing in the left magneto that could have led to misfires or kickbacks during start that caused shock to the gear train and damaged one or more distributor gear teeth in the right magneto."
@@ -1792,7 +1855,7 @@
   },
   {
     "ev_id": "20160114X73526",
-    "cause": "compression loading from wing loads combined with preexisting damage on the leading edge, leading to an overstress",
+    "cause": "compression loading from wing loads combined with preexisting damage on the leading edge, leading to an overstress condition about 4 ft outboard",
     "relation": "due to",
     "effect": "Examination of the left wing revealed that the forward wing spar likely fractured",
     "direction": "backward",
@@ -1821,7 +1884,7 @@
     "ev_id": "20160120X82009",
     "cause": "its location on the right wing",
     "relation": "because of",
-    "effect": "airplane after it was fueled and that, during a subsequent visual inspection of the fuel caps, they did not see the fuel mat",
+    "effect": "preflight inspection of the airplane after it was fueled and that, during a subsequent visual inspection of the fuel caps, they did not see the fuel mat",
     "direction": "backward",
     "method": "t5",
     "sentence": "The pilots reported that they did not conduct an exterior preflight inspection of the airplane after it was fueled and that, during a subsequent visual inspection of the fuel caps, they did not see the fuel mat because of its location on the right wing."
@@ -1839,14 +1902,23 @@
     "ev_id": "20160201X64621",
     "cause": "It is likely that the specialty nurse locked the door incorrectly, which",
     "relation": "resulted in",
-    "effect": "an inadvertent in-flight door opening as the helicopter was traveling 55 knots faster than the manufacturer's specified never-to-exceed speed for operating with the door open, and subsequent separation",
+    "effect": "an inadvertent in-flight door opening as the helicopter was traveling 55 knots faster than the manufacturer's specified never-to-exceed speed for operating with",
     "direction": "forward",
     "method": "t5",
     "sentence": "It is likely that the specialty nurse locked the door incorrectly, which resulted in an inadvertent in-flight door opening as the helicopter was traveling 55 knots faster than the manufacturer's specified never-to-exceed speed for operating with the door open, and subsequent separation of the door from the helicopter."
   },
   {
+    "ev_id": "20160201X43119",
+    "cause": "the fire damage, only a limited examination could be conducted; however, no preimpact abnormities were noted with",
+    "relation": "due to",
+    "effect": "Due to the fire damage, only a limited examination could be conducted; however",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to the fire damage, only a limited examination could be conducted; however, no preimpact abnormities were noted with the engine and airframe."
+  },
+  {
     "ev_id": "20160202X64511",
-    "cause": "the dusk conditions, and it is probable that, had the PAPI been operative and providing corrective feedback to the pilot, he would have adjusted",
+    "cause": "the dusk conditions, and it is probable that, had the PAPI been operative and providing corrective feedback to the pilot, he",
     "relation": "due to",
     "effect": "It is likely that the pilot's visual references were reduced",
     "direction": "backward",
@@ -1855,9 +1927,9 @@
   },
   {
     "ev_id": "20160210X70158",
-    "cause": "pedestal, they did not ensure that the cannon head on the back of the autopilot control head and the aileron trim control gear were adequately separated, which",
+    "cause": "the pedestal, they did not ensure that the cannon head on the back of the autopilot control head and the aileron trim control gear were adequately separated, which",
     "relation": "resulted in",
-    "effect": "binding of the aileron trim control gear and chafing of the wiring and led to the",
+    "effect": "binding of the aileron trim control gear and chafing of the wiring and led to",
     "direction": "forward",
     "method": "t5",
     "sentence": "Therefore, it is likely that, when maintenance personnel reassembled the pedestal, they did not ensure that the cannon head on the back of the autopilot control head and the aileron trim control gear were adequately separated, which resulted in binding of the aileron trim control gear and chafing of the wiring and led to the in-flight loss of aileron trim."
@@ -1866,7 +1938,7 @@
     "ev_id": "20160210X70158",
     "cause": "the incident",
     "relation": "contributed to",
-    "effect": "to verify separation of the autopilot control head and aileron trim tab control gear before completing work on the control pedestal likely",
+    "effect": "separation of the autopilot control head and aileron trim tab control gear before completing work on the control pedestal likely",
     "direction": "backward",
     "method": "t5",
     "sentence": "The lack of guidance in the maintenance manual to verify separation of the autopilot control head and aileron trim tab control gear before completing work on the control pedestal likely contributed to the incident."
@@ -1902,7 +1974,7 @@
     "ev_id": "20160226X95415",
     "cause": "the accident included the pressure he felt to expedite the takeoff given the airport traffic, his desire to return home quickly, and",
     "relation": "caused",
-    "effect": "The pilot reported that factors contributing to the accident included the pressure he felt to expedite the take",
+    "effect": "The pilot reported that factors contributing to the accident included the pressure he felt to expedite the takeoff given",
     "direction": "forward",
     "method": "t5",
     "sentence": "The pilot reported that factors contributing to the accident included the pressure he felt to expedite the takeoff given the airport traffic, his desire to return home quickly, and a perceived lack of maintenance facilities to troubleshoot the brake issue given that it was a weekend evening."
@@ -1918,25 +1990,25 @@
   },
   {
     "ev_id": "20160301X74004",
-    "cause": "fuel vapor lock",
+    "cause": "It is likely that the absence of the fuel return line",
     "relation": "resulted in",
-    "effect": "It is likely that the absence of the fuel return line resulted in the engine losing power",
+    "effect": "the engine losing power due to fuel vapor lock",
     "direction": "forward",
     "method": "t5",
     "sentence": "It is likely that the absence of the fuel return line resulted in the engine losing power due to fuel vapor lock."
   },
   {
     "ev_id": "20160302X73328",
-    "cause": "It is likely that the initial engine roughness was",
+    "cause": "engine roughness was caused by the pilot improperly positioning the fuel selector handle between the left and right main fuel tanks, which",
     "relation": "resulted in",
-    "effect": "by the pilot improperly positioning the fuel selector handle between the left and right main fuel tanks, which resulted in a restricted fuel flow to",
+    "effect": "a restricted fuel flow to the engine and the initial loss of engine power during cruise flight",
     "direction": "forward",
     "method": "t5",
     "sentence": "It is likely that the initial engine roughness was caused by the pilot improperly positioning the fuel selector handle between the left and right main fuel tanks, which resulted in a restricted fuel flow to the engine and the initial loss of engine power during cruise flight."
   },
   {
     "ev_id": "20160302X73328",
-    "cause": "fuel; however, contrary to operational guidance, he continued to use the high-boost auxiliary fuel pump for an extended period, which likely",
+    "cause": "he continued to use the high-boost auxiliary fuel pump for an extended period, which likely",
     "relation": "resulted in",
     "effect": "an over-rich fuel mixture condition that prevented the engine from resuming normal operation",
     "direction": "forward",
@@ -1965,7 +2037,7 @@
     "ev_id": "20160318X22506",
     "cause": "the circumstances of the accident",
     "relation": "contributed to",
-    "effect": "blood level of diphenhydramine, it could not be determined whether the drug was impairing or",
+    "effect": "Without an available blood level of diphenhydramine, it could not be determined whether the drug was impairing or",
     "direction": "backward",
     "method": "t5",
     "sentence": "Without an available blood level of diphenhydramine, it could not be determined whether the drug was impairing or contributed to the circumstances of the accident."
@@ -2055,7 +2127,7 @@
     "ev_id": "20160505X61259",
     "cause": "the increased number of landing options in that direction",
     "relation": "due to",
-    "effect": "shut down and secure the engine because it was still providing \"positive thrust.\" The examiner reportedly agreed with the decision to keep the engine running and to make left turns in the traffic pattern",
+    "effect": "not to shut down and secure the engine because it was still providing \"positive thrust.\" The examiner reportedly agreed with the decision to keep the engine running and to make left turns in the traffic pattern",
     "direction": "backward",
     "method": "t5",
     "sentence": "The pilot reported that he was able to maintain control of the airplane with partial right rudder and right aileron inputs, and chose not to shut down and secure the engine because it was still providing \"positive thrust.\" The examiner reportedly agreed with the decision to keep the engine running and to make left turns in the traffic pattern due to the increased number of landing options in that direction."
@@ -2071,6 +2143,15 @@
   },
   {
     "ev_id": "20160505X61259",
+    "cause": "the windmilling propeller, it is likely that the airplane would not have been able to maintain altitude even if the pilot had maintained Vyse; however, the",
+    "relation": "due to",
+    "effect": "Due to the windmilling propeller, it is likely that the airplane would not have been able",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to the windmilling propeller, it is likely that the airplane would not have been able to maintain altitude even if the pilot had maintained Vyse; however, the pilot should have maintained this speed to minimize altitude loss and maintain controllability of the airplane."
+  },
+  {
+    "ev_id": "20160505X61259",
     "cause": "to decay such that the airplane no longer had the flight control authority to counteract the yaw and roll",
     "relation": "resulted in",
     "effect": "by the operating right engine, which resulted in a loss of control at a low altitude",
@@ -2080,7 +2161,7 @@
   },
   {
     "ev_id": "20160507X31120",
-    "cause": "deteriorating weather conditions when the pilot departed, it is likely that the pilot continued visual flight into an area of instrument meteorological conditions, which",
+    "cause": "when the pilot departed, it is likely that the pilot continued visual flight into an area of instrument meteorological conditions, which",
     "relation": "resulted in",
     "effect": "the pilot experiencing a loss of visual reference and subsequent controlled flight into terrain",
     "direction": "forward",
@@ -2098,7 +2179,7 @@
   },
   {
     "ev_id": "20160507X31120",
-    "cause": "the degrading weather conditions, he would not be coming back for the last scheduled trip of the day, and the dog camp manager told the pilot that",
+    "cause": "the degrading weather conditions, he would not be coming back for the last scheduled trip of the day, and the dog camp manager told",
     "relation": "due to",
     "effect": "Immediately before departing from the dog camp on the accident flight, the pilot told the dog camp manager that",
     "direction": "backward",
@@ -2107,7 +2188,7 @@
   },
   {
     "ev_id": "20160507X31120",
-    "cause": "the difference in experience between the base manager, who had been operating these flights for 8 years, and the pilot, who had been operating these flights",
+    "cause": "the difference in experience between the base manager, who had been operating these flights for 8 years, and the pilot, who",
     "relation": "due to",
     "effect": "The base manager's failure to appropriately exercise operational control and terminate the flights may have been",
     "direction": "backward",
@@ -2143,7 +2224,7 @@
   },
   {
     "ev_id": "20160517X22140",
-    "cause": "partially obstructed fuel injector nozzle and the high-density altitude, which was calculated to be 5,750 ft at the time of the accident",
+    "cause": "obstructed fuel injector nozzle and the high-density altitude, which was calculated to be 5,750 ft at the time of the accident",
     "relation": "resulted in",
     "effect": "less-than-expected engine performance",
     "direction": "forward",
@@ -2244,7 +2325,7 @@
     "ev_id": "20160605X31731",
     "cause": "low clouds",
     "relation": "due to",
-    "effect": "and the pilot made an instrument approach into his destination airport; however, he had to execute a missed approach",
+    "effect": "uneventful and the pilot made an instrument approach into his destination airport; however, he had to execute a missed approach",
     "direction": "backward",
     "method": "t5",
     "sentence": "The flight was uneventful and the pilot made an instrument approach into his destination airport; however, he had to execute a missed approach due to low clouds."
@@ -2278,9 +2359,9 @@
   },
   {
     "ev_id": "20160613X02003",
-    "cause": "Porpoising can also be",
+    "cause": "improper airspeed control",
     "relation": "caused by",
-    "effect": "by improper airspeed control",
+    "effect": "Porpoising can also be",
     "direction": "backward",
     "method": "t5",
     "sentence": "Porpoising can also be caused by improper airspeed control."
@@ -2322,6 +2403,15 @@
     "sentence": "The fracture of the piston pin led to misalignment of the connecting rod, which eventually failed from fatigue in reverse bending."
   },
   {
+    "ev_id": "20160614X40501",
+    "cause": "It is likely that a stress high enough to fracture the outer layer would lead to through-fracture of the pin",
+    "relation": "caused",
+    "effect": "It is likely that a stress high enough to fracture the outer layer",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "It is likely that a stress high enough to fracture the outer layer would lead to through-fracture of the pin."
+  },
+  {
     "ev_id": "20160614X43444",
     "cause": "While landing in a field, the airplane impacted blueberry bushes and a fence, which",
     "relation": "resulted in",
@@ -2329,6 +2419,15 @@
     "direction": "forward",
     "method": "t5",
     "sentence": "While landing in a field, the airplane impacted blueberry bushes and a fence, which resulted in substantial damage to the fuselage."
+  },
+  {
+    "ev_id": "20160614X83429",
+    "cause": "Such an operation can be extremely hazardous if a gust of wind disturbs the rotor disk, or the collective flight control moves causing lift to be",
+    "relation": "caused",
+    "effect": "by the rotor system",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "Such an operation can be extremely hazardous if a gust of wind disturbs the rotor disk, or the collective flight control moves causing lift to be generated by the rotor system."
   },
   {
     "ev_id": "20160621X22330",
@@ -2422,7 +2521,7 @@
   },
   {
     "ev_id": "20160704X85554",
-    "cause": "the accident; however, the autopsy provided limited information and a readout of the pilot's pacemaker showed no evidence of arrhythmia around",
+    "cause": "the accident; however, the autopsy provided limited information and a readout of the pilot's pacemaker showed no evidence",
     "relation": "contributed to",
     "effect": "The pilot's heart disease could have",
     "direction": "backward",
@@ -2476,7 +2575,7 @@
   },
   {
     "ev_id": "20160717X15309",
-    "cause": "landing gear (MLG) leg then contacted the ground and skidded for about 50 ft before it dug into the grass, which",
+    "cause": "leg then contacted the ground and skidded for about 50 ft before it dug into the grass, which",
     "relation": "resulted in",
     "effect": "a nose-over",
     "direction": "forward",
@@ -2559,14 +2658,14 @@
     "ev_id": "20160724X24036",
     "cause": "The rich mixture setting",
     "relation": "caused",
-    "effect": "the engine to run normally until the manifold pressure went above 36 inches of pressure (in excess of the maximum manifold pressure for which the engine was certified); then it would stumble then lose",
+    "effect": "the engine to run normally until the manifold pressure went above 36 inches of pressure (in excess of the maximum manifold pressure for which the engine was certified); then it would stumble then lose power",
     "direction": "forward",
     "method": "t5",
     "sentence": "The rich mixture setting caused the engine to run normally until the manifold pressure went above 36 inches of pressure (in excess of the maximum manifold pressure for which the engine was certified); then it would stumble then lose power."
   },
   {
     "ev_id": "20160724X24036",
-    "cause": "maintenance personnel set the aneroid adjustment too high at that time, which",
+    "cause": "personnel set the aneroid adjustment too high at that time, which",
     "relation": "resulted in",
     "effect": "the engine to run with an excessively rich mixture, which resulted in a total loss of engine power on climbout",
     "direction": "forward",
@@ -2584,7 +2683,7 @@
   },
   {
     "ev_id": "20160726X63300",
-    "cause": "a notice to airmen (NOTAM) in effect which closed the sole runway at the airport and allowed takeoff's and landing's",
+    "cause": "a notice to airmen (NOTAM) in effect which closed the sole runway at the airport and allowed takeoff's and landing's from the parallel taxiway",
     "relation": "due to",
     "effect": "The pilot reported that he was performing the takeoff on a taxiway",
     "direction": "backward",
@@ -2613,14 +2712,14 @@
     "ev_id": "20160726X63300",
     "cause": "insufficient airspeed at rotation",
     "relation": "due to",
-    "effect": "likely that the pilot exceeded the critical angle of attack during the two initial climbs and the airplane did not exit ground effect",
+    "effect": "back on the runway.\" It is likely that the pilot exceeded the critical angle of attack during the two initial climbs and the airplane did not exit ground effect",
     "direction": "backward",
     "method": "t5",
     "sentence": "Consequently, the airplane may not be able to clear obstructions, or may settle back on the runway.\" It is likely that the pilot exceeded the critical angle of attack during the two initial climbs and the airplane did not exit ground effect due to insufficient airspeed at rotation."
   },
   {
     "ev_id": "20160728X22738",
-    "cause": "likely that, during the turn, the pilot allowed the airspeed to decay and the airplane exceeded its critical angle of attack, which",
+    "cause": "during the turn, the pilot allowed the airspeed to decay and the airplane exceeded its critical angle of attack, which",
     "relation": "resulted in",
     "effect": "an inadvertent aerodynamic stall at an altitude which did not allow for recovery",
     "direction": "forward",
@@ -2658,7 +2757,7 @@
     "ev_id": "20160808X81145",
     "cause": "low altitude and sink rate, he turned off the carburetor heat to reduce the loss of power",
     "relation": "due to",
-    "effect": "engine power during the climb out from the low approach, the pilot applied carburetor heat briefly, then",
+    "effect": "of engine power during the climb out from the low approach, the pilot applied carburetor heat briefly, then",
     "direction": "backward",
     "method": "t5",
     "sentence": "After observing the loss of engine power during the climb out from the low approach, the pilot applied carburetor heat briefly, then, due to low altitude and sink rate, he turned off the carburetor heat to reduce the loss of power."
@@ -2667,7 +2766,7 @@
     "ev_id": "20160808X81145",
     "cause": "It is likely that the carburetor accumulated ice during the low approach, which",
     "relation": "resulted in",
-    "effect": "the observed partial loss of engine power, and the brief application of carburetor heat was insufficient to clear the ice from the carburetor and restore",
+    "effect": "the observed partial loss of engine power, and the brief application of carburetor heat was insufficient to clear the ice from the carburetor",
     "direction": "forward",
     "method": "t5",
     "sentence": "It is likely that the carburetor accumulated ice during the low approach, which resulted in the observed partial loss of engine power, and the brief application of carburetor heat was insufficient to clear the ice from the carburetor and restore engine power."
@@ -2755,6 +2854,15 @@
   },
   {
     "ev_id": "20160829X35843",
+    "cause": "a delay in the recovery, it is likely that most, if not all, of the ethanol was from postmortem production",
+    "relation": "due to",
+    "effect": "Due to a delay in the recovery, it is likely that most, if not all, of the ethanol was from postmortem production",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to a delay in the recovery, it is likely that most, if not all, of the ethanol was from postmortem production."
+  },
+  {
+    "ev_id": "20160829X35843",
     "cause": "rain and night conditions, it is unlikely the pilot could see the water",
     "relation": "due to",
     "effect": "With reduced visibility",
@@ -2791,9 +2899,9 @@
   },
   {
     "ev_id": "20160830X61654",
-    "cause": "the landing gear collapsing",
+    "cause": "The investigation could not determine whether the upper trunnion fracture separation",
     "relation": "caused",
-    "effect": "upper trunnion fracture separation caused the airplane to veer from one direction to the other or whether the trunnion was fractured",
+    "effect": "the airplane to veer from one direction to the other or whether the trunnion was fractured due to the landing gear collapsing",
     "direction": "forward",
     "method": "t5",
     "sentence": "The investigation could not determine whether the upper trunnion fracture separation caused the airplane to veer from one direction to the other or whether the trunnion was fractured due to the landing gear collapsing."
@@ -2827,7 +2935,7 @@
   },
   {
     "ev_id": "20160909X21758",
-    "cause": "Examination of the right engine revealed that a clear, gelatinous substance had blocked the inlet port of the fuel flow transducer, leading",
+    "cause": "Examination of the right engine revealed that a clear, gelatinous substance had blocked the inlet port of the fuel flow transducer,",
     "relation": "caused",
     "effect": "fuel starvation",
     "direction": "forward",
@@ -2836,7 +2944,7 @@
   },
   {
     "ev_id": "20160909X21758",
-    "cause": "This material had been used anywhere within the fuel system, nor were there any signs of recent maintenance that could have",
+    "cause": "material had been used anywhere within the fuel system, nor were there any signs of recent maintenance that could have",
     "relation": "resulted in",
     "effect": "the introduction of this contaminant",
     "direction": "forward",
@@ -2865,7 +2973,7 @@
     "ev_id": "20160916X12503",
     "cause": "the accident",
     "relation": "caused",
-    "effect": "The carbon monoxide identified during toxicology testing was most likely from the postimpact fire, and, as a result, did not contribute",
+    "effect": "The carbon monoxide identified during toxicology testing was most likely from the postimpact fire, and, as a result, did not",
     "direction": "forward",
     "method": "t5",
     "sentence": "The carbon monoxide identified during toxicology testing was most likely from the postimpact fire, and, as a result, did not contribute to the accident."
@@ -2878,15 +2986,6 @@
     "direction": "forward",
     "method": "t5",
     "sentence": "It is likely that the airplane's increased speed at the time of touchdown resulted in the runway excursion."
-  },
-  {
-    "ev_id": "20160927X95426",
-    "cause": "an improper nose up trim setting, as he had not set the airplane's elevator trim to the takeoff position in accordance with",
-    "relation": "caused",
-    "effect": "The pilot attributed his nose high attitude immediately after takeoff",
-    "direction": "forward",
-    "method": "t5",
-    "sentence": "The pilot attributed his nose high attitude immediately after takeoff to an improper nose up trim setting, as he had not set the airplane's elevator trim to the takeoff position in accordance with the before takeoff checklist."
   },
   {
     "ev_id": "20160927X51937",
@@ -2937,7 +3036,7 @@
     "ev_id": "20161001X44216",
     "cause": "carburetor icing",
     "relation": "due to",
-    "effect": "low while taxiing and its loss of power when the power was reduced to cruise power after takeoff were both likely",
+    "effect": "power setting was low while taxiing and its loss of power when the power was reduced to cruise power after takeoff were both likely",
     "direction": "backward",
     "method": "t5",
     "sentence": "The airplane's loss of power when the power setting was low while taxiing and its loss of power when the power was reduced to cruise power after takeoff were both likely due to carburetor icing."
@@ -2946,7 +3045,7 @@
     "ev_id": "20161003X64122",
     "cause": "fuel starvation",
     "relation": "due to",
-    "effect": "strainer stopped adequate flow of fuel to the engine, resulting in a loss of engine power",
+    "effect": "debris in the fuel strainer stopped adequate flow of fuel to the engine, resulting in a loss of engine power",
     "direction": "backward",
     "method": "t5",
     "sentence": "Thus, it is likely that the debris in the fuel strainer stopped adequate flow of fuel to the engine, resulting in a loss of engine power due to fuel starvation."
@@ -2991,7 +3090,7 @@
     "ev_id": "20161016X94347",
     "cause": "the accident could not be determined",
     "relation": "contributed to",
-    "effect": "relationship between blood levels and degree of impairment, whether the impairing effects of THC",
+    "effect": "however, since there is no accepted relationship between blood levels and degree of impairment, whether the impairing effects of THC",
     "direction": "backward",
     "method": "t5",
     "sentence": "The finding of THC indicated that the pilot had used marijuana sometime before the accident; however, since there is no accepted relationship between blood levels and degree of impairment, whether the impairing effects of THC contributed to the accident could not be determined."
@@ -3009,7 +3108,7 @@
     "ev_id": "20161018X55428",
     "cause": "3 cylinder exhaust valve had stuck in the closed position, which",
     "relation": "resulted in",
-    "effect": "failure of the cylinder's valvetrain components, breach of the rocker box cover, and the engine's oil supply being exhausted through the breached",
+    "effect": "failure of the cylinder's valvetrain components, breach of the rocker box cover, and the engine's oil supply being exhausted through",
     "direction": "forward",
     "method": "t5",
     "sentence": "3 cylinder exhaust valve had stuck in the closed position, which resulted in failure of the cylinder's valvetrain components, breach of the rocker box cover, and the engine's oil supply being exhausted through the breached rocker box cover."
@@ -3045,7 +3144,7 @@
     "ev_id": "20161019X10935",
     "cause": "the pilot's reluctance to discontinue the flight and land",
     "relation": "contributed to",
-    "effect": "below the final segment of his route before crossing over a large lake and into remote, mountainous terrain, may have",
+    "effect": "the TFR, which was located just below the final segment of his route before crossing over a large lake and into remote, mountainous terrain, may have",
     "direction": "backward",
     "method": "t5",
     "sentence": "The worsening weather conditions in the region (in particular the extreme surface winds at area airports), along with the TFR, which was located just below the final segment of his route before crossing over a large lake and into remote, mountainous terrain, may have contributed to the pilot's reluctance to discontinue the flight and land."
@@ -3061,7 +3160,7 @@
   },
   {
     "ev_id": "20161019X52417",
-    "cause": "to return to the airport instead of landing straight ahead, the pilot failed to maintain adequate airspeed and exceeded the airplane's critical angle of attack, which",
+    "cause": "instead of landing straight ahead, the pilot failed to maintain adequate airspeed and exceeded the airplane's critical angle of attack, which",
     "relation": "led to",
     "effect": "an aerodynamic stall",
     "direction": "forward",
@@ -3070,7 +3169,7 @@
   },
   {
     "ev_id": "20161021X72937",
-    "cause": "airplane from the right and initiated a climb before his airplane was clear of the lead, which",
+    "cause": "lead airplane and instead, passed directly underneath the lead airplane from the right and initiated a climb before his airplane was clear of the lead, which",
     "relation": "resulted in",
     "effect": "the collision",
     "direction": "forward",
@@ -3081,14 +3180,14 @@
     "ev_id": "20161021X72937",
     "cause": "the accident",
     "relation": "contributed to",
-    "effect": "THC's inactive metabolite could be quantified, there was not sufficient evidence to determine whether the pilot's marijuana use",
+    "effect": "of THC's inactive metabolite could be quantified, there was not sufficient evidence to determine whether the pilot's marijuana use",
     "direction": "backward",
     "method": "t5",
     "sentence": "While the amount of THC's inactive metabolite could be quantified, there was not sufficient evidence to determine whether the pilot's marijuana use contributed to the accident."
   },
   {
     "ev_id": "20161021X72937",
-    "cause": "airplane from the right and initiated a climb before his airplane was clear of the lead, which",
+    "cause": "lead airplane and instead, passed directly underneath the lead airplane from the right and initiated a climb before his airplane was clear of the lead, which",
     "relation": "resulted in",
     "effect": "the collision",
     "direction": "forward",
@@ -3099,7 +3198,7 @@
     "ev_id": "20161021X72937",
     "cause": "the accident",
     "relation": "contributed to",
-    "effect": "THC's inactive metabolite could be quantified, there was not sufficient evidence to determine whether the pilot's marijuana use",
+    "effect": "of THC's inactive metabolite could be quantified, there was not sufficient evidence to determine whether the pilot's marijuana use",
     "direction": "backward",
     "method": "t5",
     "sentence": "While the amount of THC's inactive metabolite could be quantified, there was not sufficient evidence to determine whether the pilot's marijuana use contributed to the accident."
@@ -3151,7 +3250,7 @@
   },
   {
     "ev_id": "20161031X33238",
-    "cause": "it is likely that, during the overhaul, maintenance personnel improperly welded the float pin guide to its mount and subsequently did not adequately inspect it, which",
+    "cause": "personnel improperly welded the float pin guide to its mount and subsequently did not adequately inspect it, which",
     "relation": "led to",
     "effect": "its eventual separation from the assembly at the welded area",
     "direction": "forward",
@@ -3207,7 +3306,7 @@
     "ev_id": "20161115X51413",
     "cause": "unknown damage sustained to the propellers",
     "relation": "because of",
-    "effect": "He recalled that, following the flare, he heard the propellers hit the runway and that he made the decision not to go around",
+    "effect": "following the flare, he heard the propellers hit the runway and that he made the decision not to go around",
     "direction": "backward",
     "method": "t5",
     "sentence": "He recalled that, following the flare, he heard the propellers hit the runway and that he made the decision not to go around because of unknown damage sustained to the propellers."
@@ -3223,9 +3322,9 @@
   },
   {
     "ev_id": "20161116X62135",
-    "cause": "fuel starvation",
+    "cause": "The debris likely restricted the fuel flow to the engine and",
     "relation": "led to",
-    "effect": "The debris likely restricted the fuel flow to the engine and led to the loss of all engine power",
+    "effect": "the loss of all engine power due to fuel starvation",
     "direction": "forward",
     "method": "t5",
     "sentence": "The debris likely restricted the fuel flow to the engine and led to the loss of all engine power due to fuel starvation."
@@ -3241,18 +3340,18 @@
   },
   {
     "ev_id": "20161121X24021",
-    "cause": "the rate the propeller axis is tilted when the tail is raised, so it is best to avoid an abrupt pitch change",
+    "cause": "Federal Aviation Administration's Airplane Flying Handbook, FAA-H-8083-3B (2016), contains a section titled \"Normal Takeoff Roll\" for tailwheel airplanes which states: It is important to note that nose-down pitch movement",
     "relation": "caused",
-    "effect": "The amount of force created by this precession is directly",
+    "effect": "left ya",
     "direction": "forward",
     "method": "t5",
-    "sentence": "The amount of force created by this precession is directly related to the rate the propeller axis is tilted when the tail is raised, so it is best to avoid an abrupt pitch change."
+    "sentence": "Federal Aviation Administration's Airplane Flying Handbook, FAA-H-8083-3B (2016), contains a section titled \"Normal Takeoff Roll\" for tailwheel airplanes which states: It is important to note that nose-down pitch movement produces left yaw, the result of gyroscopic precession created by the propeller."
   },
   {
     "ev_id": "20161125X72838",
     "cause": "the accident as he was actively maneuvering the airplane up until the stall",
     "relation": "contributed to",
-    "effect": "at increased risk for a cardiovascular event, there was no evidence that the pilot's coronary artery disease impaired the pilot or",
+    "effect": "placed the pilot at increased risk for a cardiovascular event, there was no evidence that the pilot's coronary artery disease impaired the pilot or",
     "direction": "backward",
     "method": "t5",
     "sentence": "Although this condition placed the pilot at increased risk for a cardiovascular event, there was no evidence that the pilot's coronary artery disease impaired the pilot or contributed to the accident as he was actively maneuvering the airplane up until the stall."
@@ -3268,16 +3367,16 @@
   },
   {
     "ev_id": "20161129X63442",
-    "cause": "that the engine breather tube froze, which pressurized the crankcase and",
+    "cause": "the engine breather tube froze, which pressurized the crankcase and caused the crankshaft oil seal to be displaced, which",
     "relation": "resulted in",
-    "effect": "the crankshaft oil seal to be displaced, which resulted in a loss of oil, smoke in the cockpit, and the pilot's incorrect belief that the engine had lost total power",
+    "effect": "a loss of oil, smoke in the cockpit, and the pilot's incorrect belief that the engine had lost total power, which led to",
     "direction": "forward",
     "method": "t5",
     "sentence": "Thus, it is likely that the engine breather tube froze, which pressurized the crankcase and caused the crankshaft oil seal to be displaced, which resulted in a loss of oil, smoke in the cockpit, and the pilot's incorrect belief that the engine had lost total power, which led to his selection of a less-than-ideal landing surface for the forced landing."
   },
   {
     "ev_id": "20161129X71536",
-    "cause": "5-ampere circuit breaker was installed, it is likely that the circuit breaker opened and",
+    "cause": "Because the 5-ampere circuit breaker was installed, it is likely that the circuit breaker opened and",
     "relation": "resulted in",
     "effect": "a loss of electrical power to the electronic fuel injectors, which then resulted in a total loss of engine power",
     "direction": "forward",
@@ -3313,6 +3412,15 @@
   },
   {
     "ev_id": "20161206X34431",
+    "cause": "of the corroded areas on the aluminum retainer, there would have to be a redistribution of the internal stresses toward the intact areas, which would",
+    "relation": "caused",
+    "effect": "significant stress concentrations in the windshield laminate",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "For each of the corroded areas on the aluminum retainer, there would have to be a redistribution of the internal stresses toward the intact areas, which would cause significant stress concentrations in the windshield laminate."
+  },
+  {
+    "ev_id": "20161206X34431",
     "cause": "The corroded retainer on the left windshield",
     "relation": "led to",
     "effect": "areas of stress concentration within the windshield laminate",
@@ -3322,9 +3430,9 @@
   },
   {
     "ev_id": "20161227X85755",
-    "cause": "spatial disorientation, which resulted in an aerodynamic stall and spin",
+    "cause": "It is likely that the pilot experienced a loss of control due to spatial disorientation, which",
     "relation": "resulted in",
-    "effect": "It is likely that the pilot experienced a loss of control",
+    "effect": "an aerodynamic stall and spin",
     "direction": "forward",
     "method": "t5",
     "sentence": "It is likely that the pilot experienced a loss of control due to spatial disorientation, which resulted in an aerodynamic stall and spin."
@@ -3358,7 +3466,7 @@
   },
   {
     "ev_id": "20170113X00618",
-    "cause": "The pilot stated that, while attempting to land while looking out the side window, the airplane stalled about 30 ft above the ground, which",
+    "cause": "stated that, while attempting to land while looking out the side window, the airplane stalled about 30 ft above the ground, which",
     "relation": "resulted in",
     "effect": "a hard landing",
     "direction": "forward",
@@ -3396,7 +3504,7 @@
     "ev_id": "20170113X04821",
     "cause": "his chemical sensitivity",
     "relation": "attributed to",
-    "effect": "had been diagnosed with multiple chemical sensitivity and had a history of sudden vision loss, sometimes in just one eye but at other times in both eyes, which had been",
+    "effect": "had a history of sudden vision loss, sometimes in just one eye but at other times in both eyes, which had been",
     "direction": "backward",
     "method": "t5",
     "sentence": "According to the pilot's son, the pilot had been diagnosed with multiple chemical sensitivity and had a history of sudden vision loss, sometimes in just one eye but at other times in both eyes, which had been attributed to his chemical sensitivity."
@@ -3412,7 +3520,7 @@
   },
   {
     "ev_id": "20170117X15227",
-    "cause": "taxiway at the end of the runway and assumed it was preparing to takeoff, which he stated",
+    "cause": "at the end of the runway and assumed it was preparing to takeoff, which he stated",
     "relation": "caused",
     "effect": "him to believe that the runway condition was good",
     "direction": "forward",
@@ -3441,7 +3549,7 @@
     "ev_id": "20170119X81250",
     "cause": "premature fatigue crack propagation in the rod and its eventual failure",
     "relation": "contributed to",
-    "effect": "is likely that inadequate torque on the nut reduced the preload on the threaded section of the piston rod and",
+    "effect": "it is likely that inadequate torque on the nut reduced the preload on the threaded section of the piston rod and",
     "direction": "backward",
     "method": "t5",
     "sentence": "Based on the evidence, it is likely that inadequate torque on the nut reduced the preload on the threaded section of the piston rod and contributed to premature fatigue crack propagation in the rod and its eventual failure."
@@ -3492,6 +3600,15 @@
     "sentence": "It is likely that the stuck exhaust valve resulted in the partial loss of engine power reported by the flight instructor."
   },
   {
+    "ev_id": "20170207X62252",
+    "cause": "Collective pitch reduction will aid in arresting the yaw rate but may",
+    "relation": "caused",
+    "effect": "an increase in the rate of descent",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "Collective pitch reduction will aid in arresting the yaw rate but may cause an increase in the rate of descent."
+  },
+  {
     "ev_id": "20170216X14824",
     "cause": "The corrosion",
     "relation": "led to",
@@ -3511,7 +3628,7 @@
   },
   {
     "ev_id": "20170221X45637",
-    "cause": "departed the helicopter and struck the right two main rotor blades and the vertical stabilizer, which",
+    "cause": "that the engine cowling had departed the helicopter and struck the right two main rotor blades and the vertical stabilizer, which",
     "relation": "resulted in",
     "effect": "substantial damage",
     "direction": "forward",
@@ -3538,9 +3655,9 @@
   },
   {
     "ev_id": "20170224X81432",
-    "cause": "the unexpected loss of visibility during the initial climb",
+    "cause": "spatial disorientation, likely due to the unexpected loss of visibility during the initial climb",
     "relation": "due to",
-    "effect": "The series of events described by the pilot was consistent with a loss of control due to spatial disorientation, likely",
+    "effect": "The series of events described by the pilot was consistent with a loss of control",
     "direction": "backward",
     "method": "t5",
     "sentence": "The series of events described by the pilot was consistent with a loss of control due to spatial disorientation, likely due to the unexpected loss of visibility during the initial climb."
@@ -3619,7 +3736,7 @@
   },
   {
     "ev_id": "20170228X65345",
-    "cause": "effective translational lift during the turn from a headwind to a tailwind condition and that the pilot failed to compensate for the loss of translational lift, which",
+    "cause": "during the turn from a headwind to a tailwind condition and that the pilot failed to compensate for the loss of translational lift, which",
     "relation": "resulted in",
     "effect": "the uncontrolled descent",
     "direction": "forward",
@@ -3637,7 +3754,7 @@
   },
   {
     "ev_id": "20170306X21712",
-    "cause": "leaks, it is likely that the pilot did not ensure that a sufficient amount of coolant was in the engine reservoir before takeoff, which",
+    "cause": "that the pilot did not ensure that a sufficient amount of coolant was in the engine reservoir before takeoff, which",
     "relation": "resulted in",
     "effect": "the engine getting too hot and the engine control module shutting down the engine as designed",
     "direction": "forward",
@@ -3646,9 +3763,9 @@
   },
   {
     "ev_id": "20170307X03418",
-    "cause": "the associated loss of navigation capability while operating in instrument meteorological conditions (IMC), the pilot set a general course for",
+    "cause": "the associated loss of navigation capability while operating in instrument meteorological conditions (IMC), the pilot set a general course for better",
     "relation": "due to",
-    "effect": "the airplane experienced two \"quick\" electrical power fluctuations in which \"everything went away and then came back,\" and \"[s]econds later",
+    "effect": "two \"quick\" electrical power fluctuations in which \"everything went away and then came back,\" and \"[s]econds later the entire",
     "direction": "backward",
     "method": "t5",
     "sentence": "The air traffic controller informed the pilot of heavy showers near the destination airport, and the pilot \"put the ice vanes down.\" The pilot indicated that, shortly afterward, the airplane experienced two \"quick\" electrical power fluctuations in which \"everything went away and then came back,\" and \"[s]econds later the entire [electrical] system failed.\" Due to the associated loss of navigation capability while operating in instrument meteorological conditions (IMC), the pilot set a general course for better weather conditions based on information from his preflight weather briefing."
@@ -3697,6 +3814,15 @@
     "direction": "backward",
     "method": "t5",
     "sentence": "These instances were initially attributed to either rapid movement of the condition lever or the placement of the continuous ignition switch in the off position."
+  },
+  {
+    "ev_id": "20170308X94158",
+    "cause": "be from a mis-set minimum flow test point of the FCU at manufacturing, the same condition as the accident FCU",
+    "relation": "attributed to",
+    "effect": "Eight subsequent engine flame-out events were eventually",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Eight subsequent engine flame-out events were eventually attributed to be from a mis-set minimum flow test point of the FCU at manufacturing, the same condition as the accident FCU."
   },
   {
     "ev_id": "20170308X60632",
@@ -3753,15 +3879,6 @@
     "sentence": "Based on the evidence, the system should have separated due to tensile loads transmitted to the shear pin at the time the helicopter became tethered then moved away from the tower."
   },
   {
-    "ev_id": "20170322X15507",
-    "cause": "a propeller strike",
-    "relation": "caused",
-    "effect": "The commercial pilot was found lying on the ground under the nose of the airplane with a fatal head injury",
-    "direction": "forward",
-    "method": "t5",
-    "sentence": "The commercial pilot was found lying on the ground under the nose of the airplane with a fatal head injury from a propeller strike."
-  },
-  {
     "ev_id": "20170330X15034",
     "cause": "the accident",
     "relation": "contributed to",
@@ -3781,9 +3898,9 @@
   },
   {
     "ev_id": "20170401X94926",
-    "cause": "the position of the sun, the flight leader decided to change to a left echelon formation, which would position the airplanes diagonally to his left, with",
+    "cause": "the position of the sun, the flight leader decided to change to a left echelon formation, which would position the airplanes diagonally to his left",
     "relation": "due to",
-    "effect": "Due to the position of the sun, the flight leader decided to change to a left echelon formation,",
+    "effect": "Due to the position of the sun, the flight leader decided to change to a left echelon formation, which would",
     "direction": "backward",
     "method": "t5",
     "sentence": "Due to the position of the sun, the flight leader decided to change to a left echelon formation, which would position the airplanes diagonally to his left, with each airplane stacked slightly lower than (stepped down), behind, and to the left of the airplane ahead."
@@ -3808,9 +3925,9 @@
   },
   {
     "ev_id": "20170401X94926",
-    "cause": "the position of the sun, the flight leader decided to change to a left echelon formation, which would position the airplanes diagonally to his left, with",
+    "cause": "the position of the sun, the flight leader decided to change to a left echelon formation, which would position the airplanes diagonally to his left",
     "relation": "due to",
-    "effect": "Due to the position of the sun, the flight leader decided to change to a left echelon formation,",
+    "effect": "Due to the position of the sun, the flight leader decided to change to a left echelon formation, which would",
     "direction": "backward",
     "method": "t5",
     "sentence": "Due to the position of the sun, the flight leader decided to change to a left echelon formation, which would position the airplanes diagonally to his left, with each airplane stacked slightly lower than (stepped down), behind, and to the left of the airplane ahead."
@@ -3862,7 +3979,7 @@
   },
   {
     "ev_id": "20170416X54153",
-    "cause": "near the airplane's published power-on stall speed of 46 knots; however, the gusting wind conditions likely",
+    "cause": "the airplane's published power-on stall speed of 46 knots; however, the gusting wind conditions likely",
     "relation": "resulted in",
     "effect": "a further decrease of the airplane's airspeed and increase of its angle-of-attack",
     "direction": "forward",
@@ -3898,7 +4015,7 @@
   },
   {
     "ev_id": "20170502X90416",
-    "cause": "the strong crosswind, and during the subsequent approach, he landed in the grass next to the asphalt runway to touch down with",
+    "cause": "the strong crosswind, and during the subsequent approach, he landed in the grass next to the asphalt runway to touch down",
     "relation": "due to",
     "effect": "He added that, on his first attempt to land on the asphalt runway, he conducted a go-around",
     "direction": "backward",
@@ -3916,7 +4033,7 @@
   },
   {
     "ev_id": "20170420X55710",
-    "cause": "a partial vacuum in the turbo inlet and prevented the turbo from supplying the correct air inlet pressure to the engine, thus",
+    "cause": "a partial vacuum in the turbo inlet and prevented the turbo from supplying the correct air inlet pressure to the engine, thus reducing",
     "relation": "due to",
     "effect": "The loss of engine power was likely",
     "direction": "backward",
@@ -3954,7 +4071,7 @@
     "ev_id": "20170512X42326",
     "cause": "the accident",
     "relation": "contributed to",
-    "effect": "may have affected his aeronautical decision-making and increased his susceptibility to spatial disorientation, it could not be determined whether effects from these drugs",
+    "effect": "increased his susceptibility to spatial disorientation, it could not be determined whether effects from these drugs",
     "direction": "backward",
     "method": "t5",
     "sentence": "Although the pilot was using two medications (imipramine and doxylamine) that may have affected his aeronautical decision-making and increased his susceptibility to spatial disorientation, it could not be determined whether effects from these drugs contributed to the accident."
@@ -3970,9 +4087,9 @@
   },
   {
     "ev_id": "20170517X04530",
-    "cause": "4 exhaust valve stem was fractured about halfway along its length, and the fracture surface was consistent with reverse bending fatigue crack propagation, which typically",
+    "cause": "a stuck valve",
     "relation": "caused",
-    "effect": "from a stuck valve",
+    "effect": "4 exhaust valve stem was fractured about halfway along its length, and the fracture surface was consistent with reverse bending fatigue crack propagation, which typically",
     "direction": "forward",
     "method": "t5",
     "sentence": "4 exhaust valve stem was fractured about halfway along its length, and the fracture surface was consistent with reverse bending fatigue crack propagation, which typically results from a stuck valve."
@@ -4050,6 +4167,15 @@
     "sentence": "The rubber filings were likely due to the loose fit of the belt on the pulley during engine operation."
   },
   {
+    "ev_id": "20170527X93038",
+    "cause": "a modification to the cowling, it did not permit a visual examination of the front side of the engine and the alternator belts during",
+    "relation": "due to",
+    "effect": "Due to a modification to the cowling, it did not permit a visual examination of the front side of the engine and the alternator",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to a modification to the cowling, it did not permit a visual examination of the front side of the engine and the alternator belts during a preflight walk-around inspection unless the upper cowling was removed."
+  },
+  {
     "ev_id": "20170527X13544",
     "cause": "It could not be determined whether there was any communication or coordination between the student and the instructor that",
     "relation": "resulted in",
@@ -4123,7 +4249,7 @@
   },
   {
     "ev_id": "20170606X02315",
-    "cause": "He added that \"the [airplane] was stalling and so [he] moved the flaps to 0 degrees, which",
+    "cause": "added that \"the [airplane] was stalling and so [he] moved the flaps to 0 degrees, which",
     "relation": "caused",
     "effect": "the plane to continue to stall.\" Subsequently, the airplane impacted the ground",
     "direction": "forward",
@@ -4168,9 +4294,9 @@
   },
   {
     "ev_id": "20170620X21734",
-    "cause": "pilot's decision to not abort the takeoff at the first sign of a loss of engine power",
+    "cause": "pilot's decision to not abort the takeoff at the first sign of a loss of engine power resulted in a slow airspeed during the initial climb during a turn, which",
     "relation": "resulted in",
-    "effect": "a slow airspeed during the initial climb during a turn, which resulted in the aerodynamic stall",
+    "effect": "the aerodynamic stall",
     "direction": "forward",
     "method": "t5",
     "sentence": "The pilot's decision to not abort the takeoff at the first sign of a loss of engine power resulted in a slow airspeed during the initial climb during a turn, which resulted in the aerodynamic stall."
@@ -4240,9 +4366,9 @@
   },
   {
     "ev_id": "20170624X85327",
-    "cause": "fatigue and resulted in the pilots' inability to control the engine power",
+    "cause": "Therefore, the throttle control cable likely failed due to fatigue and",
     "relation": "resulted in",
-    "effect": "Therefore, the throttle control cable likely failed",
+    "effect": "the pilots' inability to control the engine power",
     "direction": "forward",
     "method": "t5",
     "sentence": "Therefore, the throttle control cable likely failed due to fatigue and resulted in the pilots' inability to control the engine power."
@@ -4251,7 +4377,7 @@
     "ev_id": "20170624X85327",
     "cause": "fatigue and the subsequent inability of the pilots to control the engine power",
     "relation": "led to",
-    "effect": "Given the evidence, maintenance personnel likely failed to replace the throttle control cable at the last engine overhaul, which led to the cable fracturing in flight",
+    "effect": "maintenance personnel likely failed to replace the throttle control cable at the last engine overhaul, which led to the cable fracturing in flight",
     "direction": "forward",
     "method": "t5",
     "sentence": "Given the evidence, maintenance personnel likely failed to replace the throttle control cable at the last engine overhaul, which led to the cable fracturing in flight due to fatigue and the subsequent inability of the pilots to control the engine power."
@@ -4278,7 +4404,7 @@
     "ev_id": "20170710X41152",
     "cause": "a broken fuel truck",
     "relation": "because of",
-    "effect": "helicopter pilot reported that he was performing an agricultural application flight and was in a hurry to spray the field because of a previous 3-hour delay",
+    "effect": "The helicopter pilot reported that he was performing an agricultural application flight and was in a hurry to spray the field because of a previous 3-hour delay",
     "direction": "backward",
     "method": "t5",
     "sentence": "Please see the docket for this accident to view the original report.*** The helicopter pilot reported that he was performing an agricultural application flight and was in a hurry to spray the field because of a previous 3-hour delay caused by a broken fuel truck."
@@ -4302,8 +4428,17 @@
     "sentence": "Pilot flight control inputs demanding more power than the engine is capable of producing, with respect to the atmospheric conditions, adversely affects the helicopter's ability to sustain its altitude."
   },
   {
+    "ev_id": "20170710X41152",
+    "cause": "to sustain airspeed and altitude at high DA [descent altitude], the main rotor blades will exceed their critical angle of attack, consequently decreasing main rotor blade RPM.\" The pilot reported that there",
+    "relation": "caused",
+    "effect": "When the engine fails to produce the required power to sustain",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "When the engine fails to produce the required power to sustain airspeed and altitude at high DA [descent altitude], the main rotor blades will exceed their critical angle of attack, consequently decreasing main rotor blade RPM.\" The pilot reported that there were no preaccident mechanical malfunctions or failures with the helicopter that would have precluded normal operation."
+  },
+  {
     "ev_id": "20170714X41237",
-    "cause": "of the single-engine airplane reported that, during landing to the southeast, a wind gust contacted the airplane's tail from the left side, which",
+    "cause": "airplane reported that, during landing to the southeast, a wind gust contacted the airplane's tail from the left side, which",
     "relation": "caused",
     "effect": "the airplane to veer left",
     "direction": "forward",
@@ -4330,7 +4465,7 @@
   },
   {
     "ev_id": "20170725X64628",
-    "cause": "to properly configure the hydraulic switch, and his subsequent failure to recognize the error during his before-landing check",
+    "cause": "failure to properly configure the hydraulic switch, and his subsequent failure to recognize the error during his before-landing check",
     "relation": "resulted in",
     "effect": "inadequate hydraulic pressure to extend and lock the landing gear",
     "direction": "forward",
@@ -4402,16 +4537,16 @@
   },
   {
     "ev_id": "20170803X93923",
-    "cause": "The partial loss of engine power",
+    "cause": "The partial loss of engine power resulted in reduced airplane performance and the pilot's inability to maintain adequate airspeed, which then",
     "relation": "resulted in",
-    "effect": "reduced airplane performance and the pilot's inability to maintain adequate airspeed, which then resulted in an exceedance of the airplane's critical angle-of-attack and a subsequent aerodynamic stall",
+    "effect": "an exceedance of the airplane's critical angle-of-attack and a subsequent aerodynamic stall",
     "direction": "forward",
     "method": "t5",
     "sentence": "The partial loss of engine power resulted in reduced airplane performance and the pilot's inability to maintain adequate airspeed, which then resulted in an exceedance of the airplane's critical angle-of-attack and a subsequent aerodynamic stall."
   },
   {
     "ev_id": "20170810X14916",
-    "cause": "significant erosion at the bottom of the airfoil pressure side; however, the exact location of the fatigue origin could not be determined because it",
+    "cause": "significant erosion at the bottom of the airfoil pressure side; however, the exact location of the fatigue origin could not be determined because",
     "relation": "due to",
     "effect": "The fatigue crack originated from a thinned leading edge",
     "direction": "backward",
@@ -4422,23 +4557,23 @@
     "ev_id": "20170810X14916",
     "cause": "the type of operation",
     "relation": "due to",
-    "effect": "time between overhaul (TBO) was 3,000 hours; however, the operator was not required to comply with the recommended TBO interval under current regulations",
+    "effect": "between overhaul (TBO) was 3,000 hours; however, the operator was not required to comply with the recommended TBO interval under current regulations",
     "direction": "backward",
     "method": "t5",
     "sentence": "The engine manufacturer’s recommended time between overhaul (TBO) was 3,000 hours; however, the operator was not required to comply with the recommended TBO interval under current regulations due to the type of operation."
   },
   {
     "ev_id": "20170813X45713",
-    "cause": "the unnecessary tightness of the turn and the steep bank angle that was required to prevent overshooting the runway, the airplane’s critical angle of attack was exceeded",
+    "cause": "the unnecessary tightness of the turn and the steep bank angle that was required to prevent overshooting the runway, the airplane’s critical angle of attack was exceeded, resulting in an",
     "relation": "because of",
-    "effect": "an accelerated stall (which has load factors above 1 G and a stall speed higher than the airplane’s",
+    "effect": "an accelerated stall (which has load factors above 1 G and a stall speed higher",
     "direction": "backward",
     "method": "t5",
     "sentence": "Because of the unnecessary tightness of the turn and the steep bank angle that was required to prevent overshooting the runway, the airplane’s critical angle of attack was exceeded, resulting in an accelerated stall (which has load factors above 1 G and a stall speed higher than the airplane’s 1-G stall speed) and a subsequent loss of control of the airplane."
   },
   {
     "ev_id": "20170813X83417",
-    "cause": "that when the crankshaft was replaced, maintenance personnel did not use the most recent manuals and installed a crankshaft gear for a different engine, which",
+    "cause": "replaced, maintenance personnel did not use the most recent manuals and installed a crankshaft gear for a different engine, which",
     "relation": "led to",
     "effect": "the crankshaft gear's failure and the subsequent loss of all engine power",
     "direction": "forward",
@@ -4456,6 +4591,15 @@
   },
   {
     "ev_id": "20170815X10948",
+    "cause": "stuck exhaust valves include excessive engine temperature, dirty or contaminated engine oil, high lead content fuels, hot engine shut-downs, and poor",
+    "relation": "caused",
+    "effect": "Factors leading to stuck exhaust valves include excessive engine temperature, dirty or contaminated engine oil",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "Factors leading to stuck exhaust valves include excessive engine temperature, dirty or contaminated engine oil, high lead content fuels, hot engine shut-downs, and poor engine baffling."
+  },
+  {
+    "ev_id": "20170815X10948",
     "cause": "The investigation was unable to determine the exact combination of elements that",
     "relation": "led to",
     "effect": "the stuck valve",
@@ -4467,7 +4611,7 @@
     "ev_id": "20170815X10948",
     "cause": "the stuck valve",
     "relation": "contributed to",
-    "effect": "in 1968, and it is likely that the extended 49-year interval",
+    "effect": "records, the most recent engine overhaul was completed in 1968, and it is likely that the extended 49-year interval",
     "direction": "backward",
     "method": "t5",
     "sentence": "However, based on the available maintenance records, the most recent engine overhaul was completed in 1968, and it is likely that the extended 49-year interval contributed to the stuck valve."
@@ -4483,7 +4627,7 @@
   },
   {
     "ev_id": "20170813X81509",
-    "cause": "the relative size (small) of control surfaces (rudder, ailerons",
+    "cause": "the relative size (small) of control surfaces (rudder, ailerons)",
     "relation": "because of",
     "effect": "These movements have to be countered immediately",
     "direction": "backward",
@@ -4492,9 +4636,9 @@
   },
   {
     "ev_id": "20170820X80743",
-    "cause": "an aerodynamic interaction between the main rotor and tail rotor and not caused from a mechanical failure",
+    "cause": "a mechanical failure",
     "relation": "caused by",
-    "effect": "It is very important for pilots to understand that LTE is",
+    "effect": "for pilots to understand that LTE is caused by an aerodynamic interaction between the main rotor and tail rotor and not",
     "direction": "backward",
     "method": "t5",
     "sentence": "It is very important for pilots to understand that LTE is caused by an aerodynamic interaction between the main rotor and tail rotor and not caused from a mechanical failure."
@@ -4528,7 +4672,7 @@
   },
   {
     "ev_id": "20170821X00956",
-    "cause": "examination of the right brake revealed no fluid in the reservoir and a leak at the slave cylinder, which likely",
+    "cause": "Examination of the right brake revealed no fluid in the reservoir and a leak at the slave cylinder, which likely",
     "relation": "resulted in",
     "effect": "the asymmetric braking and ground loop",
     "direction": "forward",
@@ -4573,7 +4717,7 @@
   },
   {
     "ev_id": "20170824X33853",
-    "cause": "the interference of circumferential gouges and ridges on the left brake master cylinder piston rod and bushing, which likely resulted from normal operation",
+    "cause": "the interference of circumferential gouges and ridges on the left brake master cylinder piston rod and bushing, which likely resulted from normal operation of the parking brake",
     "relation": "due to",
     "effect": "Postaccident testing revealed that the left brake became stuck multiple times",
     "direction": "backward",
@@ -4620,14 +4764,14 @@
     "ev_id": "20170911X42141",
     "cause": "Wing tip damage as a result of hangar rash could have",
     "relation": "as a result of",
-    "effect": "residual tension in the aileron tube and precipitated the low-stress fatigue fracture; however, the severity of previous damage to the wing tip",
+    "effect": "residual tension in the aileron tube and precipitated the low-stress fatigue fracture; however, the severity of previous damage to the",
     "direction": "backward",
     "method": "t5",
     "sentence": "Wing tip damage as a result of hangar rash could have resulted in residual tension in the aileron tube and precipitated the low-stress fatigue fracture; however, the severity of previous damage to the wing tip and whether the aileron was affected could not be determined."
   },
   {
     "ev_id": "20170906X25126",
-    "cause": "landing, with the airplane about 10 ft above the runway surface, the airplane experienced a loss of lift and landed hard, which",
+    "cause": "about 10 ft above the runway surface, the airplane experienced a loss of lift and landed hard, which",
     "relation": "resulted in",
     "effect": "damage to the right wing spar",
     "direction": "forward",
@@ -4728,7 +4872,7 @@
     "ev_id": "20171022X22246",
     "cause": "the combination of the large smooth tire, wet grass, and downslope",
     "relation": "due to",
-    "effect": "turn the airplane in the direction of the departure and then departed after a \"very short ground roll downhill.\" He further added that, by immediately turning left during the takeoff roll, he \"may",
+    "effect": "airplane in the direction of the departure and then departed after a \"very short ground roll downhill.\" He further added that, by immediately turning left during the takeoff roll, he \"may not have",
     "direction": "backward",
     "method": "t5",
     "sentence": "After re-entering the airplane, he only did a \"visual left to right flow check.\" He then pressed and released the brakes and applied power holding the left rudder and brake down to turn the airplane in the direction of the departure and then departed after a \"very short ground roll downhill.\" He further added that, by immediately turning left during the takeoff roll, he \"may not have released enough pressure on the parking brake to turn it completely off.\" He believed that, due to the combination of the large smooth tire, wet grass, and downslope hill, he was unable to determine that the emergency parking brake was engaged."
@@ -4762,7 +4906,7 @@
   },
   {
     "ev_id": "20171128X72916",
-    "cause": "fire near the propeller area and the smell of smoke in the cockpit, the instructor turned the airplane 360° to try to lose altitude; however",
+    "cause": "fire near the propeller area and the smell of smoke in the cockpit, the instructor turned the airplane 360° to try to lose altitude; however, the airplane",
     "relation": "due to",
     "effect": "During short final",
     "direction": "backward",
@@ -4780,7 +4924,7 @@
   },
   {
     "ev_id": "20171128X72916",
-    "cause": "a fatigue crack that had initiated at a lubrication hole on the main bearing journal and then progressed in an outward spiral",
+    "cause": "a fatigue crack that had initiated at a lubrication hole on the main bearing journal and then progressed in an outward spiral direction toward",
     "relation": "due to",
     "effect": "Based on the evidence, it is likely that the crankshaft fractured",
     "direction": "backward",
@@ -4798,7 +4942,7 @@
   },
   {
     "ev_id": "20171129X73821",
-    "cause": "landing roll at the first en route airport, the airplane veered to the left, so he had to unexpectedly apply the brakes, which",
+    "cause": "roll at the first en route airport, the airplane veered to the left, so he had to unexpectedly apply the brakes, which",
     "relation": "resulted in",
     "effect": "a nose-over",
     "direction": "forward",
@@ -4816,7 +4960,7 @@
   },
   {
     "ev_id": "20171202X11405",
-    "cause": "full power to attempt to abort the landing, but the airplane went down an embankment before it came to rest, which",
+    "cause": "applied full power to attempt to abort the landing, but the airplane went down an embankment before it came to rest, which",
     "relation": "resulted in",
     "effect": "substantial damage to the right wing, right horizontal stabilizer, right elevator, and fuselage",
     "direction": "forward",
@@ -4834,7 +4978,7 @@
   },
   {
     "ev_id": "20171203X55850",
-    "cause": "The airplane's left wing then dipped down and dragged on the runway surface for about 20 to 30 ft before the airplane nosed over, which",
+    "cause": "left wing then dipped down and dragged on the runway surface for about 20 to 30 ft before the airplane nosed over, which",
     "relation": "resulted in",
     "effect": "substantial damage to the firewall and an engine mount",
     "direction": "forward",
@@ -4863,7 +5007,7 @@
     "ev_id": "20171206X00953",
     "cause": "overstress following the runway excursion and impact with a sign",
     "relation": "due to",
-    "effect": "surface exhibited signatures consistent with overstress failure; therefore, it is likely that the gear fractured",
+    "effect": "of fatigue, the majority of the fracture surface exhibited signatures consistent with overstress failure; therefore, it is likely that the gear fractured",
     "direction": "backward",
     "method": "t5",
     "sentence": "Although examination of the left main landing gear revealed a small area of fatigue, the majority of the fracture surface exhibited signatures consistent with overstress failure; therefore, it is likely that the gear fractured due to overstress following the runway excursion and impact with a sign."
@@ -4879,7 +5023,7 @@
   },
   {
     "ev_id": "20171217X61759",
-    "cause": "oil exhaustion after the oil pressure gauge line had failed, causing most of the engine oil to be",
+    "cause": "oil exhaustion after the oil pressure gauge line had failed, causing most of the engine oil to be expelled overboard with",
     "relation": "due to",
     "effect": "Postaccident examination revealed that the engine had seized",
     "direction": "backward",
@@ -4897,7 +5041,7 @@
   },
   {
     "ev_id": "20171216X44947",
-    "cause": "is likely that the mixture linkage became loose and the mixture control arm vibrated to the lean direction, which",
+    "cause": "the mixture linkage became loose and the mixture control arm vibrated to the lean direction, which",
     "relation": "resulted in",
     "effect": "the mixture being too lean and the engine losing total power",
     "direction": "forward",
@@ -4980,7 +5124,7 @@
     "ev_id": "20180110X40647",
     "cause": "the wind as they approached the helipad",
     "relation": "caused",
-    "effect": "The medical crewmembers reported they felt a slight \"shudder\" on the helicopter but attributed it",
+    "effect": "The medical crewmembers reported they felt a slight \"shudder\" on the helicopter but",
     "direction": "forward",
     "method": "t5",
     "sentence": "The medical crewmembers reported they felt a slight \"shudder\" on the helicopter but attributed it to the wind as they approached the helipad."
@@ -5061,10 +5205,19 @@
     "ev_id": "20180210X14603",
     "cause": "Conceptual display of demarcation lines at accident site The proximity of other pilots and passengers who witnessed the accident",
     "relation": "resulted in",
-    "effect": "an immediate response to aid the occupants of the helicopter; however, the remote location of the accident site and communication difficulties between on-scene and outside resources",
+    "effect": "an immediate response to aid the occupants of the helicopter; however, the remote location of the accident site and communication difficulties between on-scene and outside resources made rescue coordination challenging",
     "direction": "forward",
     "method": "t5",
     "sentence": "Conceptual display of demarcation lines at accident site The proximity of other pilots and passengers who witnessed the accident resulted in an immediate response to aid the occupants of the helicopter; however, the remote location of the accident site and communication difficulties between on-scene and outside resources made rescue coordination challenging and victim transport by helicopter to the hospital did not begin until about 6 hours after the accident."
+  },
+  {
+    "ev_id": "20180210X14603",
+    "cause": "a lack of data regarding the crash dynamics and impact forces, the effectiveness of such a system, if installed",
+    "relation": "due to",
+    "effect": "Due to a lack of data regarding the crash dynamics and impact forces",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to a lack of data regarding the crash dynamics and impact forces, the effectiveness of such a system, if installed, in delaying the onset of a postcrash fire could not be determined."
   },
   {
     "ev_id": "20180211X53503",
@@ -5113,6 +5266,15 @@
   },
   {
     "ev_id": "20180220X20935",
+    "cause": "the opposite direction departing airport traffic, the pilot chose to conduct a straight-in approach instead of",
+    "relation": "due to",
+    "effect": "Due to the opposite direction departing airport traffic",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to the opposite direction departing airport traffic, the pilot chose to conduct a straight-in approach instead of a 360° turn to lose altitude."
+  },
+  {
+    "ev_id": "20180220X20935",
     "cause": "he did not ensure sufficient fuel was onboard for the flight and that he did not adequately monitor the fuel in flight, which",
     "relation": "led to",
     "effect": "fuel exhaustion and a subsequent total loss of engine power",
@@ -5131,9 +5293,9 @@
   },
   {
     "ev_id": "20180223X55649",
-    "cause": "preflight fuel planning was inadequate because he did not ensure that sufficient fuel was onboard for the flight, which",
+    "cause": "fuel exhaustion",
     "relation": "resulted in",
-    "effect": "a total loss of engine power due to fuel exhaustion",
+    "effect": "inadequate because he did not ensure that sufficient fuel was onboard for the flight, which resulted in a total loss of engine power",
     "direction": "forward",
     "method": "t5",
     "sentence": "Therefore, it is likely that the pilot’s preflight fuel planning was inadequate because he did not ensure that sufficient fuel was onboard for the flight, which resulted in a total loss of engine power due to fuel exhaustion."
@@ -5167,7 +5329,7 @@
   },
   {
     "ev_id": "20180228X30115",
-    "cause": "he \"just ran out of fuel.\" Unable to make it back to the loading area, he landed in a grove of trees, which",
+    "cause": "Unable to make it back to the loading area, he landed in a grove of trees, which",
     "relation": "resulted in",
     "effect": "substantial damage to the fuselage",
     "direction": "forward",
@@ -5205,7 +5367,7 @@
     "ev_id": "20180308X30039",
     "cause": "damage to the engine",
     "relation": "due to",
-    "effect": "likely the result of an oil leak which allowed oil to reach the hot exterior surfaces of the engine; however, this could not be verified",
+    "effect": "an oil leak which allowed oil to reach the hot exterior surfaces of the engine; however, this could not be verified",
     "direction": "backward",
     "method": "t5",
     "sentence": "The white smoke observed from the left side of the airplane was likely the result of an oil leak which allowed oil to reach the hot exterior surfaces of the engine; however, this could not be verified due to damage to the engine."
@@ -5218,6 +5380,15 @@
     "direction": "forward",
     "method": "t5",
     "sentence": "The increased left banked turn, the right engine operating at a high-power setting, and the airplane's increased drag likely decreased the airplane airspeed below the airplane's minimum controllable airspeed (Vmc), which resulted in a loss of control."
+  },
+  {
+    "ev_id": "20180312X51243",
+    "cause": "When an engine experiences vapor lock, air enters the fuel flow sensor and",
+    "relation": "caused",
+    "effect": "the unit to spin at a higher rate than if only fuel was passing through, and it is often represented as spikes in fuel flow",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "When an engine experiences vapor lock, air enters the fuel flow sensor and causes the unit to spin at a higher rate than if only fuel was passing through, and it is often represented as spikes in fuel flow."
   },
   {
     "ev_id": "20180312X51243",
@@ -5239,7 +5410,7 @@
   },
   {
     "ev_id": "20180316X23843",
-    "cause": "Had the selector been inadvertently set in this position by the S20 flight crew during their flight, it would have",
+    "cause": "had the selector been inadvertently set in this position by the S20 flight crew during their flight, it would have",
     "relation": "resulted in",
     "effect": "their traffic pattern position reports not being broadcast over the CTAF",
     "direction": "forward",
@@ -5250,14 +5421,14 @@
     "ev_id": "20180316X23843",
     "cause": "the accident",
     "relation": "contributed to",
-    "effect": "of transmissions at the accident airport, it could not be determined whether the clarity or lack of transmissions from either flight crew",
+    "effect": "audio recording of transmissions at the accident airport, it could not be determined whether the clarity or lack of transmissions from either flight crew",
     "direction": "backward",
     "method": "t5",
     "sentence": "Because there was no audio recording of transmissions at the accident airport, it could not be determined whether the clarity or lack of transmissions from either flight crew contributed to the accident."
   },
   {
     "ev_id": "20180316X23843",
-    "cause": "Had the selector been inadvertently set in this position by the S20 flight crew during their flight, it would have",
+    "cause": "had the selector been inadvertently set in this position by the S20 flight crew during their flight, it would have",
     "relation": "resulted in",
     "effect": "their traffic pattern position reports not being broadcast over the CTAF",
     "direction": "forward",
@@ -5268,7 +5439,7 @@
     "ev_id": "20180316X23843",
     "cause": "the accident",
     "relation": "contributed to",
-    "effect": "of transmissions at the accident airport, it could not be determined whether the clarity or lack of transmissions from either flight crew",
+    "effect": "audio recording of transmissions at the accident airport, it could not be determined whether the clarity or lack of transmissions from either flight crew",
     "direction": "backward",
     "method": "t5",
     "sentence": "Because there was no audio recording of transmissions at the accident airport, it could not be determined whether the clarity or lack of transmissions from either flight crew contributed to the accident."
@@ -5284,7 +5455,7 @@
   },
   {
     "ev_id": "20180323X80643",
-    "cause": "standing water and mud; thus, the approach for landing would have necessitated a low-speed, low-altitude approach with low engine power to",
+    "cause": "standing water and mud; thus, the approach for landing would have necessitated a low-speed, low-altitude approach with low engine power to minimize",
     "relation": "due to",
     "effect": "The runway's usable length was limited",
     "direction": "backward",
@@ -5295,7 +5466,7 @@
     "ev_id": "20180323X80643",
     "cause": "this accident could not be determined",
     "relation": "contributed to",
-    "effect": "Although the pilot's severe heart disease placed him at increased risk for an acute cardiac event, whether or not simptome from such an event",
+    "effect": "Although the pilot's severe heart disease placed him at increased risk for an acute cardiac event, whether or not symptoms from such an event",
     "direction": "backward",
     "method": "t5",
     "sentence": "Although the pilot's severe heart disease placed him at increased risk for an acute cardiac event, whether or not symptoms from such an event contributed to this accident could not be determined."
@@ -5320,9 +5491,9 @@
   },
   {
     "ev_id": "20180404X13226",
-    "cause": "pilot operation that would be expected to precipitate cracking",
+    "cause": "Interviews with flight instructors did not yield any safety of flight issues or critical airframe or loading exceedances",
     "relation": "caused by",
-    "effect": "Interviews with flight instructors did not yield any safety of flight issues or critical airframe or loading exceedances",
+    "effect": "by pilot operation that would be expected to precipitate cracking",
     "direction": "backward",
     "method": "t5",
     "sentence": "Interviews with flight instructors did not yield any safety of flight issues or critical airframe or loading exceedances caused by pilot operation that would be expected to precipitate cracking."
@@ -5338,16 +5509,16 @@
   },
   {
     "ev_id": "20180404X13226",
-    "cause": "the differences between normal usage (as analyzed after the pipeline patrol accident that prompted the SB) and the actual flight training usage experienced by the",
+    "cause": "the differences between normal usage (as analyzed after the pipeline patrol accident that prompted the SB) and the actual flight training usage experienced by the accident airplane",
     "relation": "caused",
-    "effect": "N106ER and N104ER, the disparity between the failure time of the accident wing spar and the inspection threshold time in the SB",
+    "effect": "N106ER and N104ER, the disparity between the failure time of the accident wing spar and the inspection threshold time in",
     "direction": "forward",
     "method": "t5",
     "sentence": "Considering the absence of anomalies in materials or construction of the examined wing spars from N106ER and N104ER, the disparity between the failure time of the accident wing spar and the inspection threshold time in the SB likely derives from the differences between normal usage (as analyzed after the pipeline patrol accident that prompted the SB) and the actual flight training usage experienced by the accident airplane."
   },
   {
     "ev_id": "20180404X13226",
-    "cause": "flight training maneuvers, significant operation at low altitudes, and frequent landing cycles, the accident airplane (and its sister airplane in the operator's fleet) likely experienced landing",
+    "cause": "flight training maneuvers, significant operation at low altitudes, and frequent landing cycles, the accident airplane (and its sister airplane in the operator's fleet) likely experienced landing, gust, and",
     "relation": "due to",
     "effect": "The NTSB concludes that",
     "direction": "backward",
@@ -5367,7 +5538,7 @@
     "ev_id": "20180404X13226",
     "cause": "loads associated with a more severe training environment",
     "relation": "due to",
-    "effect": "crack initiation times, the absence of detected cracks in airplanes with more cycles and/or hours than N106ER and 104ER does not eliminate the risk of fatigue cracking",
+    "effect": "cracks in airplanes with more cycles and/or hours than N106ER and 104ER does not eliminate the risk of fatigue cracking",
     "direction": "backward",
     "method": "t5",
     "sentence": "However, due to the limited sample size and the expected variability in fatigue crack initiation times, the absence of detected cracks in airplanes with more cycles and/or hours than N106ER and 104ER does not eliminate the risk of fatigue cracking due to loads associated with a more severe training environment."
@@ -5392,9 +5563,9 @@
   },
   {
     "ev_id": "20180418X54541",
-    "cause": "fuel starvation",
+    "cause": "It is likely that the pilot's mismanagement of the fuel during the flight",
     "relation": "resulted in",
-    "effect": "It is likely that the pilot's mismanagement of the fuel during the flight resulted in a total loss of engine power",
+    "effect": "a total loss of engine power due to fuel starvation",
     "direction": "forward",
     "method": "t5",
     "sentence": "It is likely that the pilot's mismanagement of the fuel during the flight resulted in a total loss of engine power due to fuel starvation."
@@ -5412,7 +5583,7 @@
     "ev_id": "20180425X62048",
     "cause": "the loss of control",
     "relation": "contributed to",
-    "effect": "pedal, and it is likely that the pilot inadvertently depressed the pedal during the landing sequence, which resulted in the acceleration he experienced after touchdown and",
+    "effect": "the pilot inadvertently depressed the pedal during the landing sequence, which resulted in the acceleration he experienced after touchdown and",
     "direction": "backward",
     "method": "t5",
     "sentence": "The engine throttle was controlled via a foot pedal, and it is likely that the pilot inadvertently depressed the pedal during the landing sequence, which resulted in the acceleration he experienced after touchdown and contributed to the loss of control."
@@ -5446,9 +5617,9 @@
   },
   {
     "ev_id": "20180510X20823",
-    "cause": "wheel assembly \"folded under the end of the gear leg and then separated.\" The airplane manufacturer examined the wheel assembly and reported that \"an extreme sideload on the right tire",
+    "cause": "wheel assembly and reported that \"an extreme sideload on the right tire caused the subsequent cascading failure of the right wheel and brake assembly,\" which likely",
     "relation": "caused",
-    "effect": "the subsequent cascading failure of the right wheel and brake assembly,\" which likely resulted from the ground",
+    "effect": "from the ground loop",
     "direction": "forward",
     "method": "t5",
     "sentence": "The Federal Aviation Administration aviation safety inspector who examined the airplane after the accident determined that the right MLG wheel assembly \"folded under the end of the gear leg and then separated.\" The airplane manufacturer examined the wheel assembly and reported that \"an extreme sideload on the right tire caused the subsequent cascading failure of the right wheel and brake assembly,\" which likely resulted from the ground loop."
@@ -5461,6 +5632,15 @@
     "direction": "forward",
     "method": "t5",
     "sentence": "A review of recorded weather information showed winds consistently from 220° at 23 to 32 knots, which would have resulted in a crosswind component of between 2 and 6 knots."
+  },
+  {
+    "ev_id": "20180522X93713",
+    "cause": "impact and fire damage, the investigation could not determine whether the standby vacuum system was activated by the pilot",
+    "relation": "due to",
+    "effect": "Due to impact and fire damage",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to impact and fire damage, the investigation could not determine whether the standby vacuum system was activated by the pilot."
   },
   {
     "ev_id": "20180522X93713",
@@ -5518,7 +5698,7 @@
   },
   {
     "ev_id": "20180527X02344",
-    "cause": "pilot's decision to turn back toward the runway at low altitude and his subsequent exceedance of the airplane's critical angle of attack during the turn",
+    "cause": "to turn back toward the runway at low altitude and his subsequent exceedance of the airplane's critical angle of attack during the turn",
     "relation": "resulted in",
     "effect": "an aerodynamic stall/spin and a loss of control",
     "direction": "forward",
@@ -5545,7 +5725,7 @@
   },
   {
     "ev_id": "20180530X05847",
-    "cause": "Although aware of the tower, the pilot did not maintain sufficient clearance from the guy wires while spraying the field, which",
+    "cause": "tower, the pilot did not maintain sufficient clearance from the guy wires while spraying the field, which",
     "relation": "resulted in",
     "effect": "the in-flight collision with the wires",
     "direction": "forward",
@@ -5671,7 +5851,7 @@
   },
   {
     "ev_id": "20180611X23949",
-    "cause": "the accident by reducing his ability to judge the airplane's acceleration with respect to the runway distance remaining and abort the takeoff in",
+    "cause": "the accident by reducing his ability to judge the airplane's acceleration with respect to the runway distance remaining and abort",
     "relation": "contributed to",
     "effect": "The pilot's failure to activate the runway lighting system before takeoff likely",
     "direction": "backward",
@@ -5682,7 +5862,7 @@
     "ev_id": "20180622X01934",
     "cause": "the low altitude",
     "relation": "because of",
-    "effect": "with 40° of flaps, the airplane was unable to attain the normal climb speed and entered a stall/mush from which the pilot could not recover",
+    "effect": "the airplane was unable to attain the normal climb speed and entered a stall/mush from which the pilot could not recover",
     "direction": "backward",
     "method": "t5",
     "sentence": "According to the manufacturer's owner's manual, \"flap settings of 30° to 40° are not recommended at any time for take-off.\" Thus, because the pilot took off with 40° of flaps, the airplane was unable to attain the normal climb speed and entered a stall/mush from which the pilot could not recover because of the low altitude."
@@ -5725,7 +5905,7 @@
   },
   {
     "ev_id": "20180706X04105",
-    "cause": "the fracture of threads on the two bolts that were weakened by thread damage from a prior installation using those bolts as discussed below",
+    "cause": "the fracture of threads on the two bolts that were weakened by thread damage from a prior installation using those bolts",
     "relation": "due to",
     "effect": "The fractures likely occurred",
     "direction": "backward",
@@ -5752,9 +5932,9 @@
   },
   {
     "ev_id": "20180706X04105",
-    "cause": "the weakened bolt threads as a result of damage during a prior installation which caused the threads on those bolts as well as the threads on",
+    "cause": "The inflight separation of the upper transmission was due to the weakened bolt threads as a result of damage during a prior installation which",
     "relation": "as a result of",
-    "effect": "The inflight separation of the upper transmission was",
+    "effect": "the threads on those bolts as well as the threads on other bolts to fracture",
     "direction": "backward",
     "method": "t5",
     "sentence": "The inflight separation of the upper transmission was due to the weakened bolt threads as a result of damage during a prior installation which caused the threads on those bolts as well as the threads on other bolts to fracture."
@@ -5763,7 +5943,7 @@
     "ev_id": "20180708X00804",
     "cause": "This configuration",
     "relation": "resulted in",
-    "effect": "a high-workload scenario in which it would be particularly challenging for the pilot to control the helicopter while maneuvering in low altitude and night visual conditions",
+    "effect": "a high-workload scenario in which it would be particularly challenging for the pilot to control the helicopter while maneuvering in low",
     "direction": "forward",
     "method": "t5",
     "sentence": "This configuration resulted in a high-workload scenario in which it would be particularly challenging for the pilot to control the helicopter while maneuvering in low altitude and night visual conditions."
@@ -5788,7 +5968,7 @@
   },
   {
     "ev_id": "20180714X41944",
-    "cause": "It is likely that, while the pilot was maneuvering at low altitude after the partial loss of engine power, he failed to maintain adequate airspeed, which",
+    "cause": "pilot was maneuvering at low altitude after the partial loss of engine power, he failed to maintain adequate airspeed, which",
     "relation": "resulted in",
     "effect": "the airplane exceeding its critical angle of attack and a subsequent accelerated stall",
     "direction": "forward",
@@ -5797,9 +5977,9 @@
   },
   {
     "ev_id": "20180714X41944",
-    "cause": "the delivery of inconsistent vacuum pressure and a disruption in fuel flow",
+    "cause": "This condition is likely to have",
     "relation": "caused",
-    "effect": "This condition is likely to have caused the partial loss of engine power during takeoff",
+    "effect": "the partial loss of engine power during takeoff due to the delivery of inconsistent vacuum pressure and a disruption in fuel flow",
     "direction": "forward",
     "method": "t5",
     "sentence": "This condition is likely to have caused the partial loss of engine power during takeoff due to the delivery of inconsistent vacuum pressure and a disruption in fuel flow."
@@ -5815,7 +5995,7 @@
   },
   {
     "ev_id": "20180720X93110",
-    "cause": "sedating medications in the pilot's specimens, but the levels of the medications at the time of the crash were well below the levels that would have",
+    "cause": "the pilot's specimens, but the levels of the medications at the time of the crash were well below the levels that would have",
     "relation": "caused",
     "effect": "significant effects",
     "direction": "forward",
@@ -5842,7 +6022,7 @@
   },
   {
     "ev_id": "20180720X31334",
-    "cause": "Although the weather conditions were conducive to carburetor icing at descent power, the failed exhaust manifold and loose mixture screw likely",
+    "cause": "conditions were conducive to carburetor icing at descent power, the failed exhaust manifold and loose mixture screw likely",
     "relation": "led to",
     "effect": "the loss of engine power",
     "direction": "forward",
@@ -5941,9 +6121,9 @@
   },
   {
     "ev_id": "20180813X85635",
-    "cause": "It is likely that the exhaust gases",
+    "cause": "It is likely that the exhaust gases caused a flammable condition the that",
     "relation": "resulted in",
-    "effect": "a flammable condition the that resulted in a ground fire after landing",
+    "effect": "a ground fire after landing",
     "direction": "forward",
     "method": "t5",
     "sentence": "It is likely that the exhaust gases caused a flammable condition the that resulted in a ground fire after landing."
@@ -5986,9 +6166,9 @@
   },
   {
     "ev_id": "20180819X22925",
-    "cause": "the loss of altitude, the confined area of the canyon did not allow the pilot to attempt the 180° course reversal",
+    "cause": "an inadvertent encounter with downdraft conditions, and due to the loss of altitude, the confined area of the canyon did not allow the pilot",
     "relation": "due to",
-    "effect": "with the pilot-rated passenger, the airplane likely lost altitude due to an inadvertent encounter with downdraft conditions, and",
+    "effect": "Based on the accident pilot’s conversation with the pilot-rated passenger, the airplane likely lost altitude",
     "direction": "backward",
     "method": "t5",
     "sentence": "Based on the accident pilot’s conversation with the pilot-rated passenger, the airplane likely lost altitude due to an inadvertent encounter with downdraft conditions, and due to the loss of altitude, the confined area of the canyon did not allow the pilot to attempt the 180° course reversal."
@@ -6049,9 +6229,9 @@
   },
   {
     "ev_id": "20180902X31909",
-    "cause": "the witnesses’ location relative to the glider, it is more likely that the witnesses were observing the glider in either a spin or",
+    "cause": "the witnesses’ location relative to the glider, it is more likely that the witnesses were observing the glider in either",
     "relation": "due to",
-    "effect": "Due to the witnesses’ location relative to the glider, it is more likely that the witnesses were",
+    "effect": "Due to the witnesses’ location relative to the glider, it is more likely that the witnesses were observing the glider in either a spin or a spiral",
     "direction": "backward",
     "method": "t5",
     "sentence": "Due to the witnesses’ location relative to the glider, it is more likely that the witnesses were observing the glider in either a spin or a spiral dive rather than a loop."
@@ -6076,7 +6256,7 @@
   },
   {
     "ev_id": "20180902X31909",
-    "cause": "glider entered an inadvertent spin or spiral dive while maneuvering and that the pilot’s delayed recovery",
+    "cause": "that the glider entered an inadvertent spin or spiral dive while maneuvering and that the pilot’s delayed recovery",
     "relation": "resulted in",
     "effect": "a rapid increase in speed",
     "direction": "forward",
@@ -6094,9 +6274,9 @@
   },
   {
     "ev_id": "20180903X83049",
-    "cause": "bolt likely broke off and became lodged in the assembly; thus, it is likely the failed retaining bolt and cracked backing plate",
+    "cause": "assembly; thus, it is likely the failed retaining bolt and cracked backing plate resulted in a shift of the brake lining to contact the brake drum and",
     "relation": "resulted in",
-    "effect": "a shift of the brake lining to contact the brake drum and led to a subsequent wheel lock when the brakes",
+    "effect": "a subsequent wheel lock when the brakes were applied",
     "direction": "forward",
     "method": "t5",
     "sentence": "The bolt likely broke off and became lodged in the assembly; thus, it is likely the failed retaining bolt and cracked backing plate resulted in a shift of the brake lining to contact the brake drum and led to a subsequent wheel lock when the brakes were applied."
@@ -6112,7 +6292,7 @@
   },
   {
     "ev_id": "20180904X12250",
-    "cause": "It is likely that the flight instructor could not apply sufficient power to abort the practice autorotation following the pilot’s collective input, which",
+    "cause": "flight instructor could not apply sufficient power to abort the practice autorotation following the pilot’s collective input, which",
     "relation": "resulted in",
     "effect": "an unrecoverable low rotor rpm condition and subsequent loss of control",
     "direction": "forward",
@@ -6132,7 +6312,7 @@
     "ev_id": "20180909X20438",
     "cause": "the loss of left engine power could not be determined",
     "relation": "contributed to",
-    "effect": "flight; however, the pilot's management of the fuel during the flight and whether it",
+    "effect": "to complete the accident flight; however, the pilot's management of the fuel during the flight and whether it",
     "direction": "backward",
     "method": "t5",
     "sentence": "Given the available fuel onboard, the airplane had adequate fuel to complete the accident flight; however, the pilot's management of the fuel during the flight and whether it contributed to the loss of left engine power could not be determined."
@@ -6177,10 +6357,19 @@
     "ev_id": "20180913X21320",
     "cause": "The high-pressure turbine (HPT) uncontainment was",
     "relation": "caused by",
-    "effect": "by the failure of a rotating seal located between the HPT 1st-stage (S1) disk and 2nd-stage (S2) hub (the lenticular",
+    "effect": "by the failure of a rotating seal located between the HPT 1st-stage (S1) disk and 2nd-stage (S2) hub (the lenticular seal",
     "direction": "backward",
     "method": "t5",
     "sentence": "The high-pressure turbine (HPT) uncontainment was caused by the failure of a rotating seal located between the HPT 1st-stage (S1) disk and 2nd-stage (S2) hub (the lenticular seal)."
+  },
+  {
+    "ev_id": "20180913X21320",
+    "cause": "Continued rub with degraded knife edge coating creates a heat affected zone at the knife edge tip that can",
+    "relation": "caused",
+    "effect": "thermo-mechanical fatigue (TMF) and tip crack initiation",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "Continued rub with degraded knife edge coating creates a heat affected zone at the knife edge tip that can lead to thermo-mechanical fatigue (TMF) and tip crack initiation."
   },
   {
     "ev_id": "20180916X70852",
@@ -6202,9 +6391,9 @@
   },
   {
     "ev_id": "20180921X14853",
-    "cause": "fuel starvation",
+    "cause": "The pilot had correctly planned for the airplane’s fuel consumption but failed to select the fullest tank during the critical landing phase, which",
     "relation": "resulted in",
-    "effect": "failed to select the fullest tank during the critical landing phase, which resulted in the loss of engine power",
+    "effect": "the loss of engine power due to fuel starvation",
     "direction": "forward",
     "method": "t5",
     "sentence": "The pilot had correctly planned for the airplane’s fuel consumption but failed to select the fullest tank during the critical landing phase, which resulted in the loss of engine power due to fuel starvation."
@@ -6339,7 +6528,7 @@
     "ev_id": "20181013X75622",
     "cause": "spatial disorientation",
     "relation": "resulted in",
-    "effect": "to continue the flight in instrument conditions with a known flight instrument anomaly greatly increased his workload and likely resulted in his eventual loss of airplane control",
+    "effect": "flight in instrument conditions with a known flight instrument anomaly greatly increased his workload and likely resulted in his eventual loss of airplane control",
     "direction": "forward",
     "method": "t5",
     "sentence": "In summary, the instructor's decision to continue the flight in instrument conditions with a known flight instrument anomaly greatly increased his workload and likely resulted in his eventual loss of airplane control due to spatial disorientation."
@@ -6364,7 +6553,7 @@
   },
   {
     "ev_id": "20181021X71636",
-    "cause": "the misaligned engine exhaust crossover pipe, hot exhaust gases escaped into the engine compartment and started a fire, which compromised critical engine fuel and oil lines, and",
+    "cause": "misaligned engine exhaust crossover pipe, hot exhaust gases escaped into the engine compartment and started a fire, which compromised critical engine fuel and oil lines, and",
     "relation": "as a result of",
     "effect": "the loss of engine power",
     "direction": "backward",
@@ -6391,6 +6580,15 @@
   },
   {
     "ev_id": "20181026X04852",
+    "cause": "carburetor ice accumulation",
+    "relation": "caused",
+    "effect": "Since postaccident examination of the engine revealed no anomalies, it is likely that the loss of power was",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "Since postaccident examination of the engine revealed no anomalies, it is likely that the loss of power was a result of carburetor ice accumulation."
+  },
+  {
+    "ev_id": "20181026X04852",
     "cause": "It is possible that carburetor ice formed before departure, when the engine was operating at a low power setting, which",
     "relation": "resulted in",
     "effect": "a partial loss of engine power during the initial climb",
@@ -6411,7 +6609,7 @@
     "ev_id": "20181030X64550",
     "cause": "their eventual separation, and the inflight loss of pitch control",
     "relation": "contributed to",
-    "effect": "nut and bolt separated, it is likely that the unabated vibration reported by the pilot during the previous flights",
+    "effect": "separated, it is likely that the unabated vibration reported by the pilot during the previous flights",
     "direction": "backward",
     "method": "t5",
     "sentence": "While it could not be definitively determined why the nut and bolt separated, it is likely that the unabated vibration reported by the pilot during the previous flights contributed to their eventual separation, and the inflight loss of pitch control."
@@ -6489,15 +6687,6 @@
     "sentence": "The air traffic controller was unable to provide those vectors due to the airplane's low altitude."
   },
   {
-    "ev_id": "20181118X65853",
-    "cause": "his effort to get out of the icing conditions, the pilot descended below the minimum descent altitude for the localizer approach and subsequently",
-    "relation": "as a result of",
-    "effect": "As a",
-    "direction": "backward",
-    "method": "t5",
-    "sentence": "As a result of his effort to get out of the icing conditions, the pilot descended below the minimum descent altitude for the localizer approach and subsequently impacted the powerline."
-  },
-  {
     "ev_id": "20181119X83401",
     "cause": "the accident",
     "relation": "contributed to",
@@ -6508,7 +6697,7 @@
   },
   {
     "ev_id": "20181113X12655",
-    "cause": "helicopter was flying about 100 knots, the right-side passenger held her cell phone and case outside of the cabin into the airflow, which",
+    "cause": "the helicopter was flying about 100 knots, the right-side passenger held her cell phone and case outside of the cabin into the airflow, which",
     "relation": "resulted in",
     "effect": "the cell phone and case without the strap exiting the helicopter and subsequently impacting the tail rotor",
     "direction": "forward",
@@ -6573,7 +6762,7 @@
     "ev_id": "20181201X45922",
     "cause": "maintenance discrepancies that were noted during his ramp inspection",
     "relation": "due to",
-    "effect": "pilot then attempted to obtain a ferry permit for the airplane twice from the FAA; however, the FAA inspector did not approve the request",
+    "effect": "attempted to obtain a ferry permit for the airplane twice from the FAA; however, the FAA inspector did not approve the request",
     "direction": "backward",
     "method": "t5",
     "sentence": "The accident pilot then attempted to obtain a ferry permit for the airplane twice from the FAA; however, the FAA inspector did not approve the request due to maintenance discrepancies that were noted during his ramp inspection."
@@ -6589,9 +6778,9 @@
   },
   {
     "ev_id": "20181212X01623",
-    "cause": "It is likely the separation of the left turbine wheel",
+    "cause": "It is likely the separation of the left turbine wheel resulted in oil escaping the engine, which",
     "relation": "resulted in",
-    "effect": "oil escaping the engine, which resulted in oil starvation and catastrophic engine failure",
+    "effect": "oil starvation and catastrophic engine failure",
     "direction": "forward",
     "method": "t5",
     "sentence": "It is likely the separation of the left turbine wheel resulted in oil escaping the engine, which resulted in oil starvation and catastrophic engine failure."
@@ -6613,6 +6802,42 @@
     "direction": "forward",
     "method": "t5",
     "sentence": "52 at the preexisting intergranular crack and the origin of the fatigue crack produced a spectra that was consistent with IN-100, but also had peaks of zirconium and hafnium."
+  },
+  {
+    "ev_id": "20181228X64015",
+    "cause": "brittle structure that cracked very early in the life of the blade that progressed into the fatigue crack leading to the fracture of the",
+    "relation": "caused",
+    "effect": "the fracture of the blade and the subsequent loss of power",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "The presence of the hafnium in the intergranular crack would suggest the formation of a localized brittle structure that cracked very early in the life of the blade that progressed into the fatigue crack leading to the fracture of the blade and the subsequent loss of power."
+  },
+  {
+    "ev_id": "20181228X64015",
+    "cause": "a subsurface intergranular crack",
+    "relation": "caused",
+    "effect": "The metallurgical examination of the fractured blade showed that the fatigue crack",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "The metallurgical examination of the fractured blade showed that the fatigue crack originated from a subsurface intergranular crack."
+  },
+  {
+    "ev_id": "20181231X34117",
+    "cause": "Although these drugs can cause various impairing symptoms, the type of impairment that these drugs cause is unlikely to",
+    "relation": "caused",
+    "effect": "a sudden loss of control",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "Although these drugs can cause various impairing symptoms, the type of impairment that these drugs cause is unlikely to lead to a sudden loss of control."
+  },
+  {
+    "ev_id": "20181231X34117",
+    "cause": "a medical issue",
+    "relation": "caused",
+    "effect": "Thus, the investigation could not determine, based on the available information, whether the pilot's loss of airplane control was",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "Thus, the investigation could not determine, based on the available information, whether the pilot's loss of airplane control was related to a medical issue."
   },
   {
     "ev_id": "20181222X04812",
@@ -6652,7 +6877,7 @@
   },
   {
     "ev_id": "20190112X64707",
-    "cause": "did not maintain sufficient airspeed and exceeded the airplane's critical angle of attack while maneuvering in the airport traffic pattern, which",
+    "cause": "sufficient airspeed and exceeded the airplane's critical angle of attack while maneuvering in the airport traffic pattern, which",
     "relation": "resulted in",
     "effect": "an aerodynamic stall, loss of control, and subsequent impact with terrain",
     "direction": "forward",
@@ -6706,9 +6931,9 @@
   },
   {
     "ev_id": "20190221X00100",
-    "cause": "the extended storage time in non-climate-controlled environments, the investigation could not determine the exact amount of corrosion on the bleed valve at the time of",
+    "cause": "the extended storage time in non-climate-controlled environments, the investigation could not determine the exact amount of corrosion on the bleed valve at the time of the",
     "relation": "due to",
-    "effect": "however, the presence of the wash compound in the corrosion found on the bleed valve indicates that some wash solution penetrated into",
+    "effect": "however, the presence of the wash compound in the corrosion found on the bleed valve indicates that some wash solution penetrated",
     "direction": "backward",
     "method": "t5",
     "sentence": "Due to the extended storage time in non-climate-controlled environments, the investigation could not determine the exact amount of corrosion on the bleed valve at the time of the accident; however, the presence of the wash compound in the corrosion found on the bleed valve indicates that some wash solution penetrated into the bleed valve during a wash and remained following the rinse and drying of the engine."
@@ -6744,7 +6969,7 @@
     "ev_id": "20190211X15851",
     "cause": "pilots' decision to continue the unstable approach and landing to the snow-covered runway despite that the distance available was inadequate",
     "relation": "resulted in",
-    "effect": "the runway overrun; however, given the airplane's excessive approach speed and touchdown point over halfway down the runway, it is likely that the",
+    "effect": "the runway overrun; however, given the airplane's excessive approach speed and touchdown point over halfway down the runway, it is likely that",
     "direction": "forward",
     "method": "t5",
     "sentence": "The pilots' decision to continue the unstable approach and landing to the snow-covered runway despite that the distance available was inadequate resulted in the runway overrun; however, given the airplane's excessive approach speed and touchdown point over halfway down the runway, it is likely that the crew would have been unable to stop the airplane on the remaining runway even if it had been uncontaminated."
@@ -6760,7 +6985,7 @@
   },
   {
     "ev_id": "20190309X93709",
-    "cause": "could not be determined; however, it is likely that the pilot failed to maintain airspeed while maneuvering for landing with the left engine inoperative, which",
+    "cause": "the pilot failed to maintain airspeed while maneuvering for landing with the left engine inoperative, which",
     "relation": "resulted in",
     "effect": "a loss of control and impact with water",
     "direction": "forward",
@@ -6778,9 +7003,9 @@
   },
   {
     "ev_id": "20190311X20635",
-    "cause": "the runway excursion",
+    "cause": "The icy conditions would have",
     "relation": "contributed to",
-    "effect": "The icy conditions would have resulted in a decreased braking performance and",
+    "effect": "a decreased braking performance and contributed to the runway excursion",
     "direction": "backward",
     "method": "t5",
     "sentence": "The icy conditions would have resulted in a decreased braking performance and contributed to the runway excursion."
@@ -6796,7 +7021,7 @@
   },
   {
     "ev_id": "20190311X63755",
-    "cause": "No preimpact mechanical malfunctions or failures of the landing gear system were observed, thus it is likely that the rigging condition",
+    "cause": "failures of the landing gear system were observed, thus it is likely that the rigging condition",
     "relation": "resulted in",
     "effect": "the collapse of the right main landing gear",
     "direction": "forward",
@@ -6816,7 +7041,7 @@
     "ev_id": "20190313X23730",
     "cause": "sun glare, and it is likely that his failure to monitor and use the CTAF contributed to the accident",
     "relation": "contributed to",
-    "effect": "The circumstances of the accident are consistent with the T-28 pilot's failure to see and avoid the Cessna while landing with reduced visibility",
+    "effect": "are consistent with the T-28 pilot's failure to see and avoid the Cessna while landing with reduced visibility",
     "direction": "backward",
     "method": "t5",
     "sentence": "The circumstances of the accident are consistent with the T-28 pilot's failure to see and avoid the Cessna while landing with reduced visibility due to sun glare, and it is likely that his failure to monitor and use the CTAF contributed to the accident."
@@ -6834,7 +7059,7 @@
     "ev_id": "20190313X23730",
     "cause": "sun glare, and it is likely that his failure to monitor and use the CTAF contributed to the accident",
     "relation": "contributed to",
-    "effect": "The circumstances of the accident are consistent with the T-28 pilot's failure to see and avoid the Cessna while landing with reduced visibility",
+    "effect": "are consistent with the T-28 pilot's failure to see and avoid the Cessna while landing with reduced visibility",
     "direction": "backward",
     "method": "t5",
     "sentence": "The circumstances of the accident are consistent with the T-28 pilot's failure to see and avoid the Cessna while landing with reduced visibility due to sun glare, and it is likely that his failure to monitor and use the CTAF contributed to the accident."
@@ -6861,7 +7086,7 @@
     "ev_id": "20190321X84610",
     "cause": "the right landing gear's encounter with a snow-covered pothole",
     "relation": "due to",
-    "effect": "further reported that he inspected the taxiway after he saw the airplane's damage and noted that the large bump he felt was",
+    "effect": "The pilot further reported that he inspected the taxiway after he saw the airplane's damage and noted that the large bump he felt was",
     "direction": "backward",
     "method": "t5",
     "sentence": "The pilot further reported that he inspected the taxiway after he saw the airplane's damage and noted that the large bump he felt was due to the right landing gear's encounter with a snow-covered pothole."
@@ -6877,9 +7102,9 @@
   },
   {
     "ev_id": "20190331X75451",
-    "cause": "Although the pilot stated that while parking on the ramp parking area, a lineperson provided directions to taxi, which",
+    "cause": "While parking on the ramp parking area, a lineperson provided directions to taxi, which",
     "relation": "caused",
-    "effect": "the airplane's left wing to collide with a light pole, the airport director of operations reported that the pilot could not recall any",
+    "effect": "the airplane's left wing to collide with a light pole, the airport director of operations reported that the pilot could not recall any of the",
     "direction": "forward",
     "method": "t5",
     "sentence": "Although the pilot stated that while parking on the ramp parking area, a lineperson provided directions to taxi, which led the airplane's left wing to collide with a light pole, the airport director of operations reported that the pilot could not recall any of the wand signals that he was provided."
@@ -6895,7 +7120,7 @@
   },
   {
     "ev_id": "20190415X91116",
-    "cause": "and that “the wind might have shifted.” The helicopter quickly settled with power and impacted the water, which",
+    "cause": "and/or lift and that “the wind might have shifted.” The helicopter quickly settled with power and impacted the water, which",
     "relation": "resulted in",
     "effect": "substantial damage to the main rotor, fuselage, and tailboom",
     "direction": "forward",
@@ -6919,6 +7144,15 @@
     "direction": "forward",
     "method": "t5",
     "sentence": "The flight instructor's diverted attention likely precluded adequate monitoring and delayed his recognition of the conditions that led to the helicopter settling with power and thus provide appropriate remedial action."
+  },
+  {
+    "ev_id": "20190420X95256",
+    "cause": "obstructions ahead and the downsloping terrain, the pilot applied right rudder and engine power to realign the airplane with",
+    "relation": "due to",
+    "effect": "Due to obstructions ahead and the downsloping terrain",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to obstructions ahead and the downsloping terrain, the pilot applied right rudder and engine power to realign the airplane with the runway."
   },
   {
     "ev_id": "20190428X45827",
@@ -6958,7 +7192,7 @@
   },
   {
     "ev_id": "20190505X00851",
-    "cause": "an incorrectly installed fuel servo and an excessive nose up trim setting, which resulted in steep climb angle, a loss of airspeed, and an",
+    "cause": "an incorrectly installed fuel servo and an excessive nose up trim setting, which resulted in steep climb angle, a loss of airspeed, and",
     "relation": "resulted in",
     "effect": "The accident is consistent with loss of power on the left engine",
     "direction": "forward",
@@ -6985,7 +7219,7 @@
   },
   {
     "ev_id": "20190519X90420",
-    "cause": "events, it is likely that an electrical load drew an excessive current through the alternator circuit breaker, which",
+    "cause": "of events, it is likely that an electrical load drew an excessive current through the alternator circuit breaker, which",
     "relation": "resulted in",
     "effect": "it tripping and interrupting the electrical power supplied by the alternator",
     "direction": "forward",
@@ -7057,6 +7291,15 @@
   },
   {
     "ev_id": "20190606X71852",
+    "cause": "the pilot’s unfamiliarity with the vernier-type throttle control, he was unsure if he had advanced the throttle fully forward at",
+    "relation": "due to",
+    "effect": "Due to the pilot’s unfamiliarity with the vernier-type throttle control, he was",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to the pilot’s unfamiliarity with the vernier-type throttle control, he was unsure if he had advanced the throttle fully forward at the start of the takeoff roll."
+  },
+  {
+    "ev_id": "20190606X71852",
     "cause": "the accident",
     "relation": "contributed to",
     "effect": "pilot’s lack of experience with the airplane and his decision to obtain training from an instructor who was also unfamiliar with the airplane likely",
@@ -7066,7 +7309,7 @@
   },
   {
     "ev_id": "20190609X71109",
-    "cause": "His seatbelt, which was not tightened, allowed him to slide forward in his seat, and he inadvertently applied more brake pressure, which",
+    "cause": "seatbelt, which was not tightened, allowed him to slide forward in his seat, and he inadvertently applied more brake pressure, which",
     "relation": "resulted in",
     "effect": "the airplane nosing over",
     "direction": "forward",
@@ -7093,9 +7336,9 @@
   },
   {
     "ev_id": "20190612X11535",
-    "cause": "Although the pilot said he bumped the canopy during the bounced landing, it could not be determined if that or some other mechanism",
+    "cause": "during the bounced landing, it could not be determined if that or some other mechanism caused the canopy to separate",
     "relation": "caused",
-    "effect": "the canopy to separate",
+    "effect": "Although the pilot said he bumped the canopy during the bounced landing, it could not be determined if that or some other mechanism",
     "direction": "forward",
     "method": "t5",
     "sentence": "Although the pilot said he bumped the canopy during the bounced landing, it could not be determined if that or some other mechanism caused the canopy to separate."
@@ -7111,7 +7354,7 @@
   },
   {
     "ev_id": "20190630X05538",
-    "cause": "exceedance of the airplane’s critical angle of attack following a loss of engine power due to carburetor icing, which",
+    "cause": "airplane’s critical angle of attack following a loss of engine power due to carburetor icing, which",
     "relation": "resulted in",
     "effect": "an aerodynamic stall and impact with terrain",
     "direction": "forward",
@@ -7138,7 +7381,7 @@
   },
   {
     "ev_id": "20190702X80900",
-    "cause": "is likely that while maneuvering toward the runway following the loss of and restoration of engine power, the pilot exceeded the airplane's critical angle of attack, which",
+    "cause": "toward the runway following the loss of and restoration of engine power, the pilot exceeded the airplane's critical angle of attack, which",
     "relation": "resulted in",
     "effect": "an inadvertent aerodynamic stall and loss of control",
     "direction": "forward",
@@ -7149,7 +7392,7 @@
     "ev_id": "20190702X80900",
     "cause": "the accident could not be determined given the available evidence",
     "relation": "contributed to",
-    "effect": "pilot had been treated for an unspecified anxiety disorder for many years, whether effects from the disorder or its treatment",
+    "effect": "for many years, whether effects from the disorder or its treatment",
     "direction": "backward",
     "method": "t5",
     "sentence": "Although medical records indicated that the pilot had been treated for an unspecified anxiety disorder for many years, whether effects from the disorder or its treatment contributed to the accident could not be determined given the available evidence."
@@ -7176,7 +7419,7 @@
     "ev_id": "20190704X21909",
     "cause": "the very limited outside cues",
     "relation": "because of",
-    "effect": "with no visible moon, likely zero ambient illumination, and no visible horizon, which would necessitate the pilots’ reliance on the instruments in order to fly",
+    "effect": "dark night conditions with no visible moon, likely zero ambient illumination, and no visible horizon, which would necessitate the pilots’ reliance on the instruments in order to fly",
     "direction": "backward",
     "method": "t5",
     "sentence": "The helipad from which they departed was brightly lit with floodlights, but then the helicopter proceeded over water in dark night conditions with no visible moon, likely zero ambient illumination, and no visible horizon, which would necessitate the pilots’ reliance on the instruments in order to fly because of the very limited outside cues."
@@ -7194,7 +7437,7 @@
     "ev_id": "20190704X21909",
     "cause": "somatogravic illusion and subsequent spatial disorientation",
     "relation": "caused by",
-    "effect": "SIC stated that “this is exactly what happened” in a fatal accident in the United Kingdom in which the accident was",
+    "effect": "warnings began to annunciate again, the SIC stated that “this is exactly what happened” in a fatal accident in the United Kingdom in which the accident",
     "direction": "backward",
     "method": "t5",
     "sentence": "About 0153:13, as the helicopter began to descend from 212 ft because the cyclic was moved forward again to command a nose-down attitude and the EGPWS warnings began to annunciate again, the SIC stated that “this is exactly what happened” in a fatal accident in the United Kingdom in which the accident was caused by somatogravic illusion and subsequent spatial disorientation."
@@ -7210,7 +7453,7 @@
   },
   {
     "ev_id": "20190704X21909",
-    "cause": "likely perceived that the accelerations associated with the helicopter’s increasing forward airspeed was the helicopter pitching up and he provided control inputs that",
+    "cause": "accelerations associated with the helicopter’s increasing forward airspeed was the helicopter pitching up and he provided control inputs that",
     "relation": "caused",
     "effect": "the helicopter to descend",
     "direction": "forward",
@@ -7228,7 +7471,7 @@
   },
   {
     "ev_id": "20190704X21909",
-    "cause": "crew’s actions and comments, they lost awareness of the helicopter's flightpath after takeoff over water during dark night conditions, which likely",
+    "cause": "and comments, they lost awareness of the helicopter's flightpath after takeoff over water during dark night conditions, which likely",
     "relation": "led to",
     "effect": "spatial disorientation and the subsequent collision with water",
     "direction": "forward",
@@ -7255,7 +7498,7 @@
   },
   {
     "ev_id": "20190713X65021",
-    "cause": "Examination of the engine revealed minor discrepancies and mis-timed magnetos that likely existed during the initial takeoff, but would not have",
+    "cause": "revealed minor discrepancies and mis-timed magnetos that likely existed during the initial takeoff, but would not have",
     "relation": "caused",
     "effect": "the reported loss of engine power",
     "direction": "forward",
@@ -7264,7 +7507,7 @@
   },
   {
     "ev_id": "20190713X65021",
-    "cause": "carburetor heat was applied only when operating at a reduced power setting, carburetor ice formed, which subsequently",
+    "cause": "and approach when carburetor heat was applied only when operating at a reduced power setting, carburetor ice formed, which subsequently",
     "relation": "resulted in",
     "effect": "a total loss of engine power during the initial climb",
     "direction": "forward",
@@ -7291,7 +7534,7 @@
   },
   {
     "ev_id": "20190803X22956",
-    "cause": "large areas of overstress fracture with the planar dimpled rupture features indicative of thermal damage on the fracture surface were noted, it is unlikely that manufacturing issues",
+    "cause": "planar dimpled rupture features indicative of thermal damage on the fracture surface were noted, it is unlikely that manufacturing issues",
     "relation": "resulted in",
     "effect": "the fatigue cracking even though metallurgical testing revealed that the crankshaft material did not meet specification",
     "direction": "forward",
@@ -7309,7 +7552,7 @@
   },
   {
     "ev_id": "20190803X22956",
-    "cause": "reassembly of the engine that occurred about two years prior when two cylinders were replaced",
+    "cause": "during a previous reassembly of the engine that occurred about two years prior when two cylinders were replaced",
     "relation": "resulted in",
     "effect": "the failure",
     "direction": "forward",
@@ -7390,7 +7633,7 @@
   },
   {
     "ev_id": "20190822X70607",
-    "cause": "the airplane’s electrical system to the 24v battery were not crimped properly and that the leads had separated from their lugs, which",
+    "cause": "battery were not crimped properly and that the leads had separated from their lugs, which",
     "relation": "resulted in",
     "effect": "the complete loss of electrical and engine power",
     "direction": "forward",
@@ -7453,9 +7696,9 @@
   },
   {
     "ev_id": "20190903X80826",
-    "cause": "his immediate death",
+    "cause": "this accident could not be determined from the available evidence although it likely contributed to his immediate death",
     "relation": "contributed to",
-    "effect": "this accident could not be determined from the available evidence although it likely",
+    "effect": "In addition, given the thermal injuries sustained, whether or how much the pilot's heart disease",
     "direction": "backward",
     "method": "t5",
     "sentence": "In addition, given the thermal injuries sustained, whether or how much the pilot's heart disease contributed to this accident could not be determined from the available evidence although it likely contributed to his immediate death."
@@ -7464,7 +7707,7 @@
     "ev_id": "20190903X80826",
     "cause": "this accident",
     "relation": "contributed to",
-    "effect": "he had thousands of hours safely flying agricultural operations; therefore, it is unlikely his visual defect",
+    "effect": "even more difficult for him to see and avoid the powerlines, he had thousands of hours safely flying agricultural operations; therefore, it is unlikely his visual defect",
     "direction": "backward",
     "method": "t5",
     "sentence": "Although the pilot’s monocular vision could have made it even more difficult for him to see and avoid the powerlines, he had thousands of hours safely flying agricultural operations; therefore, it is unlikely his visual defect contributed to this accident."
@@ -7480,7 +7723,7 @@
   },
   {
     "ev_id": "20190903X44536",
-    "cause": "the locking portion of the locking nut, it is likely that the nut vibrated loose during normal operations, which",
+    "cause": "portion of the locking nut, it is likely that the nut vibrated loose during normal operations, which",
     "relation": "caused",
     "effect": "excessive play in the tailwheel during landing",
     "direction": "forward",
@@ -7507,7 +7750,7 @@
   },
   {
     "ev_id": "20190903X83853",
-    "cause": "and the pilot's failure to move the fuel selector to the right tank, as called for in the POH, likely",
+    "cause": "for flight, and the pilot's failure to move the fuel selector to the right tank, as called for in the POH, likely",
     "relation": "led to",
     "effect": "fuel starvation and the subsequent loss of all engine power",
     "direction": "forward",
@@ -7560,6 +7803,15 @@
     "sentence": "The airplane broke through the airport perimeter fence and struck a car on a highway just off the airport property, which resulted in the left wing separating from the fuselage."
   },
   {
+    "ev_id": "20190912X21218",
+    "cause": "the wing’s impact damage, investigators were unable to functionally test the portion of the pitot system between the pitot tube and the left-wing root",
+    "relation": "due to",
+    "effect": "Due to the wing’s impact damage",
+    "direction": "backward",
+    "method": "t5",
+    "sentence": "Due to the wing’s impact damage, investigators were unable to functionally test the portion of the pitot system between the pitot tube and the left-wing root."
+  },
+  {
     "ev_id": "20190915X91550",
     "cause": "the switch, on removal of the plug to drain the oil, the mechanic most-likely wouldn’t have seen any indication of bushing material",
     "relation": "because of",
@@ -7579,12 +7831,21 @@
   },
   {
     "ev_id": "20190910X44456",
-    "cause": "of the airplane revealed an obstructed right trailing edge fuel vent line that likely blocked venting of the fuel tank and",
+    "cause": "postaccident examination of the airplane revealed an obstructed right trailing edge fuel vent line that likely blocked venting of the fuel tank and",
     "relation": "caused",
     "effect": "a negative pressure within the tank, whichsubsequently starved the engine of fuel and resulted a total loss of engine power",
     "direction": "forward",
     "method": "t5",
     "sentence": "Postaccident examination of the airplane revealed an obstructed right trailing edge fuel vent line that likely blocked venting of the fuel tank and resulted a negative pressure within the tank, whichsubsequently starved the engine of fuel and resulted a total loss of engine power."
+  },
+  {
+    "ev_id": "20190924X40244",
+    "cause": "The water created excess drag on the main landing gear, the tail lifted, and the airplane then nosed over",
+    "relation": "caused",
+    "effect": "The water",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "The water created excess drag on the main landing gear, the tail lifted, and the airplane then nosed over."
   },
   {
     "ev_id": "20190928X04048",
@@ -7635,7 +7896,7 @@
     "ev_id": "20191015X65516",
     "cause": "the change in airflow over the empennage",
     "relation": "due to",
-    "effect": "airplane performed without a canopy, the manufacturer reported that its aerodynamic stall speed was likely increased, and it was possible that its elevator and rudder control effectiveness was decreased",
+    "effect": "likely increased, and it was possible that its elevator and rudder control effectiveness was decreased",
     "direction": "backward",
     "method": "t5",
     "sentence": "Although the kit manufacturer published no official data regarding how the airplane performed without a canopy, the manufacturer reported that its aerodynamic stall speed was likely increased, and it was possible that its elevator and rudder control effectiveness was decreased due to the change in airflow over the empennage."
@@ -7662,7 +7923,7 @@
     "ev_id": "20191019X90834",
     "cause": "operator error, was not properly terminated at the ground station prior to the test flight",
     "relation": "caused by",
-    "effect": "The software timing error was caused by a battery charging script that",
+    "effect": "The software timing error was",
     "direction": "backward",
     "method": "t5",
     "sentence": "The software timing error was caused by a battery charging script that, due to operator error, was not properly terminated at the ground station prior to the test flight."
@@ -7705,7 +7966,7 @@
   },
   {
     "ev_id": "20191123X25734",
-    "cause": "the wastegate exhaust elbow separated from the wastegate and the tail pipe causing exhaust gas to melt the magneto P-leads, which",
+    "cause": "separated from the wastegate and the tail pipe causing exhaust gas to melt the magneto P-leads, which",
     "relation": "resulted in",
     "effect": "a loss of engine power",
     "direction": "forward",
@@ -7723,7 +7984,7 @@
   },
   {
     "ev_id": "20191211X12602",
-    "cause": "left the fuel selector valve for the right engine in the cross-feed position, which allowed both engines to draw fuel from the left-wing fuel tank and ultimately",
+    "cause": "that the pilot had inadvertently left the fuel selector valve for the right engine in the cross-feed position, which allowed both engines to draw fuel from the left-wing fuel tank and ultimately",
     "relation": "caused",
     "effect": "fuel starvation",
     "direction": "forward",
@@ -7734,7 +7995,7 @@
     "ev_id": "20191219X84839",
     "cause": "fuel exhaustion",
     "relation": "resulted in",
-    "effect": "of the accident flight could not be determined, thus it is not known why the airplane consumed significantly more fuel during the flight than the pilot planned, which resulted in a total loss of engine power",
+    "effect": "not known why the airplane consumed significantly more fuel during the flight than the pilot planned, which resulted in a total loss of engine power",
     "direction": "forward",
     "method": "t5",
     "sentence": "The combined or individual effects of headwind, inflight engine power settings, and the pilot's fuel mixture leaning practices on the actual fuel consumption of the accident flight could not be determined, thus it is not known why the airplane consumed significantly more fuel during the flight than the pilot planned, which resulted in a total loss of engine power due to fuel exhaustion."
@@ -7768,7 +8029,7 @@
   },
   {
     "ev_id": "20191222X32136",
-    "cause": "solo student pilot reported that, while attempting to take a picture of himself, he accidentally moved the fuel shutoff switch to the \"off\" position, which",
+    "cause": "while attempting to take a picture of himself, he accidentally moved the fuel shutoff switch to the \"off\" position, which",
     "relation": "resulted in",
     "effect": "a loss of all engine power",
     "direction": "forward",
@@ -7786,7 +8047,16 @@
   },
   {
     "ev_id": "20191228X23853",
-    "cause": "display system before the accident flight, the NTSB considered whether the airplane’s attitude heading and reference system (AHRS) unit failed or malfunctioned during the accident flight, which could have",
+    "cause": "This torque level, at a propeller speed between 2,000 and 2,100 rpm, would",
+    "relation": "caused",
+    "effect": "about 200 horsepower, indicating a power reduction on both engines during the last 5 seconds of flight",
+    "direction": "forward",
+    "method": "t5",
+    "sentence": "This torque level, at a propeller speed between 2,000 and 2,100 rpm, would produce about 200 horsepower, indicating a power reduction on both engines during the last 5 seconds of flight."
+  },
+  {
+    "ev_id": "20191228X23853",
+    "cause": "before the accident flight, the NTSB considered whether the airplane’s attitude heading and reference system (AHRS) unit failed or malfunctioned during the accident flight, which could have",
     "relation": "caused",
     "effect": "erroneous attitude and heading information to be displayed to the pilot",
     "direction": "forward",
@@ -7797,7 +8067,7 @@
     "ev_id": "20191228X23853",
     "cause": "the manufacturer’s inability to conduct AHRS bench testing",
     "relation": "as a result of",
-    "effect": "The internal connector, which likely became dislodged",
+    "effect": "The internal connector, which likely became dislodged as a result of impact forces, might have",
     "direction": "backward",
     "method": "t5",
     "sentence": "The internal connector, which likely became dislodged as a result of impact forces, might have contributed to the manufacturer’s inability to conduct AHRS bench testing."
@@ -7822,7 +8092,7 @@
   },
   {
     "ev_id": "20191228X23853",
-    "cause": "the loss of control; the stability augmentation system is a pitch stability system, and the aircraft performance calculations showed that the airplane’s",
+    "cause": "the loss of control; the stability augmentation system is a pitch stability system, and the aircraft performance calculations showed that the airplane’s bank angle progressed continuously",
     "relation": "caused",
     "effect": "However, these components likely did not",
     "direction": "forward",
@@ -7833,7 +8103,7 @@
     "ev_id": "20191228X23853",
     "cause": "The lack of visual references and the airplane’s increasing pitch attitude likely",
     "relation": "caused",
-    "effect": "the pilot to become spatially disoriented during the initial climb, as evidenced by the airplane’s continuing and tightening turn to the left away from",
+    "effect": "the pilot to become spatially disoriented during the initial climb, as evidenced by the airplane’s continuing and tightening turn to the",
     "direction": "forward",
     "method": "t5",
     "sentence": "The lack of visual references and the airplane’s increasing pitch attitude likely caused the pilot to become spatially disoriented during the initial climb, as evidenced by the airplane’s continuing and tightening turn to the left away from the intended course."

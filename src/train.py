@@ -24,6 +24,14 @@ try:
 except ImportError:
     OPTUNA_AVAILABLE = False
 
+import sys 
+
+# Allow running as either `python -m src.eval` or `python src/eval.py`.
+if __package__ in (None, ''):
+    repo_root = Path(__file__).resolve().parents[1]
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+
 from src.data_loader import load_data, preprocess_data
 from src.bert_extractor import BERTCausalExtractor
 from src.t5_extractor import T5CausalExtractor

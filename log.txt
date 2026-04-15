@@ -1,4 +1,3 @@
-(.venv) C:\VSCode\CasualStructuresFromAviation> [main | e254484 | Up-to-date]python .\src\eval.py
 ======================================================================
   NTSB Causal Chain Extraction -- Evaluation
   Team: Madeline Gorman, Katherine Hoffsetz, Logan Luna, Stephanie Ramsey
@@ -10,116 +9,244 @@ Loading and preprocessing data...
   Records: 6059
 
 ======================================================================
-  MODEL 1: Traditional NLP -- Causal Extraction (Evaluation)
+  Loading Existing Cross-Validation Split
 ======================================================================
 
-  Rule-based  -- narratives with >=1 triple: 2722/6059 (44.9%)
-  Rule-based  -- total triples: 4867  avg: 1.79
-  Dep-parse   -- narratives with >=1 triple: 2755/6059 (45.5%)
-  Dep-parse   -- total triples: 5880
-  Direction breakdown: {'forward': 2755, 'backward': 2112}
-  Pattern hit counts:
-    'resulted in': 1889
-    'due to': 1340
-    'contributed to': 461
-    'caused': 421
-    'led to': 359
-    'caused by': 108
-    'because of': 84
-    'as a result of': 82
-    'produced': 72
-    'attributed to': 21
-    'resulting from': 16
-    'triggered': 14
-  Plot saved -> outputs\plots\eval_traditional_nlp.png
+[CV Split] Train/Val/Test Distribution:
+  train_ev_ids           3575 (60.0%)
+  val_ev_ids             1192 (20.0%)
+  test_ev_ids            1192 (20.0%)
 
 ======================================================================
-  MODEL 2: DistilBERT Transformer Classifier (Evaluation)
+  MODEL 2: BERT Causal Extractor (Evaluation)
 ======================================================================
-[Classifier] Using device: cuda
-Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 13467.02it/s]
-DistilBertForSequenceClassification LOAD REPORT from: distilbert-base-uncased
-Key                     | Status     | Details
-------------------------+------------+--------
-vocab_layer_norm.weight | UNEXPECTED |        
-vocab_projector.bias    | UNEXPECTED |        
-vocab_layer_norm.bias   | UNEXPECTED |        
-vocab_transform.bias    | UNEXPECTED |        
-vocab_transform.weight  | UNEXPECTED |        
-classifier.bias         | MISSING    |        
-pre_classifier.weight   | MISSING    |        
-pre_classifier.bias     | MISSING    |        
-classifier.weight       | MISSING    |        
+  Test narratives: 1192  Training pool for BERT: 3575
+Loading weights: 100%|████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 21372.25it/s]
+DistilBertForTokenClassification LOAD REPORT from: distilbert-base-uncased
+Key                     | Status     | 
+------------------------+------------+-
+vocab_transform.weight  | UNEXPECTED | 
+vocab_projector.bias    | UNEXPECTED | 
+vocab_transform.bias    | UNEXPECTED | 
+vocab_layer_norm.bias   | UNEXPECTED | 
+vocab_layer_norm.weight | UNEXPECTED | 
+classifier.weight       | MISSING    | 
+classifier.bias         | MISSING    | 
 
 Notes:
 - UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
 - MISSING:      those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
-[Classifier] CUDA config — amp: True, amp_dtype: torch.bfloat16, num_workers: 8, pin_memory: True
-[Classifier] Data split — train: 4237, val: 908, test: 909
-Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 104/104 [00:00<00:00, 14285.96it/s]
-[Classifier] Model loaded from outputs\model
-  Loaded model from outputs\model
+[BERTExtractor] Device: cuda  AMP: True  dtype: torch.bfloat16
+  Loading tuned BERT model from outputs\model_bert_extractor_tuned...
+Loading weights: 100%|████████████████████████████████████████████████████████| 102/102 [00:00<00:00, 10222.92it/s]
+[BERTExtractor] Loaded from outputs\model_bert_extractor_tuned
 
-  Test Accuracy: 0.6722 (67.2%)
+  Running BERT extraction on 1192 test narratives...
+[BERTExtractor] Extracting: 100%|█████████████████████████████████████████████| 1214/1214 [00:07<00:00, 151.98it/s]
 
-  Class                      Precision   Recall       F1   Support
-  -----------------------------------------------------------------
-  Personnel issues               0.674    0.680    0.677       431
-  Aircraft                       0.725    0.664    0.693       420
-  Environmental issues           0.438    0.672    0.531        58
-  macro avg                      0.612    0.672    0.633
-  weighted avg                   0.682    0.672    0.675
-  Plot saved -> outputs\plots\eval_transformer_confusion.png
-  Plot saved -> outputs\plots\eval_transformer_training_curves.png
-  Plot saved -> outputs\plots\eval_transformer_per_class.png
-
-  Sample predictions:
-  [1] Aircraft (62.9%) | The pilot of the tailwheel-equipped bi-plane reported that during the landing ro
-  [2] Aircraft (87.1%) | The pilot of the helicopter was performing an aerial application flight in dark 
-  [3] Personnel issues (72.3%) | The 80 year old pilot usually flew with his son and not by himself. On the day o
-  [4] Aircraft (78.5%) | The pilot reported that, just before touchdown, a wind gust lifted the left wing
-  [5] Aircraft (43.5%) | The commercial pilot and the nonpilot-rated passenger/spotter were conducting an
-
-  Running full-dataset inference for finding alignment (6054 narratives)...
-  Saved 5954 predictions -> outputs\evaluation\distilbert_predictions.json
-  Saved 909 test-set predictions -> outputs\evaluation\distilbert_test_predictions.json
-
-======================================================================
-  MODEL 4: LLM Prompt-Based Causal Extraction (Evaluation)
-======================================================================
-
-  Coverage:          5908/6059 (97.5%)
-  Total triples:     22189
-  Avg per narrative: 3.76
+  Coverage:          457/1192 (38.3%)
+  Total triples:     663
+  Avg per narrative: 1.45
   Top relation phrases:
-    'resulted in': 7952
-    'led to': 6198
-    'caused': 2044
-    'contributed to': 933
-    'resulted': 305
-    'allowed': 266
-    'contributed': 261
-    'precluded': 257
-    'prevented': 211
-    'did not prevent': 181
-  Plot saved -> outputs\plots\eval_llm_extraction.png
+    'resulted in': 271
+    'due to': 197
+    'contributed to': 69
+    'caused': 40
+    'led to': 36
+    'because of': 16
+    'as a result of': 15
+    'caused by': 9
+    'attributed to': 5
+    'produced': 4
+  Saved 663 triples -> outputs\extractions\bert_triples.json
+
+======================================================================
+  MODEL 4: T5 Seq2Seq Causal Extractor (Evaluation)
+======================================================================
+  Test narratives: 1192  Training pool for T5: 3575
+Loading weights: 100%|████████████████████████████████████████████████████████| 257/257 [00:00<00:00, 18540.99it/s]
+[T5Extractor] Device: cuda  AMP: True  dtype: torch.bfloat16
+  Loading tuned T5 model from outputs\model_t5_extractor_tuned...
+Loading weights: 100%|█████████████████████████████████████████████████████████| 257/257 [00:00<00:00, 9297.20it/s]
+[T5Extractor] Loaded from outputs\model_t5_extractor_tuned
+
+  Running T5 extraction on 1192 test narratives...
+[T5Extractor] Extracting:   0%|                                                           | 0/1214 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['early_stopping']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[T5Extractor] Extracting: 100%|████████████████████████████████████████████████| 1214/1214 [05:33<00:00,  3.64it/s]
+
+  Coverage:          559/1192 (46.9%)
+  Total triples:     903
+  Avg per narrative: 1.62
+  Top relation phrases:
+    'resulted in': 365
+    'due to': 226
+    'caused': 100
+    'contributed to': 81
+    'led to': 55
+    'because of': 21
+    'caused by': 19
+    'as a result of': 17
+    'produced': 11
+    'attributed to': 6
+  Saved 903 triples -> outputs\extractions\t5_triples.json
+
+======================================================================
+  MODEL 1: Traditional NLP -- Causal Extraction (Evaluation)
+======================================================================
+
+  Evaluating on test set (1192 held-out narratives)
+  Rule-based  -- narratives with >=1 triple: 536/1192 (45.0%)
+  Rule-based  -- total triples: 944  avg: 1.76
+  Dep-parse   -- narratives with >=1 triple: 542/1192 (45.5%)
+  Dep-parse   -- total triples: 1124
+  Direction breakdown: {'forward': 543, 'backward': 401}
+  Pattern hit counts:
+    'resulted in': 382
+    'due to': 253
+    'contributed to': 84
+    'caused': 75
+    'led to': 71
+    'caused by': 23
+    'because of': 19
+    'as a result of': 15
+    'produced': 12
+    'attributed to': 6
+    'triggered': 3
+    'resulting from': 1
+  Plot saved -> outputs\plots\eval_traditional_nlp.png
+
+======================================================================
+  MODEL 3: LLM Prompt-Based Causal Extraction (Evaluation)
+======================================================================
+
+  Evaluating on test set (1192 held-out narratives)
+  Coverage:          1186/1192 (99.5%)
+  Total triples:     4358
+  Avg per narrative: 3.67
+  Top relation phrases:
+    'resulted in': 1566
+    'led to': 1181
+    'caused': 391
+    'contributed to': 192
+    'resulted': 61
+    'contributed': 59
+    'prevented': 46
+    'allowed': 46
+    'precluded': 43
+    'did not': 41
+  Plot saved -> outputs\plots\eval_llm_analysis.png
 
 ======================================================================
   LLM Few-Shot Extraction on Test Set
 ======================================================================
   Test set: 909 narratives  |  Training pool for examples: 4237 narratives
-W0407 13:33:57.640000 26132 .venv\Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+W0415 14:20:42.387000 25380 .venv\Lib\site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
   Building few-shot examples from training set...
   Built 3 few-shot examples.
-[LLM] Loading mistralai/Mistral-7B-Instruct-v0.3
-[LLM] 4-bit quantization: True  |  dtype: torch.bfloat16  |  device: cuda
-Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 291/291 [00:03<00:00, 77.11it/s]
-[LLM] VRAM after load: 4.1 / 17.1 GB
-[LLM] Cache (few-shot): 4/933 narratives cached → 929 need inference
-[LLM] Extracting: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 117/117 [1:13:53<00:00, 37.89s/it]
-[LLM] Cache updated — 929 new entries written to outputs\extractions\llm_response_cache_fewshot.json
-[LLM] Processed 933 narratives  |  with >=1 triple: 859 (92.1%)  |  total triples: 3451  |  parse errors: 50
-  Saved 3451 few-shot triples (859 narratives) -> outputs\extractions\llm_triples_fewshot.json
+  All 909 test narratives already in few-shot cache.
+  Few-shot triples: 3375 from 859 narratives
+
+======================================================================
+  Finding-Alignment Evaluation (Ground Truth) -- Test Set
+======================================================================
+  Evaluating all models on 1192 held-out test narratives
+
+  [Rule-based]
+    Coverage:               536/1192 (45.0%)
+    Cause-confirmed cov.:   8.4%  (448/5321)
+    Category alignment:     50.4%  (n=536)
+    Keyword recall:         19.4%  (n=536)
+      Aircraft                  66.9%  (188/281)
+      Environmental issues      8.8%  (3/34)
+      Personnel issues          35.8%  (79/221)
+
+  [Dep-parse]
+    Coverage:               542/1192 (45.5%)
+    Cause-confirmed cov.:   8.5%  (454/5321)
+    Category alignment:     49.8%  (n=542)
+    Keyword recall:         19.3%  (n=542)
+      Aircraft                  66.8%  (189/283)
+      Environmental issues      8.8%  (3/34)
+      Personnel issues          34.7%  (78/225)
+
+  [BERT Extractor]
+    Coverage:               457/1192 (38.3%)
+    Cause-confirmed cov.:   7.2%  (383/5321)
+    Category alignment:     48.4%  (n=457)
+    Keyword recall:         17.5%  (n=457)
+      Aircraft                  63.4%  (147/232)
+      Environmental issues      10.0%  (3/30)
+      Personnel issues          36.4%  (71/195)
+
+  [T5 Extractor]
+    Coverage:               559/1192 (46.9%)
+    Cause-confirmed cov.:   8.8%  (466/5321)
+    Category alignment:     51.7%  (n=559)
+    Keyword recall:         19.2%  (n=559)
+      Aircraft                  69.1%  (201/291)
+      Environmental issues      8.8%  (3/34)
+      Personnel issues          36.3%  (85/234)
+
+  [LLM (zero-shot)]
+    Coverage:               1186/1192 (99.5%)
+    Cause-confirmed cov.:   19.9%  (1056/5321)
+    Category alignment:     51.3%  (n=1186)
+    Keyword recall:         25.1%  (n=1186)
+      Aircraft                  65.3%  (377/577)
+      Environmental issues      20.8%  (15/72)
+      Organizational issues     0.0%  (0/1)
+      Personnel issues          40.3%  (216/536)
+
+  [LLM (few-shot)]
+    Coverage:               859/1192 (72.1%)
+    Cause-confirmed cov.:   14.4%  (765/5321)
+    Category alignment:     48.0%  (n=859)
+    Keyword recall:         25.6%  (n=859)
+      Aircraft                  62.1%  (242/390)
+      Environmental issues      33.3%  (19/57)
+      Personnel issues          36.6%  (151/412)
+
+
+  Metric                              Rule-based           Dep-parse      BERT Extractor        T5 Extractor     LLM (zero-shot)      LLM (few-shot)
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ev_ids extracted                           536                 542                 457                 559               1,186                 859
+  Cat. alignment score                    50.4%              49.8%              48.4%              51.7%              51.3%              48.0%
+    (n ev_ids evaluated)                     536                 542                 457                 559               1,186                 859
+  Cause-confirmed cov.                     8.4%               8.5%               7.2%               8.8%              19.9%              14.4%
+    (n covered / denom)       448/         5,321  454/         5,321  383/         5,321  466/         5,321  1056/         5,321  765/         5,321
+  Finding keyword recall                  19.4%              19.3%              17.5%              19.2%              25.1%              25.6%
+    (n ev_ids scored)                        536                 542                 457                 559               1,186                 859
+
+  Category alignment breakdown:
+  Category                              Rule-based           Dep-parse      BERT Extractor        T5 Extractor     LLM (zero-shot)      LLM (few-shot)
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Aircraft                               66.9% (188/281)         66.8% (189/283)         63.4% (147/232)         69.1% (201/291)         65.3% (377/577)         62.1% (242/390)
+  Environmental                           8.8% (3/34)          8.8% (3/34)         10.0% (3/30)          8.8% (3/34)         20.8% (15/72)         33.3% (19/57)
+  Organizational                                     n/a                     n/a                     n/a                     n/a          0.0% (0/1)                     n/a
+  Personnel                              35.8% (79/221)         34.7% (78/225)         36.4% (71/195)         36.3% (85/234)         40.3% (216/536)         36.6% (151/412)
+
+======================================================================
+  Binary Cause-Detection Metrics (Ground Truth) -- Test Set
+======================================================================
+  [Rule-based] accuracy=33.4%  precision=83.0%  recall=31.7%  f1=45.8%  auc_roc=0.3786  finding-token-coverage=8.2%  composite=27.0%
+  [Dep-parse] accuracy=33.6%  precision=83.1%  recall=31.9%  f1=46.2%  auc_roc=0.3798  finding-token-coverage=8.3%  composite=27.2%
+  [BERT Extractor] accuracy=29.3%  precision=83.2%  recall=25.7%  f1=39.3%  auc_roc=0.4052  finding-token-coverage=6.4%  composite=22.9%
+  [T5 Extractor] accuracy=33.6%  precision=82.4%  recall=32.2%  f1=46.3%  auc_roc=0.3641  finding-token-coverage=8.5%  composite=27.4%
+  [LLM (zero-shot)] accuracy=80.2%  precision=89.4%  recall=88.2%  f1=88.8%  auc_roc=0.4347  finding-token-coverage=22.6%  composite=55.7%
+  [LLM (few-shot)] accuracy=21.9%  precision=90.6%  recall=13.7%  f1=23.8%  auc_roc=0.5110  finding-token-coverage=3.4%  composite=13.6%
+
+  Metric                              Rule-based           Dep-parse      BERT Extractor        T5 Extractor     LLM (zero-shot)      LLM (few-shot)
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------
+  n evaluated                              1,192               1,192               1,192               1,192               1,192               1,192
+  accuracy                                33.4%              33.6%              29.3%              33.6%              80.2%              21.9%
+  precision                               83.0%              83.1%              83.2%              82.4%              89.4%              90.6%
+  recall                                  31.7%              31.9%              25.7%              32.2%              88.2%              13.7%
+  f1                                      45.8%              46.2%              39.3%              46.3%              88.8%              23.8%
+  auc_roc                                0.3786             0.3798             0.4052             0.3641             0.4347             0.5110
+  avg finding-token cover                  8.2%               8.3%               6.4%               8.5%              22.6%               3.4%
+  composite score                         27.0%              27.2%              22.9%              27.4%              55.7%              13.6%
+  n with token match                         414                 417                 337                 425               1,070                 162
+  true class balance (+/-)    1061/         131  1061/         131  1061/         131  1061/         131  1061/         131  1061/         131
 
 ======================================================================
   MODEL 3: Knowledge Graph -- Structural Evaluation
@@ -145,20 +272,24 @@ Loading weights: 100%|███████████████████�
 [KG] Saved knowledge graph visualization to outputs\plots\eval_knowledge_graph_full.png
   KG visualization saved -> outputs\plots\eval_knowledge_graph_full.png
   Plot saved -> outputs\plots\eval_kg_stats.png
-  Plot saved -> outputs\plots\eval_cross_model_comparison.png
+  Plot saved -> outputs\plots\eval_cross_model_comparison_all_six.png
+  Plot saved -> outputs\plots\eval_top_relation_phrases.png
+  Plot saved -> outputs\plots\eval_finding_alignment.png
+  Plot saved -> outputs\plots\eval_detection_metrics.png
+  Plot saved -> outputs\plots\eval_training_loss_curves.png
+  Plot saved -> outputs\plots\eval_training_metrics.png
+  Plot saved -> outputs\plots\eval_bias_variance_tradeoff.png
 
 ======================================================================
   Evaluation Complete -- Output Files
 ======================================================================
   Evaluation report:          outputs\evaluation\evaluation_report.json
   Traditional NLP plot:       outputs\plots\eval_traditional_nlp.png
-  Transformer confusion:      outputs\plots\eval_transformer_confusion.png
-  Transformer training curves:outputs\plots\eval_transformer_training_curves.png
-  Transformer per-class:      outputs\plots\eval_transformer_per_class.png
+  BERT extractor triples:     outputs\extractions\bert_triples.json
   LLM extraction plot:        outputs\plots\eval_llm_extraction.png
+  Top relation phrases:       outputs\plots\eval_top_relation_phrases.png
   KG visualization:           outputs\plots\eval_knowledge_graph_full.png
   KG stats plot:              outputs\plots\eval_kg_stats.png
   Cross-model comparison:     outputs\plots\eval_cross_model_comparison.png
   Neo4j Cypher:               outputs\extractions\neo4j_import_full.cypher
 ======================================================================
-(.venv) C:\VSCode\CasualStructuresFromAviation> [main | e254484 | Up-to-date]

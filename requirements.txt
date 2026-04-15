@@ -11,3 +11,4 @@ torch --index-url https://download.pytorch.org/whl/cu130
 torchvision --index-url https://download.pytorch.org/whl/cu130
 accelerate>=0.26.0
 bitsandbytes>=0.43.0
+optuna
