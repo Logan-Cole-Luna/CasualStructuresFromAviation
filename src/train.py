@@ -173,7 +173,7 @@ def tune_and_train_bert(
 
     # Log bias-variance analysis
     if 'bias_variance_logs' in history:
-        from src.hyperparameter_tuning import print_bias_variance_analysis
+        from src.extractor_utils import print_bias_variance_analysis
         print_bias_variance_analysis(history['bias_variance_logs'])
 
     print(f"\n  Model saved to: {bert_dir}")
@@ -310,6 +310,11 @@ def tune_and_train_t5(
         save_path=str(t5_dir),
         patience=3,
     )
+
+        # Log bias-variance analysis
+    if 'bias_variance_logs' in history:
+        from src.extractor_utils import print_bias_variance_analysis
+        print_bias_variance_analysis(history['bias_variance_logs'])
 
     print(f"\n  Model saved to: {t5_dir}")
 

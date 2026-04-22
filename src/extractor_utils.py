@@ -88,3 +88,35 @@ def log_bias_variance(
         'f1_gap': round(f1_gap, 4),
         'regime': regime,
     }
+
+def print_bias_variance_analysis(logs: list):
+    """Pretty-print bias-variance analysis."""
+    print("\n[Bias-Variance Analysis]")
+    print("  Epoch  Train Loss  Val Loss  Gap(V-T)  Train F1  Val F1  Regime")
+    print("  " + "=" * 75)
+    for log in logs:
+        train_f1 = log.get('train_f1', log.get('train_metric', 0.0))
+        val_f1 = log.get('val_f1', log.get('val_metric', 0.0))
+        print(f"  {log['epoch']:5d}  {log['train_loss']:9.6f}  "
+              f"{log['val_loss']:8.6f}  {log['loss_gap']:8.6f}  "
+              f"{train_f1:8.4f}  {val_f1:8.4f}  {log['regime']}")
+
+    # Summary statistics
+    regimes = [log['regime'] for log in logs]
+    high_var = regimes.count('high_variance')
+    high_bias = regimes.count('high_bias')
+    balanced = regimes.count('balanced')
+
+    print("\n  Summary:")
+    print(f"    High Variance (overfitting):  {high_var} epochs")
+    print(f"    High Bias (underfitting):     {high_bias} epochs")
+    print(f"    Balanced:                     {balanced} epochs")
+
+    if high_var > high_bias:
+        print("\n  Recommendation: Model shows signs of overfitting. "
+              "Consider reducing complexity, adding regularization, or early stopping.")
+    elif high_bias > high_var:
+        print("\n  Recommendation: Model shows signs of underfitting. "
+              "Consider increasing model capacity or training longer.")
+    else:
+        print("\n  Recommendation: Training regime appears balanced.")
